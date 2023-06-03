@@ -7,7 +7,7 @@ use App\DiavoxLicenser;
 
 class SuperAdminLicenseController extends Controller
 {
-    public function make()
+    public function make(Request $request)
     {
         $key = '0123456789abcdef0123456789abcdef';
 

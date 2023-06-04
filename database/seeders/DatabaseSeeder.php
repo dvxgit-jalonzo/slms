@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -23,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+            StatusSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

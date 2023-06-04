@@ -28,7 +28,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['role:Super Admin']], function (){
     Route::resource('/super-admin-ticket', \App\Http\Controllers\SuperAdminTicketController::class);
-
+    Route::get('/mce', function (){
+       return view('super-admin.ticket.tinymce');
+    });
 
     Route::get('/super-admin-client-edit-contact-person/{id}', [\App\Http\Controllers\SuperAdminClientController::class, 'editContactPerson'])
         ->name('super-admin-client.edit-contact-person');

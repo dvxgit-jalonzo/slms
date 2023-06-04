@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    public function status(){
+        return $this->belongsTo(Status::class);
+    }
+
+    public function assignedToUser(){
+        return $this->belongsTo(User::class, 'assigned_to', 'id');
+    }
+
+    public function generateBy(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function attachments(){
+        return $this->hasMany(TicketAttachment::class);
+    }
 }

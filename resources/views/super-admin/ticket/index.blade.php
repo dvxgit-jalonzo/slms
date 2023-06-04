@@ -3,12 +3,12 @@
 
     @section('pagetitle')
         <div class="pagetitle">
-            <h1>Clients</h1>
+            <h1>Tickets</h1>
             <nav>
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-client.create')}}">Create Client</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.create')}}">Create Ticket</a></li>
                 </ol>
             </nav>
         </div>
@@ -24,26 +24,32 @@
                         <table class="table table-sm" id="table">
                             <thead>
                             <tr>
-                                <td>Code</td>
-                                <td>Company</td>
+                                <td>Title</td>
                                 <td>Description</td>
-                                <td>Location</td>
+                                <td>Assigner</td>
+                                <td>AssignedTo</td>
+                                <td>Category</td>
+                                <td>Status</td>
+                                <td>Priority</td>
                                 <td>CreatedAt</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($clients as $client)
+                            @foreach($tickets as $ticket)
                                 <tr>
-                                    <td>{{$client->code}}</td>
-                                    <td>{{$client->company_name}}</td>
-                                    <td>{{$client->description}}</td>
-                                    <td>{{$client->location}}</td>
-                                    <td>{{$client->created_at}}</td>
+                                    <td>{{$ticket->title}}</td>
+                                    <td>{!! $ticket->description !!}</td>
+                                    <td>{{$ticket->generateBy->name}}</td>
+                                    <td>{{$ticket->assignedToUser->name}}</td>
+                                    <td>{{$ticket->category->name}}</td>
+                                    <td>{{$ticket->status->name}}</td>
+                                    <td>{{$ticket->priority}}</td>
+                                    <td>{{$ticket->created_at}}</td>
                                     <td>
-                                        <a href="{{route('super-admin-client.edit', [$client->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-client.destroy', [$client->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('super-admin-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('super-admin-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

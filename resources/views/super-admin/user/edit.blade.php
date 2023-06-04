@@ -45,8 +45,9 @@
                                     </div>
 
                                     <div class="col-12 mb-3">
-                                        <x-select id="role" name="role" placeholder="Choose Role" :data="$roles" column="name" value="{{$user->getRoleNames()->first()}}"></x-select>
+                                        <x-select id="role" name="role" placeholder="Choose Role" :data="$roles" column_val="name" column="name" value="{{$user->getRoleNames()->first()}}"></x-select>
                                         <x-validation name="role"></x-validation>
+
                                     </div>
 
 
@@ -65,5 +66,17 @@
                 </div>
             </div>
         </section>
+    @endsection
+
+    @section('script')
+        <script>
+            $(document).ready(function() {
+                $( '#select' ).select2( {
+                    theme: "bootstrap-5",
+                    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                    placeholder: $( this ).data( 'placeholder' ),
+                } );
+            });
+        </script>
     @endsection
 </x-master>

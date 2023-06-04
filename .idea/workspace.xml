@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/email/sendmail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -190,7 +187,7 @@
       <updated>1685670234527</updated>
       <workItem from="1685670236721" duration="60051000" />
       <workItem from="1685775417383" duration="382000" />
-      <workItem from="1685776742875" duration="22419000" />
+      <workItem from="1685776742875" duration="41173000" />
     </task>
     <servers />
   </component>

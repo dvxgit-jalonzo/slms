@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Software;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class SuperAdminController extends Controller
     {
         $numberOfClient = Client::count();
         $numberOfUsers = User::count();
-        return  view('super-admin.index', compact('numberOfClient', 'numberOfUsers'));
+        $numberOfSoftwares = Software::count();
+        $recentClients = Client::limit(3)
+            ->latest()
+        ->get();
+        return  view('super-admin.index', compact('numberOfClient', 'numberOfUsers', 'numberOfSoftwares', 'recentClients'));
     }
 
     /**

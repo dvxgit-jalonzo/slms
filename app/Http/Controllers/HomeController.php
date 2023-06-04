@@ -23,10 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $role = auth()->user()->getRoleNames()->first();
 
-        if ($role == 'Super Admin'){
-            return redirect()->route('super-admin.index');
-        }
     }
+
 }

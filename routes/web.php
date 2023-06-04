@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if (\auth()->check()){
+        $role = auth()->user()->getRoleNames()->first();
+        if ($role == 'Super Admin'){
+            \RealRashid\SweetAlert\Facades\Alert::info("Welcome", "You are logged in!");
+            return redirect()->route('super-admin.index');
+        }
+    }else{
+        return view('auth.login');
+    }
 });
 
 Route::group(['middleware' => ['role:Super Admin']], function (){
     Route::resource('/super-admin-ticket', \App\Http\Controllers\SuperAdminTicketController::class);
-
-
 
 
     Route::get('/super-admin-client-edit-contact-person/{id}', [\App\Http\Controllers\SuperAdminClientController::class, 'editContactPerson'])
@@ -67,6 +73,8 @@ Route::group(['middleware' => ['role:Super Admin']], function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', function (){
+//
+//})->name('home');
 
 

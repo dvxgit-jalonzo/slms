@@ -49,6 +49,17 @@
                                         </x-form-floating>
                                     </div>
 
+                                    <div class="col-12 mb-3">
+                                        <x-select id="role" name="role" placeholder="Choose Role" :data="$roles" column="name"></x-select>
+                                        <x-validation name="role"></x-validation>
+                                    </div>
+
+{{--                                    Super Admin - all access--}}
+{{--                                    Administrator - all access but should not be able to see the Super Admin in Users Management.--}}
+{{--                                    Developer - all access with additional accesses to extra dev tools in the system.--}}
+{{--                                    Licenser - can only access Licensing Module.--}}
+{{--                                    Support - can only access Trouble Ticket and Report Module.--}}
+
                                     <div class="col-12 mb-3 ">
                                         <div class="float-end">
                                             <button class="btn btn-outline-primary">Create User</button>
@@ -64,5 +75,9 @@
                 </div>
             </div>
         </section>
+    @endsection
+
+    @section('script')
+
     @endsection
 </x-master>

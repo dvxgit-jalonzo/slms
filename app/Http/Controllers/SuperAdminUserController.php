@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Role;
 
 class SuperAdminUserController extends Controller
 {
@@ -25,7 +26,8 @@ class SuperAdminUserController extends Controller
      */
     public function create()
     {
-        return view('super-admin.user.create');
+        $roles = Role::all();
+        return view('super-admin.user.create', compact('roles'));
     }
 
     /**
@@ -42,20 +44,27 @@ class SuperAdminUserController extends Controller
                 'min:8',
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
             ],
+            'role' => 'required',
         ], [
             'password.regex' => 'The password format is invalid. It must have at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character.',
         ]);
 
-
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
             'password' => bcrypt($request->password),
         ]);
 
-        Alert::alert('Success', 'Created Successfully!', 'success')
-        ->autoClose(3000);
+        $role = Role::findByName($request->role);
+
+        $user->assignRole($role);
+
+        if ($user->assignRole($role)){
+            Alert::alert('Success', 'Created Successfully!', 'success')
+                ->autoClose(3000);
+        }
+
 
 
         return redirect()->route('super-admin-user.index');
@@ -75,7 +84,8 @@ class SuperAdminUserController extends Controller
     public function edit(string $id)
     {
         $user = User::find($id);
-        return view('super-admin.user.edit', compact('user'));
+        $roles = Role::all();
+        return view('super-admin.user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -87,7 +97,8 @@ class SuperAdminUserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'username' => 'required'
+            'username' => 'required',
+            'role' => 'required',
         ]);
 
         $user->update([
@@ -96,8 +107,12 @@ class SuperAdminUserController extends Controller
             'username' => $request->username
         ]);
 
-        Alert::alert('Success', 'Updated Successfully!', 'success')
-            ->autoClose(3000);
+        $role = Role::findByName($request->role);
+
+        if ( $user->syncRoles($role)){
+            Alert::alert('Success', 'Updated Successfully!', 'success')
+                ->autoClose(3000);
+        }
 
 
 

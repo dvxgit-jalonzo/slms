@@ -25,16 +25,13 @@
                                     <form class="row g-3 needs-validation" action="{{route('login')}}" method="POST">
                                         @csrf
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Username</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
+                                            <label for="yourUsername" class="form-label">Email or Username</label>
+                                            <input id="email_or_username" type="text" class="form-control @error('email_or_username') is-invalid @enderror" name="email_or_username" value="{{ old('email_or_username') }}" required autocomplete="email_or_username" autofocus>
+                                            @error('email_or_username')
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                                @enderror
-                                            </div>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">

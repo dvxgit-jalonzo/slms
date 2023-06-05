@@ -55,6 +55,12 @@
                                         </x-form-floating>
                                     </div>
 
+                                    <div class="col-12 mb-3">
+                                        <x-form-floating name="email" type="text" placeholder="Email" value="{{$client->email}}">
+                                            <x-validation name="email"></x-validation>email
+                                        </x-form-floating>
+                                    </div>
+
                                     <div class="col-6 mb-3">
                                         <x-form-floating readonly name="latitude" type="text" value="{{$client->latitude}}" placeholder="Latitude">
                                             <x-validation name="latitude"></x-validation>

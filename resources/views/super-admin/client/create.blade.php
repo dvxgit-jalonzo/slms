@@ -53,21 +53,28 @@
                                         </x-form-floating>
                                     </div>
 
+                                    <div class="col-12 mb-3">
+                                        <x-form-floating name="email" type="text" placeholder="Email" value="{{old('email')}}">
+                                            <x-validation name="email"></x-validation>
+                                        </x-form-floating>
+                                    </div>
+
+
 
                                     <div class="col-6 mb-3">
-                                        <x-form-floating readonly name="latitude" type="text" placeholder="Latitude">
+                                        <x-form-floating  name="latitude" type="text" placeholder="Latitude">
                                             <x-validation name="latitude"></x-validation>
                                         </x-form-floating>
                                     </div>
 
                                     <div class="col-6 mb-3">
-                                        <x-form-floating readonly name="longitude" type="text" placeholder="Longitude">
+                                        <x-form-floating  name="longitude" type="text" placeholder="Longitude">
                                             <x-validation name="longitude"></x-validation>
                                         </x-form-floating>
                                     </div>
 
                                     <div class="col-12 mb-3">
-                                        <x-form-floating readonly name="location" type="text" placeholder="Location">
+                                        <x-form-floating  name="location" type="text" placeholder="Location">
                                             <x-validation name="location"></x-validation>
                                         </x-form-floating>
                                     </div>

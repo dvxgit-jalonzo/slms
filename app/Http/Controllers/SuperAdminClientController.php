@@ -38,6 +38,7 @@ class SuperAdminClientController extends Controller
             'code' => 'required',
             'company_name' => 'required|unique:clients',
             'description' => 'required',
+            'email' => 'required|unique:clients',
             'location' => 'required',
         ]);
 
@@ -46,6 +47,7 @@ class SuperAdminClientController extends Controller
             'code' => $request->code,
             'company_name' => $request->company_name,
             'description' => $request->description,
+            'email' => $request->email,
             'location' => $request->location,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
@@ -87,6 +89,7 @@ class SuperAdminClientController extends Controller
             'code' => 'required',
             'company_name' => 'required|unique:clients,company_name,'.$id,
             'description' => 'required',
+            'email' => 'required|unique:clients,email,'.$id,
             'location' => 'required',
         ]);
 
@@ -96,6 +99,7 @@ class SuperAdminClientController extends Controller
             'code' => $request->code,
             'company_name' => $request->company_name,
             'description' => $request->description,
+            'email' => $request->email,
             'location' => $request->location,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code');
             $table->string('company_name');
             $table->text('description');
+            $table->string('email')->unique();
             $table->text('location');
             $table->string('latitude');
             $table->string('longitude');

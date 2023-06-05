@@ -2,18 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsonSchemas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/slms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project Software License Management System.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminReportController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminStatusController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/License.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Report.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_04_081511_create_licenses_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_05_072618_create_reports_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/replacer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/build/assets/app-66e7f68a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/build/assets/app-bbd6a014.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/build/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/category/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/category/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/category/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/profile/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/report/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/report/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/report/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/status/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/status/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/status/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_045637_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_02_045637_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_054156_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_02_054156_create_tickets_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/NiceAdmin/forms-editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/NiceAdmin/forms-editors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/NiceAdmin/users-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/NiceAdmin/users-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/hot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/tinymce.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,27 +197,34 @@
     </include_path>
   </component>
   <component name="ProjectId" id="2Qd4gMVULsLX1z2Lj7gbR0g8MRj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/super-admin/software",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/slms/resources/views/super-admin/report&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JSON&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\report" />
+      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\category" />
+      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\status" />
+      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\license" />
       <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\software" />
-      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\ticket" />
-      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\client" />
     </key>
   </component>
   <component name="RunManager">
@@ -187,7 +243,10 @@
       <updated>1685670234527</updated>
       <workItem from="1685670236721" duration="60051000" />
       <workItem from="1685775417383" duration="382000" />
-      <workItem from="1685776742875" duration="41173000" />
+      <workItem from="1685776742875" duration="41848000" />
+      <workItem from="1685865438955" duration="2186000" />
+      <workItem from="1685879283940" duration="40455000" />
+      <workItem from="1686009242325" duration="6000" />
     </task>
     <servers />
   </component>
@@ -204,5 +263,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

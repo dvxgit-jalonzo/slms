@@ -8,7 +8,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                     <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.create')}}">Create Ticket</a></li>
-                    <li class="breadcrumb-item"><a href="#">File a Report</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('super-admin-report.create')}}">File a Report</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('super-admin-license.create')}}">Generate License</a></li>
                 </ol>
             </nav>
         </div>
@@ -163,12 +164,12 @@
 
                             <div class="activity">
 
-                                @forelse($recentClients as $recentClient)
+                                @forelse($recentLicenses as $recentLicense)
                                     <div class="activity-item d-flex">
-                                        <div class="activite-label">{{$recentClient->created_at->shortRelativeDiffForHumans()}}</div>
+                                        <div class="activite-label">{{$recentLicense->created_at->shortRelativeDiffForHumans()}}</div>
                                         <i class='bi bi-circle-fill activity-badge {{Arr::random(['text-success', 'text-danger', 'text-info', 'text-warning', 'text-dark'])}} align-self-start'></i>
                                         <div class="activity-content">
-                                            <b>{{$recentClient->code}}</b> {{$recentClient->company_name}} <br> {{$recentClient->description}}
+                                            <b>{{$recentLicense->client->company_name}}</b> <br>{{$recentLicense->dat_file}}
                                         </div>
                                     </div><!-- End activity item-->
                                 @empty
@@ -189,14 +190,23 @@
 
                             <div class="activity">
 
-                                @forelse($recentClients as $recentClient)
+                                @forelse($recentTicketAndReports as $item)
+
                                     <div class="activity-item d-flex">
-                                        <div class="activite-label">{{$recentClient->created_at->shortRelativeDiffForHumans()}}</div>
+                                        <div class="activite-label">{{$item->created_at->shortRelativeDiffForHumans()}}</div>
                                         <i class='bi bi-circle-fill activity-badge {{Arr::random(['text-success', 'text-danger', 'text-info', 'text-warning', 'text-dark'])}} align-self-start'></i>
                                         <div class="activity-content">
-                                            <b>{{$recentClient->code}}</b> {{$recentClient->company_name}} <br> {{$recentClient->description}}
+                                        @if($item instanceof \App\Models\Ticket)
+                                            <b> {{$item->title}}</b> <br> {{$item->assignedToUser->name}} <br> <strong class="text-secondary text-uppercase small">Ticket </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>
+                                            @elseif($item instanceof \App\Models\Report)
+                                            <b> {{$item->title}}</b> <br> <strong class="text-danger text-uppercase small">Report </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>  | <strong class="text-primary text-uppercase small">{{$item->status}}</strong>
+                                        @endif
                                         </div>
-                                    </div><!-- End activity item-->
+                                    </div>
+
+
+
+
                                 @empty
                                     <p class="text-center p-3 rounded fw-semibold" style="background-color: rgba(206,206,206,0.4)">No ticket or report found.</p>
                                 @endforelse

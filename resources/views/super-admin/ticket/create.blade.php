@@ -25,23 +25,24 @@
                             <form action="{{route('super-admin-ticket.store')}}" method="POST">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-8">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+
+
+                                            <div class="col-12 mb-3">
+
+                                                <textarea class="tinymce-editor @error('description') is-invalid @enderror" name="description">{{old('description')}}</textarea>
+                                                <x-validation name="description"></x-validation>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <div class="row">
                                             <div class="col-12 mb-3">
                                                 <x-form-floating name="title" type="text" placeholder="Title" value="{{old('title')}}">
                                                     <x-validation name="title"></x-validation>
                                                 </x-form-floating>
                                             </div>
-
-                                            <div class="col-12 mb-3">
-
-                                                <textarea id="description" class="@error('description') is-invalid @enderror" name="description">{{old('description')}}</textarea>
-                                                <x-validation name="description"></x-validation>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="row">
                                             <div class="col-12 mb-3">
                                                 <x-select id="category_id" name="category_id" :data="$categories" column_val="id" column="name" placeholder="Choose Category"></x-select>
                                                 <x-validation name="category_id"></x-validation>
@@ -106,18 +107,5 @@
             });
         </script>
 
-        <script>
-            tinymce.init({
-                selector: '#description',
-                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                tinycomments_mode: 'embedded',
-                tinycomments_author: 'Author name',
-                mergetags_list: [
-                    { value: 'First.Name', title: 'First Name' },
-                    { value: 'Email', title: 'Email' },
-                ],
-            });
-        </script>
     @endsection
 </x-master>

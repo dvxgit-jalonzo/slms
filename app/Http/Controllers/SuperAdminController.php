@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\License;
+use App\Models\Report;
 use App\Models\Software;
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +23,31 @@ class SuperAdminController extends Controller
         $recentClients = Client::limit(3)
             ->latest()
         ->get();
-        return  view('super-admin.index', compact('numberOfClient', 'numberOfUsers', 'numberOfSoftwares', 'recentClients'));
+
+        $recentLicenses = License::limit(3)
+            ->latest()
+            ->get();
+
+        $recentTickets = Ticket::limit(3)
+            ->latest()
+            ->get();
+        $recentReports = Report::limit(3)
+            ->latest()
+            ->get();
+
+        $recentTicketAndReports = collect([]);
+        $recentTicketAndReports = $recentTicketAndReports
+            ->concat($recentTickets)
+            ->concat($recentReports)
+            ->sortBy('created_at');
+        return  view('super-admin.index', compact([
+                'numberOfClient',
+                'numberOfUsers',
+                'numberOfSoftwares',
+                'recentClients',
+                'recentLicenses',
+                'recentTicketAndReports',
+            ]));
     }
 
     /**

@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div class="col-12 mb-3">
-                                        <x-select id="role" name="role" placeholder="Choose Role" :data="$roles" column="name"></x-select>
+                                        <x-select id="role" name="role" placeholder="Choose Role" column_val="name" :data="$roles" column="name"></x-select>
                                         <x-validation name="role"></x-validation>
                                     </div>
 

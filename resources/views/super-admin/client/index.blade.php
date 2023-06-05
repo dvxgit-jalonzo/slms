@@ -27,6 +27,7 @@
                                 <td>Code</td>
                                 <td>Company</td>
                                 <td>Description</td>
+                                <td>Email</td>
                                 <td>Location</td>
                                 <td>CreatedAt</td>
                                 <td>Contacts</td>
@@ -40,6 +41,7 @@
                                     <td>{{$client->code}}</td>
                                     <td>{{$client->company_name}}</td>
                                     <td>{{$client->description}}</td>
+                                    <td>{{$client->email}}</td>
                                     <td>{{$client->location}}</td>
                                     <td>{{$client->created_at}}</td>
                                     <td>

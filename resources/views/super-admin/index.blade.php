@@ -199,14 +199,10 @@
                                         @if($item instanceof \App\Models\Ticket)
                                             <b> {{$item->title}}</b> <br> {{$item->assignedToUser->name}} <br> <strong class="text-secondary text-uppercase small">Ticket </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>
                                             @elseif($item instanceof \App\Models\Report)
-                                            <b> {{$item->title}}</b> <br> <strong class="text-danger text-uppercase small">Report </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>  | <strong class="text-primary text-uppercase small">{{$item->status}}</strong>
+                                            <b> {{$item->title}}</b> <br> <strong class="text-danger text-uppercase small">Report </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>  | <strong class="text-primary text-uppercase small">{{$item->status->name}}</strong>
                                         @endif
                                         </div>
                                     </div>
-
-
-
-
                                 @empty
                                     <p class="text-center p-3 rounded fw-semibold" style="background-color: rgba(206,206,206,0.4)">No ticket or report found.</p>
                                 @endforelse

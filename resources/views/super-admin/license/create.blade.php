@@ -19,7 +19,7 @@
     @section('content')
         <section class="section dashboard">
             <div class="row">
-                <div class="col-lg-12 col-12">
+                <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
                             <form action="{{route('super-admin-license.store')}}" method="POST">

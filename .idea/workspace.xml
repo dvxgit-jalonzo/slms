@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +152,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/super-admin/permission",
+    "last_opened_file_path": "C:/xampp/htdocs/slms/app/Diavox",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.JSON",
     "vue.rearranger.settings.migration": "true"
@@ -160,10 +160,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\slms\app\Diavox" />
       <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\permission" />
       <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\role" />
       <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\license" />
-      <recent name="C:\xampp\htdocs\slms\app\Diavox" />
       <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\report" />
     </key>
   </component>
@@ -186,7 +186,7 @@
       <workItem from="1685776742875" duration="41848000" />
       <workItem from="1685865438955" duration="2186000" />
       <workItem from="1685879283940" duration="40455000" />
-      <workItem from="1686009242325" duration="27491000" />
+      <workItem from="1686009242325" duration="31366000" />
     </task>
     <servers />
   </component>

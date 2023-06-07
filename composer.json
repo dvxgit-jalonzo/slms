@@ -31,7 +31,7 @@
         },
         "files": [
             "app/Helpers.php",
-            "app/DiavoxLicenser.php"
+          "app/DiavoxLicenserJhun.php"
         ]
     },
     "autoload-dev": {

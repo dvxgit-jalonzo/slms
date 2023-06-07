@@ -15,7 +15,7 @@ class SuperAdminStatusController extends Controller
     public function index()
     {
         $statuses = Status::all();
-        $title = 'Delete User!';
+        $title = 'Delete Status!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         return view('super-admin.status.index', compact('statuses'));

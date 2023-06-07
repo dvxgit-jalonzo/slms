@@ -91,7 +91,7 @@
                             <div class="card top-selling overflow-auto">
 
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Top 3 Software</h5>
+                                    <h5 class="card-title">Softwares</h5>
 
                                     <table class="table table-borderless">
                                         <thead>
@@ -102,23 +102,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="text-success fw-semibold">GE12</td>
-                                            <td>HRIS</td>
-                                            <td>Human Resource Information System</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-success fw-semibold">XF53</td>
-                                            <td>SLMS</td>
-                                            <td>Software Licenser Management System</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-success fw-semibold">Q4G5</td>
-                                            <td>EyeCan</td>
-                                            <td>A System for Visual Impaired Person</td>
-                                        </tr>
+                                        @foreach($softwares as $software)
+                                            <tr>
+                                                <td>{{$software->code}}</td>
+                                                <td>{{$software->name}}</td>
+                                                <td>{{$software->description}}</td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="d-flex">
+                                        {{$softwares->links()}}
+                                    </div>
 
                                 </div>
 

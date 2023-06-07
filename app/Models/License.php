@@ -14,4 +14,12 @@ class License extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+
+    public function remoteAccess(){
+        return $this->hasMany(LicenseRemoteAccess::class);
+    }
+
+    public function attributes(){
+        return $this->hasMany(LicenseAttribute::class);
+    }
 }

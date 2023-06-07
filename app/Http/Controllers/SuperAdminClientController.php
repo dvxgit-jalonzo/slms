@@ -15,7 +15,7 @@ class SuperAdminClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-        $title = 'Delete User!';
+        $title = 'Delete Client!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         return view('super-admin.client.index', compact('clients'));

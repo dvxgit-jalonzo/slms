@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Ticket;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Permission;
 
-class SuperAdminCategoryController extends Controller
+
+class SuperAdminPermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::all();
-        $title = 'Delete Category!';
+        $permissions = Permission::all();
+        $title = 'Delete Permission!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('super-admin.category.index', compact('categories'));
+        return view('super-admin.permission.index', compact('permissions'));
     }
 
     /**
@@ -26,7 +26,7 @@ class SuperAdminCategoryController extends Controller
      */
     public function create()
     {
-        return view('super-admin.category.create');
+        //
     }
 
     /**
@@ -35,19 +35,20 @@ class SuperAdminCategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:categories'
+            'name' => 'required|unique:permissions',
         ]);
 
 
-        Category::create([
+        Permission::create([
             'name' => $request->name
         ]);
+
 
         Alert::alert('Success', 'Created Successfully!', 'success')
             ->autoClose(3000);
 
 
-        return redirect()->route('super-admin-category.index');
+        return redirect()->route('super-admin-permission.index');
     }
 
     /**
@@ -63,8 +64,9 @@ class SuperAdminCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::find($id);
-        return view('super-admin.category.edit', compact('category'));
+        $permission = Permission::find($id);
+
+        return view('super-admin.permission.edit', compact('permission'));
     }
 
     /**
@@ -72,20 +74,21 @@ class SuperAdminCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = Category::find($id);
 
         $this->validate($request, [
-            'name' => 'required|unique:categories,name,'.$id
+            'name' => 'required',
         ]);
 
-        $category->update([
+        $permission = Permission::find($id);
+
+        $permission->update([
             'name' => $request->name
         ]);
 
-        Alert::alert('Success', 'Created Successfully!', 'success')
+        Alert::alert('Updated', 'Updated Successfully!', 'success')
             ->autoClose(3000);
 
-        return redirect()->route('super-admin-category.index');
+        return redirect()->route('super-admin-permission.index');
     }
 
     /**
@@ -93,18 +96,15 @@ class SuperAdminCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::find($id);
-        $isHave = Ticket::where('category_id', $category->id)->exists();
+        $permission = Permission::find($id);
 
-        if ($isHave){
-            Alert::alert('Cant Delete', 'This Category is already assigned to another Ticket record.', 'error')
-                ->autoClose(3000);
-        }else{
-            $category->delete();
-            Alert::alert('Deleted', 'Deleted Successfully.', 'success')
-                ->autoClose(3000);
-        }
 
-        return redirect()->route('super-admin-category.index');
+        // No users assigned to the permission, safe to delete
+        $permission->delete();
+
+        Alert::alert('Deleted', 'Deleted Successfully!', 'success')
+            ->autoClose(3000);
+
+        return redirect()->route('super-admin-permission.index');
     }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Encryption\Encrypter;
 
-class DiavoxLicenser
+class DiavoxLicenserJhun
 {
     private static $encryptionKey;
 

@@ -15,12 +15,12 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
 
-        $superAdmin = Role::findByName('Super Admin');
-        $administrator = Role::findByName('Administrator');
-        $developer = Role::findByName('Developer');
-        $licenser = Role::findByName('Licenser');
-        $support = Role::findByName('Support');
-
+//        $superAdmin = Role::findByName('Super Admin');
+//        $administrator = Role::findByName('Administrator');
+//        $developer = Role::findByName('Developer');
+//        $licenser = Role::findByName('Licenser');
+//        $support = Role::findByName('Support');
+//
         $user = Permission::create(['name' => 'user']);
         $userView = Permission::create(['name' => 'user-view']);
         $userEdit = Permission::create(['name' => 'user-edit']);
@@ -73,12 +73,12 @@ class PermissionSeeder extends Seeder
         $fileReportDelete = Permission::create(['name' => 'fileReport-delete']);
 
         $extraDevTools = Permission::create(['name' => 'extra-dev-tools']);
-
-        $superAdmin->syncPermissions(Permission::whereNotIn('name', $extraDevTools)->get());
-        $administrator->syncPermissions(Permission::whereNotIn('name', $extraDevTools)->get());
-        $developer->syncPermissions(Permission::all());
-        $licenser->syncPermissions([$license, $licenseView, $licenseEdit, $licenseUpdate, $licenseDelete]);
-        $support->syncPermissions([$ticket, $ticketView, $ticketEdit, $ticketUpdate, $ticketDelete, $fileReport, $fileReportView, $fileReportEdit, $fileReportUpdate, $fileReportDelete]);
+//
+//        $superAdmin->syncPermissions(Permission::whereNotIn('name', $extraDevTools)->get());
+//        $administrator->syncPermissions(Permission::whereNotIn('name', $extraDevTools)->get());
+//        $developer->syncPermissions(Permission::all());
+//        $licenser->syncPermissions([$license, $licenseView, $licenseEdit, $licenseUpdate, $licenseDelete]);
+//        $support->syncPermissions([$ticket, $ticketView, $ticketEdit, $ticketUpdate, $ticketDelete, $fileReport, $fileReportView, $fileReportEdit, $fileReportUpdate, $fileReportDelete]);
 
 //    Super Admin - all access
 //    Administrator - all access but should not be able to see the Super Admin in Users Management.

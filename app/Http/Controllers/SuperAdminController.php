@@ -35,6 +35,8 @@ class SuperAdminController extends Controller
             ->latest()
             ->get();
 
+        $softwares = Software::paginate(5);
+
         $recentTicketAndReports = collect([]);
         $recentTicketAndReports = $recentTicketAndReports
             ->concat($recentTickets)
@@ -47,6 +49,7 @@ class SuperAdminController extends Controller
                 'recentClients',
                 'recentLicenses',
                 'recentTicketAndReports',
+                'softwares'
             ]));
     }
 
@@ -55,7 +58,7 @@ class SuperAdminController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

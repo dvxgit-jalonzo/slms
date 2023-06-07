@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Diavox\DiavoxLicenser;
 use App\Models\Client;
 use App\Models\License;
+use App\Models\LicenseAttribute;
+use App\Models\LicenseRemoteAccess;
 use App\Models\Software;
 use Illuminate\Http\Request;
-use App\DiavoxLicenser;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Role;
 
 class SuperAdminLicenseController extends Controller
 {
 
     public function index(){
         $licenses = License::all();
-        $title = 'Delete User!';
+
+
+        $title = 'Delete License!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         return view('super-admin.license.index', compact('licenses'));
@@ -35,7 +40,7 @@ class SuperAdminLicenseController extends Controller
     public function store(Request $request){
         $software = Software::find($request->software_id);
         $company = Client::find($request->client_id);
-
+        $diav = new DiavoxLicenser();
         $data = [
             '_INITVAL' => 1,
             '_LICTYPE' => 1,
@@ -51,14 +56,14 @@ class SuperAdminLicenseController extends Controller
             '_MAILBOXES' => "1000",
             '_LANGUAGE' => "2",
             '_UUID' => getUniquePCId(),
-            '_VOICE_MAIL' => true,
-            '_HOSPITALITY' => false,
-            '_CRUISE' => false,
+            '_VOICE_MAIL' => 1,
+            '_HOSPITALITY' => 0,
+            '_CRUISE' => 0,
         ];
 
 
         $content = json_encode($data);
-
+        $content =$diav->encrypt($content);
 
         $filename = "sysconfig_".time().".json";
         $filepath = storage_path('app/public/dat_files/'.$filename);
@@ -81,6 +86,11 @@ class SuperAdminLicenseController extends Controller
         return redirect()->route('super-admin-license.index');
     }
 
+    public function show(string $id){
+        $license = License::find($id);
+        return view('super-admin.license.show', compact('license'));
+    }
+
     public function destroy(string $id){
         $license = License::find($id);
         $file = $license->dat_file;
@@ -98,16 +108,138 @@ class SuperAdminLicenseController extends Controller
         return redirect()->route('super-admin-license.index');
     }
 
-    public function make(Request $request)
-    {
-        $key = '0123456789abcdef0123456789abcdef';
 
-        DiavoxLicenser::setEncryptionKey($key);
-        $encryptedValue = DiavoxLicenser::encrypt($key);
+    public function viewLicense(string $id){
 
 
-        $decryptedValue = DiavoxLicenser::decrypt($encryptedValue);
+        $license = License::find($id);
+        $sysconf = $license->dat_file;
 
-        dd($encryptedValue, $decryptedValue);
+        $jsonFilePath = storage_path('app/public/dat_files/').$sysconf;
+        $jsonContent = file_get_contents($jsonFilePath);
+        $dvx = new DiavoxLicenser();
+        $json = $dvx->decrypt($jsonContent);
+        return view('super-admin.license.view-license', compact('json', 'license'));
     }
+
+
+    public function editRemoteAccess(string $id){
+        $remote = LicenseRemoteAccess::find($id);
+        return view('super-admin.license.edit-remote-access', compact('remote'));
+    }
+
+    public function updateRemoteAccess(Request $request, string $id){
+        $this->validate($request, [
+            'application' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $remote = LicenseRemoteAccess::find($id);
+
+        $remote->update([
+            'application' => $request->application,
+            'username' => $request->username,
+            'password' => $request->password,
+        ]);
+
+        Alert::alert('Updated', 'Remote Access Updated Successfully!', 'success')
+            ->autoClose(3000);
+        return redirect()->route('super-admin-license.index');
+
+    }
+
+    public function storeRemoteAccess(Request $request, string $id){
+        $this->validate($request, [
+            'application' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        LicenseRemoteAccess::create([
+            'license_id' => $id,
+            'application' => $request->application,
+            'username' => $request->username,
+            'password' => $request->password,
+
+        ]);
+
+
+        Alert::alert('Success', 'Remote Access Created Successfully!', 'success')
+            ->autoClose(3000);
+        return redirect()->route('super-admin-license.index');
+    }
+
+    public function destroyRemoteAccess(string $id){
+        $remote = LicenseRemoteAccess::find($id);
+        if ($remote->delete()){
+            Alert::alert('Deleted', 'Remote Access Deleted Successfully!', 'success')
+                ->autoClose(3000);
+        }
+
+        return redirect()->route('super-admin-license.index');
+    }
+
+
+    public function createAttribute(string $id){
+        $license = License::find($id);
+        return view('super-admin.license.create-license-attribute', compact('license'));
+    }
+
+    public function storeAttribute(Request $request, string $id){
+
+        $this->validate($request, [
+            'key' => 'required',
+            'value' => 'required',
+        ]);
+
+        LicenseAttribute::create([
+            'license_id' => $id,
+            'key' => $request->key,
+            'value' => $request->value,
+        ]);
+
+
+        Alert::alert('Success', 'Attribute Created Successfully!', 'success')
+            ->autoClose(3000);
+        return redirect()->route('super-admin-license.index');
+    }
+
+    public function editAttribute($id){
+        $attribute = LicenseAttribute::find($id);
+        return view('super-admin.license.edit-license-attribute', compact('attribute'));
+    }
+
+    public function updateAttribute(Request $request, string $id){
+        $this->validate($request, [
+            'key' => 'required',
+            'value' => 'required',
+        ]);
+
+        $attribute = LicenseAttribute::find($id);
+
+        $attribute->update([
+            'key' => $request->key,
+            'value' => $request->value,
+        ]);
+        Alert::alert('Updated', 'Attribute Updated Successfully!', 'success')
+            ->autoClose(3000);
+
+
+        return redirect()->route('super-admin-license.index');
+
+
+    }
+
+    public function destroyAttribute(string $id){
+        $attribute = LicenseAttribute::find($id);
+        if ($attribute->delete()){
+            Alert::alert('Deleted', 'Attribute Deleted Successfully!', 'success')
+                ->autoClose(3000);
+        }
+        return redirect()->route('super-admin-license.index');
+    }
+
+
+
 }

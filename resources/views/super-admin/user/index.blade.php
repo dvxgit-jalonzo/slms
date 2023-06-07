@@ -28,21 +28,31 @@
                                 <td>Email</td>
                                 <td>Username</td>
                                 <td>CreatedAt</td>
+                                <td>CreatedAt</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
+{{--                                @role('Administrator')--}}
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->username}}</td>
                                     <td>{{$user->created_at}}</td>
+                                    <td>{{$user->getRoleNames()->first()}}</td>
                                     <td>
                                         <a href="{{route('super-admin-user.edit', [$user->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
                                     <td><a href="{{ route('super-admin-user.destroy', [$user->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
+{{--                                @endrole--}}
+{{--                                @if(auth()->user()->getRoleNames()->first() == "Administrator")--}}
+{{--                                   --}}
+{{--                                @else--}}
+
+{{--                                @endif--}}
+
                             @endforeach
                             </tbody>
                         </table>

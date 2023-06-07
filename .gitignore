@@ -1,5 +1,6 @@
 /vendor/
 /public/storage/
 /node_modules/
+/Diavox/DiavoxLicenser.php
 .env
 .phpstorm.meta.php

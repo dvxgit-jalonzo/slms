@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (\auth()->check()){
-//        $role = auth()->user()->getRoleNames()->first();
+        $role = auth()->user()->getRoleNames()->first();
 //        if ($role == 'Super Admin'){
 //
 //        }
@@ -61,8 +61,43 @@ Route::post('/super-admin-software-store-software-requirement/{id}', [\App\Http\
 Route::resource('/super-admin-software', \App\Http\Controllers\SuperAdminSoftwareController::class);
 
 
+Route::resource('/super-admin-role', \App\Http\Controllers\SuperAdminRoleController::class);
+Route::resource('/super-admin-permission', \App\Http\Controllers\SuperAdminPermissionController::class);
 
-Route::get('/super-admin-license-make', [\App\Http\Controllers\SuperAdminLicenseController::class, 'make']);
+
+
+Route::get('/super-admin-license-create-attribute/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'createAttribute'])
+    ->name('super-admin-license.create-attribute');
+
+Route::post('/super-admin-license-store-attribute/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeAttribute'])
+    ->name('super-admin-license.store-attribute');
+
+Route::put('/super-admin-license.update-attribute/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateAttribute'])
+    ->name('super-admin-license.update-attribute');
+
+Route::delete('/super-admin-license-delete-attribute/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyAttribute'])
+    ->name('super-admin-license.destroy-attribute');
+
+
+Route::get('/super-admin-license-edit-attribute/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'editAttribute'])
+    ->name('super-admin-license.edit-attribute');
+
+
+Route::get('/super-admin-license.edit-remote-access/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'editRemoteAccess'])
+    ->name('super-admin-license.edit-remote-access');
+
+Route::get('/super-admin-license-view-license/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'viewLicense'])
+    ->name('super-admin-licence.view-license');
+
+Route::delete('/super-admin-license.delete-remote-access/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyRemoteAccess'])
+    ->name('super-admin-license.destroy-remote-access');
+
+Route::put('/super-admin-license.update-remote-access/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateRemoteAccess'])
+    ->name('super-admin-license.update-remote-access');
+
+Route::post('/super-admin-license.store-remote-access/{id}', [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeRemoteAccess'])
+    ->name('super-admin-license.store-remote-access');
+
 Route::resource('/super-admin-license', \App\Http\Controllers\SuperAdminLicenseController::class);
 
 Route::resource('/super-admin-category', \App\Http\Controllers\SuperAdminCategoryController::class);
@@ -73,17 +108,15 @@ Route::resource('/super-admin', \App\Http\Controllers\SuperAdminController::clas
 
 
 
+
+
+
+
 Route::resource('/super-admin-report', \App\Http\Controllers\SuperAdminReportController::class);
 
 Route::post('/super-admin-profile-update-password', [\App\Http\Controllers\ProfileController::class, 'updatePassword'])
     ->name('super-admin-profile.update-password');
 Route::resource('/super-admin-profile', \App\Http\Controllers\ProfileController::class);
-
-//Route::group(['middleware' => ['role:Super Admin']], function (){
-//
-//});
-
-
 
 Auth::routes();
 

@@ -15,7 +15,7 @@ class SuperAdminSoftwareController extends Controller
     public function index()
     {
         $software = Software::all();
-        $title = 'Delete User!';
+        $title = 'Delete Software!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         return view('super-admin.software.index', compact('software'));

@@ -44,6 +44,12 @@ Route::post('/super-admin-client-store-contact-person/{id}', [\App\Http\Controll
 Route::resource('/super-admin-client', \App\Http\Controllers\SuperAdminClientController::class);
 
 
+Route::get('/super-admin-software-create-software-module/{id}', [\App\Http\Controllers\SuperAdminSoftwareController::class, 'createSoftwareModule'])
+    ->name('super-admin-software.create-software-module');
+
+Route::post('/super-admin-software-store-software-module/{id}', [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareModule'])
+    ->name('super-admin-software.store-software-module');
+
 
 
 Route::get('/super-admin-software-edit-software-requirement/{id}', [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareRequirement'])

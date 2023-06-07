@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Client;
+use App\Models\Software;
 use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\User;
@@ -17,6 +19,7 @@ class SuperAdminTicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
+
         $title = 'Delete Ticket!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
@@ -31,7 +34,9 @@ class SuperAdminTicketController extends Controller
         $categories = Category::all();
         $statuses = Status::all();
         $users = User::all();
-        return view('super-admin.ticket.create', compact('categories','statuses', 'users'));
+        $clients = Client::all();
+        $softwares = Software::all();
+        return view('super-admin.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares'));
     }
 
     /**
@@ -41,6 +46,8 @@ class SuperAdminTicketController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'client_id' => 'required',
+            'software_id' => 'required',
             'description' => 'required',
             'category_id' => 'required',
             'status_id' => 'required',
@@ -56,6 +63,8 @@ class SuperAdminTicketController extends Controller
 
         Ticket::create([
             'title' => $request->title,
+            'client_id' => $request->client_id,
+            'software_id' => $request->software_id,
             'description' => $request->description,
             'user_id' => auth()->user()->id,
             'category_id' => $category->id,

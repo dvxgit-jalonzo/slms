@@ -28,27 +28,21 @@ class SuperAdminController extends Controller
             ->latest()
             ->get();
 
-        $recentTickets = Ticket::limit(3)
-            ->latest()
-            ->get();
+        $recentTickets = Ticket::where('is_reviewed', 0)->get();
         $recentReports = Report::limit(3)
             ->latest()
             ->get();
 
         $softwares = Software::paginate(5);
 
-        $recentTicketAndReports = collect([]);
-        $recentTicketAndReports = $recentTicketAndReports
-            ->concat($recentTickets)
-            ->concat($recentReports)
-            ->sortBy('created_at');
+
         return  view('super-admin.index', compact([
                 'numberOfClient',
                 'numberOfUsers',
                 'numberOfSoftwares',
                 'recentClients',
                 'recentLicenses',
-                'recentTicketAndReports',
+                'recentTickets',
                 'softwares'
             ]));
     }

@@ -39,6 +39,14 @@
                                     <div class="col-lg-4">
                                         <div class="row">
                                             <div class="col-12 mb-3">
+                                                <x-select id="client_id" name="client_id" :data="$clients" column_val="id" column="company_name" placeholder="Choose Client"></x-select>
+                                                <x-validation name="client_id"></x-validation>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <x-select id="software_id" name="software_id" :data="$softwares" column_val="id" column="name" placeholder="Choose Software"></x-select>
+                                                <x-validation name="software_id"></x-validation>
+                                            </div>
+                                            <div class="col-12 mb-3">
                                                 <x-form-floating name="title" type="text" placeholder="Title" value="{{old('title')}}">
                                                     <x-validation name="title"></x-validation>
                                                 </x-form-floating>
@@ -54,7 +62,7 @@
                                             </div>
 
                                             <div class="col-12 mb-3">
-                                                <x-select id="assigned_to" name="assigned_to" :data="$users" column_val="id" column="name" placeholder="Assigned To"></x-select>
+                                                <x-select id="assigned_to" name="assigned_to" :data="$users" column_val="id" column="name" value="{{auth()->user()->id}}" placeholder="Assigned To"></x-select>
                                                 <x-validation name="assigned_to"></x-validation>
                                             </div>
 

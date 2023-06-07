@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
                     <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.create')}}">Create Ticket</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-report.create')}}">File a Report</a></li>
+{{--                    <li class="breadcrumb-item"><a href="{{route('super-admin-report.create')}}">File a Report</a></li>--}}
                     <li class="breadcrumb-item"><a href="{{route('super-admin-license.create')}}">Generate License</a></li>
                 </ol>
             </nav>
@@ -181,21 +181,17 @@
                     <div class="card">
 
                         <div class="card-body">
-                            <h5 class="card-title">Recent Ticket and Report</h5>
+                            <h5 class="card-title">Recent Ticket</h5>
 
                             <div class="activity">
 
-                                @forelse($recentTicketAndReports as $item)
+                                @forelse($recentTickets as $item)
 
                                     <div class="activity-item d-flex">
                                         <div class="activite-label">{{$item->created_at->shortRelativeDiffForHumans()}}</div>
                                         <i class='bi bi-circle-fill activity-badge {{Arr::random(['text-success', 'text-danger', 'text-info', 'text-warning', 'text-dark'])}} align-self-start'></i>
                                         <div class="activity-content">
-                                        @if($item instanceof \App\Models\Ticket)
-                                            <b> {{$item->title}}</b> <br> {{$item->assignedToUser->name}} <br> <strong class="text-secondary text-uppercase small">Ticket </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>
-                                            @elseif($item instanceof \App\Models\Report)
-                                            <b> {{$item->title}}</b> <br> <strong class="text-danger text-uppercase small">Report </strong> | <strong class="text-info text-uppercase small">{{$item->priority}}</strong>  | <strong class="text-primary text-uppercase small">{{$item->status->name}}</strong>
-                                        @endif
+                                        <b> {{$item->title}}</b> <br> {{$item->assignedToUser->name}} <br> <strong class="text-secondary text-uppercase small">Ticket </strong> | <strong class="text-primary] text-uppercase small">{{$item->status->name}}</strong>
                                         </div>
                                     </div>
                                 @empty

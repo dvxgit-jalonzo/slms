@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Software;
 use App\Models\SoftwareRequirement;
+use App\Models\SoftwareUnder;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -179,6 +180,31 @@ class SuperAdminSoftwareController extends Controller
             Alert::alert('Success', 'Deleted Successfully!', 'success')
                 ->autoClose(3000);
         }
+        return redirect()->route('super-admin-software.index');
+    }
+
+
+    public function createSoftwareModule(string $id){
+        $software = Software::find($id);
+
+        return view('super-admin.software.create-software-module', compact('software'));
+    }
+
+    public function storeSoftwareModule(Request $request, string $id){
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        SoftwareUnder::create([
+            'software_id' => $id,
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        Alert::alert('Success', 'Updated Successfully!', 'success')
+            ->autoClose(3000);
+
         return redirect()->route('super-admin-software.index');
     }
 }

@@ -17,11 +17,16 @@ return new class extends Migration
             $table->longText('description');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->unsignedBigInteger('software_id')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->unsignedBigInteger('assigned_to');
+            $table->boolean('is_reviewed')->default(0);
             $table->string('priority')->comment('low, medium, high, urgent');
             $table->timestamps();
             $table->dateTime('closed_at')->nullable();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('software_id')->references('id')->on('software')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('set null');

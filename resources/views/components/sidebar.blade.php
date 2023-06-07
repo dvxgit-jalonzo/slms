@@ -86,18 +86,18 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#report-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-file"></i><span>File Report</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="report-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{route('super-admin-report.index')}}">
-                        <i class="bi bi-circle"></i><span>View File Report</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link collapsed" data-bs-target="#report-nav" data-bs-toggle="collapse" href="#">--}}
+{{--                <i class="bi bi-file"></i><span>File Report</span><i class="bi bi-chevron-down ms-auto"></i>--}}
+{{--            </a>--}}
+{{--            <ul id="report-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">--}}
+{{--                <li>--}}
+{{--                    <a href="{{route('super-admin-report.index')}}">--}}
+{{--                        <i class="bi bi-circle"></i><span>View File Report</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tools-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-gear"></i><span>Developer Tools</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -112,12 +112,6 @@
                 <li>
                     <a href="{{route('super-admin-permission.index')}}">
                         <i class="bi bi-circle"></i><span>Permissions</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="bi bi-circle"></i><span>Tool 3</span>
                     </a>
                 </li>
             </ul>

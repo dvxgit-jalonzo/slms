@@ -14,4 +14,8 @@ class Software extends Model
     public function software_requirements(){
         return $this->hasMany(SoftwareRequirement::class);
     }
+
+    public function software_unders(){
+        return $this->hasMany(SoftwareUnder::class);
+    }
 }

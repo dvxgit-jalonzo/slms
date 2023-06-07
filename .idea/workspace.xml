@@ -2,43 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Diavox/DiavoxLicenser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminPermissionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminRoleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/LicenseAttribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/LicenseRemoteAccess.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_06_032047_create_license_remote_accesses_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_06_055151_create_license_attributes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create-license-attribute.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit-license-attribute.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit-remote-access.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/role/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/role/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/role/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DiavoxLicenser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DiavoxLicenserJhun.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/License.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/License.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +186,7 @@
       <workItem from="1685776742875" duration="41848000" />
       <workItem from="1685865438955" duration="2186000" />
       <workItem from="1685879283940" duration="40455000" />
-      <workItem from="1686009242325" duration="27195000" />
+      <workItem from="1686009242325" duration="27491000" />
     </task>
     <servers />
   </component>

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('email')->unique();
             $table->text('location');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }

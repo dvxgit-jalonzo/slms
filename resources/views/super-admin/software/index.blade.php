@@ -29,8 +29,7 @@
                                 <td>Description</td>
                                 <td>WithLicensing</td>
                                 <td>CreatedAt</td>
-                                <td>Reqs</td>
-                                <td>Modes</td>
+                                <td>Actions</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
@@ -51,7 +50,95 @@
                                     </td>
                                     <td>{{$sft->created_at}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#tableSoftware{{$sft->id}}">Requirements</button>
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-info dropdown-toggle" type="button" id="actions" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
+                                            <ul class="dropdown-menu" >
+                                                <li>
+                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableModule{{$sft->id}}">Modules</button>
+                                                </li>
+                                                <li>
+                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableSoftware{{$sft->id}}">Requirements</button>
+                                                </li>
+                                                <li>
+                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableTemplate{{$sft->id}}">Template</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="modal fade " id="tableModule{{$sft->id}}">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            Modules
+                                                        </h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <a href="{{route('super-admin-software.create-software-module', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Modules</a>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm softwares-table" >
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Description</th>
+                                                                    <th>Edit</th>
+                                                                    <th>Delete</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($sft->software_unders as $module)
+                                                                    <tr>
+                                                                        <td>{{$module->name}}</td>
+                                                                        <td>{{$module->description}}</td>
+                                                                        <td><a href="{{route('super-admin-software.edit-software-module', [$module->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('super-admin-software.destroy-software-module', [$module->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade " id="tableTemplate{{$sft->id}}">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            Template
+                                                        </h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <a href="{{route('super-admin-software.create-software-template', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Template</a>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm templates-table" >
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Value</th>
+                                                                    <th>Edit</th>
+                                                                    <th>Delete</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($sft->software_templates as $template)
+                                                                    <tr>
+                                                                        <td>{{$template->name}}</td>
+                                                                        <td>{{$template->value}}</td>
+                                                                        <td><a href="{{route('super-admin-software.edit-software-template', [$template->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('super-admin-software.destroy-software-template', [$template->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="modal fade " id="tableSoftware{{$sft->id}}">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
@@ -90,46 +177,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#tableModule{{$sft->id}}">Modules</button>
-                                        <div class="modal fade " id="tableModule{{$sft->id}}">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">
-                                                            Modules
-                                                        </h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <a href="{{route('super-admin-software.create-software-module', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Modules</a>
-                                                        <div class="table-responsive">
-                                                            <table class="table table-sm softwares-table" >
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>Name</th>
-                                                                    <th>Description</th>
-                                                                    <th>Edit</th>
-                                                                    <th>Delete</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                @foreach($sft->software_unders as $module)
-                                                                    <tr>
-                                                                        <td>{{$module->name}}</td>
-                                                                        <td>{{$module->description}}</td>
-                                                                        <td><a href="{{route('super-admin-software.edit-software-module', [$module->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                        <td><a href="{{ route('super-admin-software.destroy-software-module', [$module->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
-                                                                    </tr>
-                                                                @endforeach
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
                                     <td>
                                         <a href="{{route('super-admin-software.edit', [$sft->id])}}" class="btn btn-sm btn-outline-dark">Edit</a>
                                     </td>
@@ -143,6 +191,12 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
 
         </section>
     @endsection
@@ -159,6 +213,10 @@
 
                     $(".modal").on('shown.bs.modal', function (){
                         $(this).find('.softwares-table').DataTable();
+                    });
+
+                    $(".modal").on('shown.bs.modal', function (){
+                        $(this).find('.templates-table').DataTable();
                     });
                 });
             </script>

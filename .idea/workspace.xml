@@ -2,21 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareUnderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/SoftwareUnder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_07_072352_create_software_unders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-module.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/SoftwareTemplate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_08_011706_create_software_templates_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-template.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-module.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-template.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/template/for-voicemail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/License.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/License.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Software.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Software.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_054156_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_054618_create_ticket_attachments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_003310_create_ticket_attachments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_02_045637_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_02_045637_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_03_001403_create_software_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_001403_create_software_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_04_081511_create_licenses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_04_081511_create_licenses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +207,7 @@
       <workItem from="1685865438955" duration="2186000" />
       <workItem from="1685879283940" duration="40455000" />
       <workItem from="1686009242325" duration="33813000" />
-      <workItem from="1686115132077" duration="6770000" />
+      <workItem from="1686115132077" duration="59347000" />
     </task>
     <servers />
   </component>

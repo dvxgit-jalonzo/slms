@@ -22,4 +22,8 @@ class License extends Model
     public function attributes(){
         return $this->hasMany(LicenseAttribute::class);
     }
+
+    public function software(){
+        return $this->belongsTo(Software::class);
+    }
 }

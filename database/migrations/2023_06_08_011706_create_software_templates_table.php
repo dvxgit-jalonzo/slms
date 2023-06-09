@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('software', function (Blueprint $table) {
+        Schema::create('software_templates', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 5);
+            $table->unsignedBigInteger('software_id');
             $table->string('name');
-            $table->string('description');
-            $table->longText('template')->nullable();
-            $table->boolean('with_licensing')->default(false);
+            $table->string('value')->nullable();
             $table->timestamps();
+            $table->foreign('software_id')->references('id')->on('software')->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('software');
+        Schema::dropIfExists('software_templates');
     }
 };

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\License;
 use App\Models\Software;
 use App\Models\SoftwareRequirement;
+use App\Models\SoftwareTemplate;
 use App\Models\SoftwareUnder;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -45,6 +47,7 @@ class SuperAdminSoftwareController extends Controller
             'code' => $request->code,
             'name' => $request->name,
             'description' => $request->description,
+            'template' => $request->template,
             'with_licensing' => false,
         ];
 
@@ -52,10 +55,12 @@ class SuperAdminSoftwareController extends Controller
             $inputs['with_licensing'] = true;
         }
 
-        Software::create($inputs);
 
-        Alert::alert('Success', 'Created Successfully!', 'success')
-            ->autoClose(3000);
+        if (Software::create($inputs)){
+            Alert::alert('Success', 'Created Successfully!', 'success')
+                ->autoClose(3000);
+
+        }
 
 
         return redirect()->route('super-admin-software.index');
@@ -138,11 +143,14 @@ class SuperAdminSoftwareController extends Controller
             'specs' => 'required'
         ]);
 
+
         SoftwareRequirement::create([
             'software_id' => $id,
             'name' => $request->name,
             'specs' => $request->specs
         ]);
+
+
 
         Alert::alert('Success', 'Created Successfully!', 'success')
             ->autoClose(3000);
@@ -202,9 +210,138 @@ class SuperAdminSoftwareController extends Controller
             'description' => $request->description,
         ]);
 
+        Alert::alert('Success', 'Created Successfully!', 'success')
+            ->autoClose(3000);
+
+        return redirect()->route('super-admin-software.index');
+    }
+
+    public function updateSoftwareModule(Request $request, string $id){
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $module = SoftwareUnder::find($id);
+
+        $module->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
         Alert::alert('Success', 'Updated Successfully!', 'success')
             ->autoClose(3000);
 
         return redirect()->route('super-admin-software.index');
+    }
+
+    public function editSoftwareModule(Request $request, string $id){
+        $module = SoftwareUnder::find($id);
+
+        return view('super-admin.software.edit-software-module', compact('module'));
+    }
+
+    public function destroySoftwareModule(string $id){
+        $module = SoftwareUnder::find($id);
+
+        if ($module->delete()){
+
+            Alert::alert('Deleted', 'Deleted Successfully!', 'success')
+                ->autoClose(3000);
+        }
+
+        return redirect()->route('super-admin-software.index');
+    }
+
+
+    public function  createSoftwareTemplate(string $id){
+        $software = Software::find($id);
+        return view('super-admin.software.create-software-template', compact('software'));
+    }
+
+    public function editSoftwareTemplate(string $id){
+        $template = SoftwareTemplate::find($id);
+        return view('super-admin.software.edit-software-template', compact('template'));
+    }
+
+
+    public function storeSoftwareTemplate(Request $request, string $id){
+        $this->validate($request, [
+            'name.*' => 'required',
+        ]);
+
+
+
+
+        for($x=0; $x<count($request->name); $x++){
+            SoftwareTemplate::create([
+                'software_id' => $id,
+                'name' => strtoupper("_".$request->name[$x]),
+                'value' => $request->value[$x],
+            ]);
+        }
+
+
+
+
+        Alert::alert('Success', 'Created Successfully!', 'success')
+            ->autoClose(3000);
+
+        return redirect()->route('super-admin-software.index');
+    }
+
+    public function updateSoftwareTemplate(Request $request, string $id){
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $template = SoftwareTemplate::find($id);
+        $template->update([
+            'name' => $request->name,
+            'value' => $request->value,
+        ]);
+        Alert::alert('Updated', 'Updated Successfully!', 'success')
+            ->autoClose(3000);
+        return redirect()->route('super-admin-software.index');
+    }
+
+    public function destroySoftwareTemplate(string $id){
+        $template = SoftwareTemplate::find($id);
+        if ($template->delete()){
+            Alert::alert('Delete', 'Deleted Successfully!', 'success')
+                ->autoClose(3000);
+        }
+        return redirect()->route('super-admin-software.index');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    API
+    public function apiGetSoftwareTemplate(string $id){
+        return SoftwareTemplate::where('software_id', $id)->get();
+
+    }
+
+    public function checkExist(Request $request){
+
+       $license = License::where('client_id', $request->client_id)->where('software_id', $request->software_id);
+
+       if ($license->exists()){
+           return $license->get();
+       }
     }
 }

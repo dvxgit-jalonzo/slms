@@ -25,23 +25,49 @@
                             <thead>
                             <tr>
                                 <td>Client</td>
+                                <td>Software</td>
                                 <td>Dat</td>
                                 <td>Serial</td>
                                 <td>CreatedAt</td>
+                                <td>Intallation</td>
+                                <td>Expiration</td>
+                                <td>SMA</td>
                                 <td>Actions</td>
+                                <td>Delete</td>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($licenses as $license)
                                 <tr>
                                     <td>{{$license->client->company_name}}</td>
-                                    <td>{{$license->dat_file}}</td>
+                                    <td>{{$license->software->name}}</td>
+                                    <td><a href="{{ asset('storage/dat_files/'.$license->dat_file) }}" title="" download="sysconfig.json"><i class="bi bi-download"></i></a></td>
                                     <td>{{$license->serial_number}}</td>
                                     <td>{{$license->created_at}}</td>
+                                    <td>{{$license->installation_date}}</td>
+                                    <td>{{$license->expiration_date}}</td>
+                                    <td>{{$license->sma_expiration}}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="actions" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Actions
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="actions">
+                                                <li>
+                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableAttribute{{$license->id}}">Attribute</button>
+                                                </li>
+                                                <li>
+                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableRemote{{$license->id}}">Remote</button>
+                                                </li>
+                                                <li>
+                                                    <a href="{{route('super-admin-licence.view-license', [$license->id])}}" class="dropdown-item">View License</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#tableAttribute{{$license->id}}">Attribute</button>
-                                            <div class="modal fade " id="tableAttribute{{$license->id}}">
+                                           <div class="modal fade " id="tableAttribute{{$license->id}}">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -78,7 +104,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#tableRemote{{$license->id}}">Remote</button>
                                             <div class="modal fade " id="tableRemote{{$license->id}}">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
@@ -118,8 +143,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="{{route('super-admin-licence.view-license', [$license->id])}}" class="btn btn-sm btn-outline-secondary">View License</a>
-                                            <a href="{{ route('super-admin-license.destroy', [$license->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                           <a href="{{ route('super-admin-license.destroy', [$license->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                         </div>
                                     </td>
 {{--                                    <td><a href="{{route('super-admin-license.edit', [$license->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>--}}

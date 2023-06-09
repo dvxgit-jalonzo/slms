@@ -38,49 +38,96 @@ class SuperAdminLicenseController extends Controller
     }
 
     public function store(Request $request){
-        $software = Software::find($request->software_id);
-        $company = Client::find($request->client_id);
         $diav = new DiavoxLicenser();
-        $data = [
-            '_INITVAL' => 1,
-            '_LICTYPE' => 1,
-            '_SERIAL' => $software->code,
-            '_COMPANY' => $company->company_name,
-            '_EMAIL' => $company->email,
-            '_DATEINSTALL' => "2023-02-20",
-            '_DATETODAY' => today('Asia/Manila')->format('Y-m-d'),
-            '_DATEEXPIRE' => "4023-02-31",
-            '_SMAEXPIRE' => "4023-02-31",
-            '_EXPIREDAYS' => "4023-02-31",
-            '_PORTS' => "8983",
-            '_MAILBOXES' => "1000",
-            '_LANGUAGE' => "2",
-            '_UUID' => getUniquePCId(),
-            '_VOICE_MAIL' => 1,
-            '_HOSPITALITY' => 0,
-            '_CRUISE' => 0,
-        ];
 
-
-        $content = json_encode($data);
-        $content =$diav->encrypt($content);
-
-        $filename = "sysconfig_".time().".json";
-        $filepath = storage_path('app/public/dat_files/'.$filename);
-        if (!file_exists(storage_path('app/public/dat_files'))){
-            mkdir(storage_path('app/public/dat_files'), 0777, true);
+        $data = [];
+        for ($x = 0; $x<count($request->name); $x++){
+            $data[$request->name[$x]] = $request->value[$x];
         }
 
-        License::create([
-            'client_id' => $request->client_id,
-            'dat_file' => $filename,
-            'serial_number' => $request->serial_number,
-        ]);
 
-        if (file_put_contents($filepath, $content)){
-            Alert::alert('Success', 'Created Successfully!', 'success')
-                ->autoClose(3000);
+        $license = License::where('client_id', $request->client_id)->where('software_id', $request->software_id);
+        if ($license->exists()){
+
+            $license_data = $license->first();
+            $serial = $data['_SERIAL'];
+            $content = json_encode($data);
+
+
+            $content =$diav->encrypt($content);
+            $filename = $license_data->dat_file;
+            $filepath = storage_path('app/public/dat_files/'.$filename);
+            if (!file_exists(storage_path('app/public/dat_files'))){
+                mkdir(storage_path('app/public/dat_files'), 0777, true);
+            }
+
+
+            $license_data->update([
+                'installation_date' => $request->installation_date,
+                'expiration_date' => $request->expiration_date,
+                'sma_expiration' => $request->sma_expiration,
+                'serial_number' => $serial
+            ]);
+            if (file_put_contents($filepath, $content)){
+                Alert::alert('Updated', 'Updated Successfully!', 'success')
+                    ->autoClose(3000);
+            }
+
+        }else{
+            $content = json_encode($data);
+            $content =$diav->encrypt($content);
+            $filename = "sysconfig_".time().".json";
+            $filepath = storage_path('app/public/dat_files/'.$filename);
+            if (!file_exists(storage_path('app/public/dat_files'))){
+                mkdir(storage_path('app/public/dat_files'), 0777, true);
+            }
+
+            License::create([
+                'client_id' => $request->client_id,
+                'software_id' => $request->software_id,
+                'dat_file' => $filename,
+                'installation_date' => $request->installation_date,
+                'expiration_date' => $request->expiration_date,
+                'sma_expiration' => $request->sma_expiration,
+                'serial_number' => $request->serial_number,
+            ]);
+
+
+            if (file_put_contents($filepath, $content)){
+                Alert::alert('Success', 'Created Successfully!', 'success')
+                    ->autoClose(3000);
+            }
         }
+
+
+
+
+//        $data["_DATETODAY"] = today('Asia/Manila')->format('Y-m-d');
+//        $data['_SERIAL'] = $request->serial_number;
+//        $data['_INITVAL'] = 0;
+//        $data['_LICTYPE'] = 0;
+
+//        $data = [
+//            '_INITVAL' => 0,
+//            '_LICTYPE' => 0,
+//            '_SERIAL' => $request->serial_number,
+//            '_COMPANY' => $company->company_name,
+//            '_EMAIL' => $company->email,
+//            '_DATEINSTALL' => "2023-02-20",
+//            '_DATETODAY' => today('Asia/Manila')->format('Y-m-d'),
+//            '_DATEEXPIRE' => "4023-02-31",
+//            '_SMAEXPIRE' => "4023-02-31",
+//            '_EXPDAYS' => "4023-02-31",
+//            '_PORTS' => "8983",
+//            '_MAILBOXES' => "1000",
+//            '_LANGUAGES' => "2",
+//            '_UUID' => getUniquePCId(),
+//            '_VOICEMAIL' => 1,
+//            '_HOSPITALITY' => 0,
+//            '_CRUISE' => 0,
+//        ];
+
+
 
 
         return redirect()->route('super-admin-license.index');
@@ -238,6 +285,15 @@ class SuperAdminLicenseController extends Controller
                 ->autoClose(3000);
         }
         return redirect()->route('super-admin-license.index');
+    }
+
+
+//    API
+    public function decryptFile(Request $request){
+        $encrypted = $request->fileContent;
+        $diav = new DiavoxLicenser();
+        $decrypt = $diav->decrypt($encrypted);
+        return json_encode($decrypt);
     }
 
 

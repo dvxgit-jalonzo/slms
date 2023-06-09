@@ -90,7 +90,6 @@
                                             <button class="btn btn-outline-primary">Create Ticket</button>
                                             <button type="reset" class="btn btn-outline-dark">Reset</button>
                                         </div>
-
                                     </div>
                                 </div>
                             </form>

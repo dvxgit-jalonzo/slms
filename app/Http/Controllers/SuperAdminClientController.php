@@ -65,7 +65,7 @@ class SuperAdminClientController extends Controller
      */
     public function show(string $id)
     {
-        $client = Client::find($id);
+        $client = Client::findOrFail($id);
         return view('super-admin.client.show', compact('client'));
     }
 
@@ -75,7 +75,7 @@ class SuperAdminClientController extends Controller
     public function edit(string $id)
     {
 
-        $client = Client::find($id);
+        $client = Client::findOrFail($id);
         return view('super-admin.client.edit', compact('client'));
     }
 
@@ -84,7 +84,7 @@ class SuperAdminClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $client = Client::find($id);
+        $client = Client::findOrFail($id);
         $this->validate($request, [
             'code' => 'required',
             'company_name' => 'required|unique:clients,company_name,'.$id,
@@ -118,7 +118,7 @@ class SuperAdminClientController extends Controller
      */
     public function destroy(string $id)
     {
-        $client = Client::find($id);
+        $client = Client::findOrFail($id);
 
         if ($client->clientContacts()->exists()) {
             $client->clientContacts()->delete();
@@ -133,7 +133,7 @@ class SuperAdminClientController extends Controller
 
     public function editContactPerson(string $id)
     {
-        $contact = ClientContact::find($id);
+        $contact = ClientContact::findOrFail($id);
 
         return view('super-admin.client.edit-contact-person', compact('contact'));
     }
@@ -143,7 +143,7 @@ class SuperAdminClientController extends Controller
 
     public function destroyContactPerson(string $id)
     {
-        $contact = ClientContact::find($id);
+        $contact = ClientContact::findOrFail($id);
         $message = "ClientContact Person from ".$contact->client->company_name." has been Deleted Successfully!";
 
         if ($contact->delete()){
@@ -168,7 +168,7 @@ class SuperAdminClientController extends Controller
             'contact_number' => $request->contact_number,
         ]);
 
-        $client = Client::find($id);
+        $client = Client::findOrFail($id);
         $message = "ClientContact Added to Client ".$client->company_name;
         Alert::alert('Success', $message, 'success')
             ->autoClose(3000);
@@ -186,7 +186,7 @@ class SuperAdminClientController extends Controller
             'contact_number' => 'required',
         ]);
 
-        $contact = ClientContact::find($id);
+        $contact = ClientContact::findOrFail($id);
 
 
 

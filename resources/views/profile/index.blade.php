@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-xl-12 col-md-6">
                                             <div class="card p-4">
-                                                <form action="{{route('super-admin-profile.update', [auth()->user()->id])}}" method="post" >
+                                                <form action="{{route('profile.update', [auth()->user()->id])}}" method="post" >
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="row gy-4">
@@ -100,7 +100,7 @@
 
 
                                             <div class="card p-4">
-                                                <form action="{{route('super-admin-profile.update-password')}}" method="POST" >
+                                                <form action="{{route('profile.update-password')}}" method="POST" >
                                                     @csrf
                                                     <div class="row gy-4">
                                                         <div class="col-md-12">

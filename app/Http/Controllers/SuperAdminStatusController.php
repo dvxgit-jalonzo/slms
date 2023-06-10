@@ -63,7 +63,7 @@ class SuperAdminStatusController extends Controller
      */
     public function edit(string $id)
     {
-        $status = Status::find($id);
+        $status = Status::findOrFail($id);
         return view('super-admin.status.edit', compact('status'));
     }
 
@@ -72,7 +72,7 @@ class SuperAdminStatusController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $status = Status::find($id);
+        $status = Status::findOrFail($id);
 
         $this->validate($request, [
             'name' => 'required|unique:statuses,name,'.$id
@@ -93,7 +93,7 @@ class SuperAdminStatusController extends Controller
      */
     public function destroy(string $id)
     {
-        $status = Status::find($id);
+        $status = Status::findOrFail($id);
         $isHave = Ticket::where('status_id', $status->id)->exists();
 
         if ($isHave){

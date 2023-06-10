@@ -30,3 +30,55 @@ Route::get('super-admin-check-exist',
 Route::post('super-admin-decrypt-content',
     [\App\Http\Controllers\SuperAdminLicenseController::class, 'decryptFile'])
     ->name('super-admin-decrypt.content');
+
+
+
+
+
+Route::get('administrator-software-get-template/{id}',
+    [\App\Http\Controllers\AdministratorSoftwareController::class, 'apiGetSoftwareTemplate'])
+    ->name('administrator-software.get-template');
+
+Route::get('administrator-check-exist',
+    [\App\Http\Controllers\AdministratorSoftwareController::class, 'checkExist'])
+    ->name('administrator-check-exist.license');
+
+
+Route::post('administrator-decrypt-content',
+    [\App\Http\Controllers\AdministratorLicenseController::class, 'decryptFile'])
+    ->name('administrator-decrypt.content');
+
+
+
+
+
+Route::get('developer-software-get-template/{id}',
+    [\App\Http\Controllers\DeveloperSoftwareController::class, 'apiGetSoftwareTemplate'])
+    ->name('developer-software.get-template');
+
+Route::get('developer-check-exist',
+    [\App\Http\Controllers\DeveloperSoftwareController::class, 'checkExist'])
+    ->name('developer-check-exist.license');
+
+
+Route::post('developer-decrypt-content',
+    [\App\Http\Controllers\DeveloperLicenseController::class, 'decryptFile'])
+    ->name('developer-decrypt.content');
+
+
+
+
+
+Route::get('licenser-software-get-template/{id}',
+    [\App\Http\Controllers\LicenserSoftwareController::class, 'apiGetSoftwareTemplate'])
+    ->name('licenser-software.get-template');
+
+Route::get('licenser-check-exist',
+    [\App\Http\Controllers\LicenserSoftwareController::class, 'checkExist'])
+    ->name('licenser-check-exist.license');
+
+
+Route::post('licenser-decrypt-content',
+    [\App\Http\Controllers\LicenserLicenseController::class, 'decryptFile'])
+    ->name('licenser-decrypt.content');
+

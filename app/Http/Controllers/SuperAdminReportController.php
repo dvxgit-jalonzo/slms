@@ -46,7 +46,7 @@ class SuperAdminReportController extends Controller
         ]);
 
 
-        $status = Status::find($request->status_id);
+        $status = Status::findOrFail($request->status_id);
 
 
         Report::create([
@@ -76,7 +76,7 @@ class SuperAdminReportController extends Controller
      */
     public function edit(string $id)
     {
-        $report = Report::find($id);
+        $report = Report::findOrFail($id);
         $statuses = Status::all();
 
         return view('super-admin.report.edit', compact('statuses', 'report'));
@@ -88,7 +88,7 @@ class SuperAdminReportController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $report = Report::find($id);
+        $report = Report::findOrFail($id);
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
@@ -97,7 +97,7 @@ class SuperAdminReportController extends Controller
         ]);
 
 
-        $status = Status::find($request->status_id);
+        $status = Status::findOrFail($request->status_id);
 
 
         $report->update([
@@ -118,7 +118,7 @@ class SuperAdminReportController extends Controller
      */
     public function destroy(string $id)
     {
-        $report = Report::find($id);
+        $report = Report::findOrFail($id);
         if ($report->delete()){
             Alert::alert('Success', 'Deleted Successfully!', 'success')
                 ->autoClose(3000);

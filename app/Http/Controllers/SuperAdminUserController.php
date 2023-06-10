@@ -83,7 +83,7 @@ class SuperAdminUserController extends Controller
      */
     public function edit(string $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $roles = Role::all();
         return view('super-admin.user.edit', compact('user', 'roles'));
     }
@@ -93,7 +93,7 @@ class SuperAdminUserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
@@ -124,7 +124,7 @@ class SuperAdminUserController extends Controller
      */
     public function destroy(string $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         if ($user->delete()){
             Alert::alert('Success', 'Deleted Successfully!', 'success')
                 ->autoClose(3000);

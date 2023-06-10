@@ -64,7 +64,7 @@ class SuperAdminPermissionController extends Controller
      */
     public function edit(string $id)
     {
-        $permission = Permission::find($id);
+        $permission = Permission::findOrFail($id);
 
         return view('super-admin.permission.edit', compact('permission'));
     }
@@ -79,7 +79,7 @@ class SuperAdminPermissionController extends Controller
             'name' => 'required',
         ]);
 
-        $permission = Permission::find($id);
+        $permission = Permission::findOrFail($id);
 
         $permission->update([
             'name' => $request->name
@@ -96,7 +96,7 @@ class SuperAdminPermissionController extends Controller
      */
     public function destroy(string $id)
     {
-        $permission = Permission::find($id);
+        $permission = Permission::findOrFail($id);
 
 
         // No users assigned to the permission, safe to delete

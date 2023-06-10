@@ -63,7 +63,7 @@ class SuperAdminCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         return view('super-admin.category.edit', compact('category'));
     }
 
@@ -72,7 +72,7 @@ class SuperAdminCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
 
         $this->validate($request, [
             'name' => 'required|unique:categories,name,'.$id
@@ -93,7 +93,7 @@ class SuperAdminCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         $isHave = Ticket::where('category_id', $category->id)->exists();
 
         if ($isHave){

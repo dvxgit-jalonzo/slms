@@ -27,7 +27,7 @@
                                 <td>Name</td>
                                 <td>Email</td>
                                 <td>Username</td>
-                                <td>CreatedAt</td>
+                                <td>Role</td>
                                 <td>CreatedAt</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
@@ -40,8 +40,8 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->username}}</td>
-                                    <td>{{$user->created_at}}</td>
                                     <td>{{$user->getRoleNames()->first()}}</td>
+                                    <td>{{$user->created_at}}</td>
                                     <td>
                                         <a href="{{route('super-admin-user.edit', [$user->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
                                     <td><a href="{{ route('super-admin-user.destroy', [$user->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>

@@ -71,7 +71,7 @@ class SuperAdminSoftwareController extends Controller
      */
     public function show(string $id)
     {
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
         return view('super-admin.software.show', compact('software'));
     }
 
@@ -80,7 +80,7 @@ class SuperAdminSoftwareController extends Controller
      */
     public function edit(string $id)
     {
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
 
         return view('super-admin.software.edit', compact('software'));
     }
@@ -90,7 +90,7 @@ class SuperAdminSoftwareController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
         $this->validate($request, [
             'code' => 'required',
             'name' => 'required',
@@ -122,7 +122,7 @@ class SuperAdminSoftwareController extends Controller
      */
     public function destroy(string $id)
     {
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
         if ($software->software_requirements()->exists()){
             $software->software_requirements->delete();
         }
@@ -159,12 +159,12 @@ class SuperAdminSoftwareController extends Controller
     }
 
     public function editSoftwareRequirement( string $id){
-        $software_requirement = SoftwareRequirement::find($id);
+        $software_requirement = SoftwareRequirement::findOrFail($id);
         return view('super-admin.software.edit-software-requirement', compact('software_requirement'));
     }
 
     public function updateSoftwareRequirement(Request $request, string $id){
-        $software_requirement = SoftwareRequirement::find($id);
+        $software_requirement = SoftwareRequirement::findOrFail($id);
         $this->validate($request, [
             'name' => 'required',
             'specs' => 'required'
@@ -182,7 +182,7 @@ class SuperAdminSoftwareController extends Controller
     }
 
     public function destroySoftwareRequirement($id){
-        $software_requirement = SoftwareRequirement::find($id);
+        $software_requirement = SoftwareRequirement::findOrFail($id);
 
         if ($software_requirement->delete()){
             Alert::alert('Success', 'Deleted Successfully!', 'success')
@@ -193,7 +193,7 @@ class SuperAdminSoftwareController extends Controller
 
 
     public function createSoftwareModule(string $id){
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
 
         return view('super-admin.software.create-software-module', compact('software'));
     }
@@ -222,7 +222,7 @@ class SuperAdminSoftwareController extends Controller
             'description' => 'required',
         ]);
 
-        $module = SoftwareUnder::find($id);
+        $module = SoftwareUnder::findOrFail($id);
 
         $module->update([
             'name' => $request->name,
@@ -236,13 +236,13 @@ class SuperAdminSoftwareController extends Controller
     }
 
     public function editSoftwareModule(Request $request, string $id){
-        $module = SoftwareUnder::find($id);
+        $module = SoftwareUnder::findOrFail($id);
 
         return view('super-admin.software.edit-software-module', compact('module'));
     }
 
     public function destroySoftwareModule(string $id){
-        $module = SoftwareUnder::find($id);
+        $module = SoftwareUnder::findOrFail($id);
 
         if ($module->delete()){
 
@@ -255,12 +255,12 @@ class SuperAdminSoftwareController extends Controller
 
 
     public function  createSoftwareTemplate(string $id){
-        $software = Software::find($id);
+        $software = Software::findOrFail($id);
         return view('super-admin.software.create-software-template', compact('software'));
     }
 
     public function editSoftwareTemplate(string $id){
-        $template = SoftwareTemplate::find($id);
+        $template = SoftwareTemplate::findOrFail($id);
         return view('super-admin.software.edit-software-template', compact('template'));
     }
 
@@ -295,7 +295,7 @@ class SuperAdminSoftwareController extends Controller
             'name' => 'required',
         ]);
 
-        $template = SoftwareTemplate::find($id);
+        $template = SoftwareTemplate::findOrFail($id);
         $template->update([
             'name' => $request->name,
             'value' => $request->value,
@@ -306,7 +306,7 @@ class SuperAdminSoftwareController extends Controller
     }
 
     public function destroySoftwareTemplate(string $id){
-        $template = SoftwareTemplate::find($id);
+        $template = SoftwareTemplate::findOrFail($id);
         if ($template->delete()){
             Alert::alert('Delete', 'Deleted Successfully!', 'success')
                 ->autoClose(3000);

@@ -134,12 +134,12 @@ class SuperAdminLicenseController extends Controller
     }
 
     public function show(string $id){
-        $license = License::find($id);
+        $license = License::findOrFail($id);
         return view('super-admin.license.show', compact('license'));
     }
 
     public function destroy(string $id){
-        $license = License::find($id);
+        $license = License::findOrFail($id);
         $file = $license->dat_file;
         $filePath = 'dat_files/' . $file;
 
@@ -159,7 +159,7 @@ class SuperAdminLicenseController extends Controller
     public function viewLicense(string $id){
 
 
-        $license = License::find($id);
+        $license = License::findOrFail($id);
         $sysconf = $license->dat_file;
 
         $jsonFilePath = storage_path('app/public/dat_files/').$sysconf;
@@ -171,7 +171,7 @@ class SuperAdminLicenseController extends Controller
 
 
     public function editRemoteAccess(string $id){
-        $remote = LicenseRemoteAccess::find($id);
+        $remote = LicenseRemoteAccess::findOrFail($id);
         return view('super-admin.license.edit-remote-access', compact('remote'));
     }
 
@@ -182,7 +182,7 @@ class SuperAdminLicenseController extends Controller
             'password' => 'required',
         ]);
 
-        $remote = LicenseRemoteAccess::find($id);
+        $remote = LicenseRemoteAccess::findOrFail($id);
 
         $remote->update([
             'application' => $request->application,
@@ -218,7 +218,7 @@ class SuperAdminLicenseController extends Controller
     }
 
     public function destroyRemoteAccess(string $id){
-        $remote = LicenseRemoteAccess::find($id);
+        $remote = LicenseRemoteAccess::findOrFail($id);
         if ($remote->delete()){
             Alert::alert('Deleted', 'Remote Access Deleted Successfully!', 'success')
                 ->autoClose(3000);
@@ -229,7 +229,7 @@ class SuperAdminLicenseController extends Controller
 
 
     public function createAttribute(string $id){
-        $license = License::find($id);
+        $license = License::findOrFail($id);
         return view('super-admin.license.create-license-attribute', compact('license'));
     }
 
@@ -253,7 +253,7 @@ class SuperAdminLicenseController extends Controller
     }
 
     public function editAttribute($id){
-        $attribute = LicenseAttribute::find($id);
+        $attribute = LicenseAttribute::findOrFail($id);
         return view('super-admin.license.edit-license-attribute', compact('attribute'));
     }
 
@@ -263,7 +263,7 @@ class SuperAdminLicenseController extends Controller
             'value' => 'required',
         ]);
 
-        $attribute = LicenseAttribute::find($id);
+        $attribute = LicenseAttribute::findOrFail($id);
 
         $attribute->update([
             'key' => $request->key,
@@ -279,7 +279,7 @@ class SuperAdminLicenseController extends Controller
     }
 
     public function destroyAttribute(string $id){
-        $attribute = LicenseAttribute::find($id);
+        $attribute = LicenseAttribute::findOrFail($id);
         if ($attribute->delete()){
             Alert::alert('Deleted', 'Attribute Deleted Successfully!', 'success')
                 ->autoClose(3000);

@@ -15,8 +15,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->get();
-        return view('super-admin.profile.index', compact('user'));
+        if (\auth()->check()){
+            $user = Auth::user()->get();
+            return view('profile.index', compact('user'));
+        }
+
+        Alert::alert('Not Authenticated.', 'Sorry you must login first before proceeding.', 'error')
+            ->autoClose(3000);
+        return redirect()->route('login');
+
+
     }
 
     /**
@@ -56,7 +64,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = User::find(\auth()->user()->id);
+        $user = User::findOrFail(\auth()->user()->id);
 
         $this->validate($request, [
             'name' => 'required',
@@ -72,7 +80,7 @@ class ProfileController extends Controller
 
         Alert::alert("Update", "Your profile updated successfully.", "success");
 
-        return redirect()->route('super-admin-profile.index');
+        return redirect()->route('profile.index');
 
     }
 
@@ -108,7 +116,7 @@ class ProfileController extends Controller
         }else{
             Alert::alert("Password Incorrect", "Your given current password incorrect.", "error");
         }
-        return redirect()->route('super-admin-profile.index');
+        return redirect()->route('profile.index');
 
 
 

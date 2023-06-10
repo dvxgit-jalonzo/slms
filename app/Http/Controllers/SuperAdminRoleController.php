@@ -63,7 +63,7 @@ class SuperAdminRoleController extends Controller
      */
     public function edit(string $id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
 
         return view('super-admin.role.edit', compact('role'));
     }
@@ -78,7 +78,7 @@ class SuperAdminRoleController extends Controller
             'name' => 'required',
         ]);
 
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
 
         $role->update([
             'name' => $request->name
@@ -95,7 +95,7 @@ class SuperAdminRoleController extends Controller
      */
     public function destroy(string $id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
 
         if ($role->users()->count() > 0) {
             Alert::alert('Error', 'Cannot delete role. Users are assigned to this role.', 'error')

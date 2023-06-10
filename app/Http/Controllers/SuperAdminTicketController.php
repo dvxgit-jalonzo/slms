@@ -57,9 +57,9 @@ class SuperAdminTicketController extends Controller
 
 
 
-        $category = Category::find($request->category_id);
-        $status = Status::find($request->status_id);
-        $assigned_to = User::find($request->assigned_to);
+        $category = Category::findOrFail($request->category_id);
+        $status = Status::findOrFail($request->status_id);
+        $assigned_to = User::findOrFail($request->assigned_to);
 
         Ticket::create([
             'title' => $request->title,
@@ -92,7 +92,7 @@ class SuperAdminTicketController extends Controller
      */
     public function edit(string $id)
     {
-        $ticket = Ticket::find($id);
+        $ticket = Ticket::findOrFail($id);
         $categories = Category::all();
         $statuses = Status::all();
         $users = User::all();
@@ -104,7 +104,7 @@ class SuperAdminTicketController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $ticket = Ticket::find($id);
+        $ticket = Ticket::findOrFail($id);
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
@@ -114,9 +114,9 @@ class SuperAdminTicketController extends Controller
             'priority' => 'required',
         ]);
 
-        $category = Category::find($request->category_id);
-        $status = Status::find($request->status_id);
-        $assigned_to = User::find($request->assigned_to);
+        $category = Category::findOrFail($request->category_id);
+        $status = Status::findOrFail($request->status_id);
+        $assigned_to = User::findOrFail($request->assigned_to);
 
         $ticket->update([
             'title' => $request->title,
@@ -139,7 +139,7 @@ class SuperAdminTicketController extends Controller
     public function destroy(string $id)
     {
 
-        $ticket = Ticket::find($id);
+        $ticket = Ticket::findOrFail($id);
         if ($ticket->delete()){
             Alert::alert('Success', 'Deleted Successfully!', 'success')
                 ->autoClose(3000);

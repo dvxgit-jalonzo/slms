@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8601887-dc62-4622-8eed-365def7b0c6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperClientController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperLicenseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperPermissionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperRoleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperSoftwareController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperStatusController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperTicketController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../app/Http/Controllers/DeveloperUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/developer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/category/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/category/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/category/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/edit-contact-person.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/create-license-attribute.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/edit-license-attribute.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/edit-remote-access.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/license/view-license.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/permission/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/permission/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/permission/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/role/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/role/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/role/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/create-software-module.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/create-software-template.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/edit-software-module.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/edit-software-requirement.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/edit-software-template.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/status/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/status/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/status/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/for-voicemail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QyEJjDn68N1USjvfsVY93r4NTW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/developer",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8601887-dc62-4622-8eed-365def7b0c6a" name="Changes" comment="" />
+      <created>1686317350487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686317350487</updated>
+      <workItem from="1686317351639" duration="213000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

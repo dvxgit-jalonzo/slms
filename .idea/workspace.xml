@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/NiceAdmin/assets/img/diavox.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ui.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9faab05e-10f4-4392-9d48-6de49ae4575e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9faab05e-10f4-4392-9d48-6de49ae4575e/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9faab05e-10f4-4392-9d48-6de49ae4575e/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_08_011706_create_software_templates_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_08_011706_create_software_templates_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/administrator/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/administrator/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,6 +197,7 @@
       <workItem from="1686435959495" duration="7546000" />
       <workItem from="1686614166461" duration="77000" />
       <workItem from="1686615213197" duration="7000" />
+      <workItem from="1686616747303" duration="595000" />
     </task>
     <servers />
   </component>

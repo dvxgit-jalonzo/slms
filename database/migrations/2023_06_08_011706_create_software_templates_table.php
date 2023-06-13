@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('software_id');
             $table->string('name');
             $table->string('value')->nullable();
+            $table->string('label');
             $table->timestamps();
             $table->foreign('software_id')->references('id')->on('software')->onDelete('cascade');
         });

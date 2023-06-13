@@ -27,6 +27,11 @@
                                 @method("PUT")
                                 <div class="row">
                                     <div class="col-12 mb-3">
+                                        <x-form-floating name="label" type="text" class="text-uppercase" placeholder="Label" value="{{$template->label}}">
+                                            <x-validation name="label"></x-validation>
+                                        </x-form-floating>
+                                    </div>
+                                    <div class="col-12 mb-3">
                                         <x-form-floating name="name" type="text" class="text-uppercase" placeholder="Name" value="{{$template->name}}">
                                             <x-validation name="name"></x-validation>
                                         </x-form-floating>

@@ -164,7 +164,7 @@
                                         <div class="activite-label">{{$recentLicense->created_at->shortRelativeDiffForHumans()}}</div>
                                         <i class='bi bi-circle-fill activity-badge {{Arr::random(['text-success', 'text-danger', 'text-info', 'text-warning', 'text-dark'])}} align-self-start'></i>
                                         <div class="activity-content">
-                                            <b>{{$recentLicense->client->company_name}}</b> <br>{{$recentLicense->dat_file}}
+                                            <b>{{$recentLicense->client->company_name}}</b> <br>{{$recentLicense->software->name}}
                                         </div>
                                     </div><!-- End activity item-->
                                 @empty

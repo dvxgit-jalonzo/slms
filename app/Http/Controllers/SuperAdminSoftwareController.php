@@ -268,6 +268,7 @@ class SuperAdminSoftwareController extends Controller
     public function storeSoftwareTemplate(Request $request, string $id){
         $this->validate($request, [
             'name.*' => 'required',
+            'label.*' => 'required',
         ]);
 
 
@@ -276,6 +277,7 @@ class SuperAdminSoftwareController extends Controller
         for($x=0; $x<count($request->name); $x++){
             SoftwareTemplate::create([
                 'software_id' => $id,
+                'label' => ucwords($request->label[$x]),
                 'name' => strtoupper("_".$request->name[$x]),
                 'value' => $request->value[$x],
             ]);
@@ -293,10 +295,12 @@ class SuperAdminSoftwareController extends Controller
     public function updateSoftwareTemplate(Request $request, string $id){
         $this->validate($request, [
             'name' => 'required',
+            'label' => 'required',
         ]);
 
         $template = SoftwareTemplate::findOrFail($id);
         $template->update([
+            'label' => ucwords($request->label),
             'name' => $request->name,
             'value' => $request->value,
         ]);

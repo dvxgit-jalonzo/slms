@@ -57,17 +57,26 @@
                 $("#add").on("click", function (){
                     var inputs = $("#inputs");
 
-                    var key = `<div class="col-lg-6 mb-3">
+                    var label = `<div class="col-lg-4 mb-3">
+            <x-form-floating name="label[]" type="text" class="text-uppercase" placeholder="Label" value="{{old('label')}}">
+                <x-validation name="label"></x-validation>
+            </x-form-floating>
+        </div>`;
+
+                    var key = `<div class="col-lg-4 mb-3">
             <x-form-floating name="name[]" type="text" class="text-uppercase" placeholder="Name" value="{{old('name')}}">
                 <x-validation name="name"></x-validation>
             </x-form-floating>
         </div>`;
 
-            var value = `<div class="col-lg-6 mb-3">
+
+
+            var value = `<div class="col-lg-4 mb-3">
             <x-form-floating name="value[]" type="text" placeholder="Value" value="{{old('value')}}">
                 <x-validation name="value"></x-validation>
             </x-form-floating>
         </div>`;
+                    inputs.append(label);
                     inputs.append(key);
                     inputs.append(value);
                 });

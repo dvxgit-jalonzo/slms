@@ -459,7 +459,9 @@ Route::group(['middleware' => ['role:Super Admin']], function (){
 });
 
 
-
+Route::get('/ui', function (){
+    return view('ui');
+});
 
 Route::post('/profile-update-password', [\App\Http\Controllers\ProfileController::class, 'updatePassword'])
     ->name('profile.update-password');

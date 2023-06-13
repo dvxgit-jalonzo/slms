@@ -116,6 +116,7 @@
                                                             <table class="table table-sm templates-table" >
                                                                 <thead>
                                                                 <tr>
+                                                                    <th>Label</th>
                                                                     <th>Name</th>
                                                                     <th>Value</th>
                                                                     <th>Edit</th>
@@ -125,6 +126,7 @@
                                                                 <tbody>
                                                                 @foreach($sft->software_templates as $template)
                                                                     <tr>
+                                                                        <td>{{$template->label}}</td>
                                                                         <td>{{$template->name}}</td>
                                                                         <td>{{$template->value}}</td>
                                                                         <td><a href="{{route('super-admin-software.edit-software-template', [$template->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>

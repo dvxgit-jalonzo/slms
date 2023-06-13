@@ -189,21 +189,15 @@
                                 }else{
                                     val = "";
                                 }
-                                var input = `<div class="col-12 mb-3">
+                                var input = `<div class="col-12">
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="form-floating">
-                                                            <input id="temp`+element.name+`" class="form-control" name="name[]" value="`+element.name+`" placeholder="Name" type="text">
-                                                            <label for="temp`+element.name+`">Name</label>
-                                                        </div>
+                                                    <div class="col-4"><label for="">`+element.label+`</label>
+                                                        <input hidden id="temp`+element.name+`" class="form-control" name="name[]" value="`+element.name+`" placeholder="Name" type="text">
+
 
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="form-floating">
-                                                            <input id="`+element.name+`" class="form-control" name="value[]" value="`+val+`" placeholder="Value" type="text">
-                                                            <label for="`+element.name+`">Value</label>
-                                                        </div>
-
+                                                    <div class="col-8">
+                                                        <input id="`+element.name+`" class="form-control border-0 border-bottom " style="outline: none; box-shadow: none;" name="value[]" value="`+val+`"  type="text">
                                                     </div>
                                                 </div>
                                             </div>`;

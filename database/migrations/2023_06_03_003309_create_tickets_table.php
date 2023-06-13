@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('ticket_number');
             $table->longText('description');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
             $table->unsignedBigInteger('software_id')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
+//            $table->unsignedBigInteger('approved_by')->nullable();
             $table->unsignedBigInteger('assigned_to');
             $table->boolean('is_reviewed')->default(0);
             $table->string('priority')->comment('low, medium, high, urgent');
@@ -31,6 +33,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('set null');
             $table->foreign('assigned_to')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

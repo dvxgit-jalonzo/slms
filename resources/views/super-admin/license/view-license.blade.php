@@ -25,7 +25,7 @@
                             <ul class="list-group">
                                 @foreach($json as $key => $value)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        {{\App\Models\SoftwareTemplate::where('software_id', $license->software->id)->where('name', $key)->value('label')}}
+                                                           {{\App\Models\SoftwareTemplate::where('software_id', $license->software->id)->where('name', $key)->value('label')}}
                                         <span class="badge text-primary rounded">{{$value}}</span>
                                     </li>
                                 @endforeach

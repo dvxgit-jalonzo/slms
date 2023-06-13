@@ -31,6 +31,20 @@ Route::post('super-admin-decrypt-content',
     [\App\Http\Controllers\SuperAdminLicenseController::class, 'decryptFile'])
     ->name('super-admin-decrypt.content');
 
+Route::get("super-admin-software-get-code",
+    [\App\Http\Controllers\SuperAdminSoftwareController::class, 'getSoftwareCode'])
+    ->name('super-admin-software.get-software-code');
+
+Route::get("super-admin-client-get-code",
+    [\App\Http\Controllers\SuperAdminClientController::class, 'getClientCode'])
+    ->name('super-admin-client.get-client-code');
+
+//This should be ticket .. to edit
+Route::get("super-admin-license-get-last-id",
+    [\App\Http\Controllers\SuperAdminLicenseController::class, 'getLastID'])
+    ->name('super-admin-license.get-last-id');
+
+
 
 
 

@@ -11,7 +11,6 @@
             @endif
         </li><!-- End Dashboard Nav -->
 
-
         @role('Administrator')
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">

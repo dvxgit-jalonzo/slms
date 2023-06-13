@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\ClientContact;
+use App\Models\Software;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -204,5 +205,13 @@ class SuperAdminClientController extends Controller
 
         return redirect()->route('super-admin-client.index');
 
+    }
+
+
+//    API
+
+
+    public function getClientCode(Request $request){
+        return Client::select("code")->where('id', $request->client_id)->get();
     }
 }

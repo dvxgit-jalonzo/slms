@@ -8,6 +8,8 @@ use App\Models\License;
 use App\Models\LicenseAttribute;
 use App\Models\LicenseRemoteAccess;
 use App\Models\Software;
+use App\Models\Ticket;
+use App\Models\TicketTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -294,6 +296,17 @@ class SuperAdminLicenseController extends Controller
         $diav = new DiavoxLicenser();
         $decrypt = $diav->decrypt($encrypted);
         return json_encode($decrypt);
+    }
+
+
+    public function getLastID(){
+        $license = Ticket::orderBy('id', 'desc')->limit(1)->first();
+
+        if (empty($license)){
+            return "000001";
+        }
+
+        return strrev(str_pad($license->id+1, 6, "0"));
     }
 
 

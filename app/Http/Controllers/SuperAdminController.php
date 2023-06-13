@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\License;
 use App\Models\Report;
 use App\Models\Software;
+use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,11 @@ class SuperAdminController extends Controller
             ->latest()
             ->get();
 
-        $recentTickets = Ticket::where('is_reviewed', 0)->get();
+        $status = Status::where("name", "resolved")->first();
+
+
+        $recentTickets = Ticket::whereNot('status_id', "=", $status->id)->get();
+
         $recentReports = Report::limit(3)
             ->latest()
             ->get();

@@ -30,4 +30,13 @@ class Ticket extends Model
     public function attachments(){
         return $this->hasMany(TicketAttachment::class);
     }
+
+    public function software()
+    {
+        return $this->belongsTo(Software::class);
+    }
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
 }

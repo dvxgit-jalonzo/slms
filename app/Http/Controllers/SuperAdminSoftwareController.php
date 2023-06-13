@@ -348,4 +348,9 @@ class SuperAdminSoftwareController extends Controller
            return $license->get();
        }
     }
+
+
+    public function getSoftwareCode(Request $request){
+        return Software::select("code")->where('id', $request->software_id)->get();
+    }
 }

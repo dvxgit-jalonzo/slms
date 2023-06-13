@@ -333,6 +333,10 @@ Route::group(['middleware' => ['role:Support']], function (){
 
 Route::group(['middleware' => ['role:Super Admin']], function (){
 
+
+    Route::resource('super-admin-ticket-template', \App\Http\Controllers\SuperAdminTicketTemplateController::class);
+
+
 //Client Contact Person
     Route::get('/super-admin-client-edit-contact-person/{id}',
         [\App\Http\Controllers\SuperAdminClientController::class, 'editContactPerson'])
@@ -440,6 +444,8 @@ Route::group(['middleware' => ['role:Super Admin']], function (){
 
 
 
+
+    Route::get('super-admin-ticket-download/{id}', [\App\Http\Controllers\SuperAdminTicketController::class, 'download'])->name('super-admin-ticket.download');
 
     Route::resource('/super-admin-ticket', \App\Http\Controllers\SuperAdminTicketController::class);
     Route::resource('/super-admin-client', \App\Http\Controllers\SuperAdminClientController::class);

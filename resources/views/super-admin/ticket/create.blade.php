@@ -30,8 +30,7 @@
 
 
                                             <div class="col-12 mb-3">
-
-                                                <textarea class="tinymce-editor @error('description') is-invalid @enderror" name="description">{{old('description')}}</textarea>
+                                                <textarea class="tinymce-editor @error('description') is-invalid @enderror" name="description">{{$ticket_template}}</textarea>
                                                 <x-validation name="description"></x-validation>
                                             </div>
                                         </div>
@@ -47,10 +46,16 @@
                                                 <x-validation name="software_id"></x-validation>
                                             </div>
                                             <div class="col-12 mb-3">
+                                                <x-form-floating id="ticket_number" name="ticket_number" type="text" readonly placeholder="Ticket Number" value="{{old('ticket_number')}}">
+                                                    <x-validation name="ticket_number"></x-validation>
+                                                </x-form-floating>
+                                            </div>
+                                            <div class="col-12 mb-3">
                                                 <x-form-floating name="title" type="text" placeholder="Title" value="{{old('title')}}">
                                                     <x-validation name="title"></x-validation>
                                                 </x-form-floating>
                                             </div>
+
                                             <div class="col-12 mb-3">
                                                 <x-select id="category_id" name="category_id" :data="$categories" column_val="id" column="name" placeholder="Choose Category"></x-select>
                                                 <x-validation name="category_id"></x-validation>
@@ -91,6 +96,7 @@
                                             <button type="reset" class="btn btn-outline-dark">Reset</button>
                                         </div>
                                     </div>
+                                    <input type="text" hidden id="number">
                                 </div>
                             </form>
 
@@ -106,11 +112,75 @@
         <script>
             $(document).ready(function() {
 
+
+
+
+                let software_code = "";
+                let client_code = "";
+                let ticker_number = "";
+
+
                 $('#select').select2( {
                     theme: "bootstrap-5",
                     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
                     placeholder: $( this ).data( 'placeholder' ),
                 } );
+
+
+
+
+                $.ajax({
+                    url: "{{route('super-admin-license.get-last-id')}}",
+                    method: "GET",
+                    success: function (response){
+                        let  number = response;
+                        $("#software_id").on("change", function (){
+                            var software_id = $(this).val();
+                            $.ajax({
+                                url: "{{route('super-admin-software.get-software-code')}}",
+                                method: "GET",
+                                data: {
+                                    software_id: software_id
+                                },
+                                success: function(response) {
+                                    console.log(response[0].code);
+                                    software_code = response[0].code;
+                                    ticker_number = software_code+""+client_code+"-"+number;
+                                    $("#ticket_number").val(ticker_number);
+                                },
+                            })
+                        });
+                    }
+                });
+
+
+                $.ajax({
+                    url: "{{route('super-admin-license.get-last-id')}}",
+                    method: "GET",
+                    success: function (response){
+                        let  number = response;
+
+                        $("#client_id").on("change", function (){
+                            var client_id = $(this).val();
+                            $.ajax({
+                                url: "{{route('super-admin-client.get-client-code')}}",
+                                method: "GET",
+                                data: {
+                                    client_id: client_id
+                                },
+                                success: function(response) {
+                                    console.log(response[0].code);
+                                    client_code = response[0].code;
+                                    ticker_number = software_code+""+client_code+"-"+number;
+                                    $("#ticket_number").val(ticker_number);
+                                },
+                            })
+                        });
+                    }
+                });
+
+
+
             });
         </script>
 

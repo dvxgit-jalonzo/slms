@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="" />
+    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketTemplateController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/TicketTemplate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_13_051652_create_ticket_templates_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/slms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/slms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +157,13 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/realrashid/sweet-alert" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
     </include_path>
   </component>
   <component name="ProjectId" id="2Qd4gMVULsLX1z2Lj7gbR0g8MRj" />
@@ -141,33 +174,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/slms/public/NiceAdmin/assets/img&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JSON&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/super-admin/ticket-template",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JSON",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\slms\resources\views\super-admin\ticket-template" />
       <recent name="C:\xampp\htdocs\slms\public\NiceAdmin\assets\img" />
       <recent name="C:\xampp\htdocs\slms\resources\views\administrator" />
       <recent name="C:\xampp\htdocs\slms\resources\views\support" />
       <recent name="C:\xampp\htdocs\slms\resources\views\licenser" />
-      <recent name="C:\xampp\htdocs\slms\resources\views\developer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\slms\resources\views" />
@@ -197,7 +230,7 @@
       <workItem from="1686435959495" duration="7546000" />
       <workItem from="1686614166461" duration="77000" />
       <workItem from="1686615213197" duration="7000" />
-      <workItem from="1686616747303" duration="595000" />
+      <workItem from="1686616747303" duration="17682000" />
     </task>
     <servers />
   </component>

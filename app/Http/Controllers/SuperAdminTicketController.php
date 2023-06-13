@@ -7,7 +7,9 @@ use App\Models\Client;
 use App\Models\Software;
 use App\Models\Status;
 use App\Models\Ticket;
+use App\Models\TicketTemplate;
 use App\Models\User;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -36,7 +38,9 @@ class SuperAdminTicketController extends Controller
         $users = User::all();
         $clients = Client::all();
         $softwares = Software::all();
-        return view('super-admin.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares'));
+        $ticket_template = TicketTemplate::select("content")->first()->content;
+
+        return view('super-admin.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
     }
 
     /**
@@ -65,6 +69,7 @@ class SuperAdminTicketController extends Controller
             'title' => $request->title,
             'client_id' => $request->client_id,
             'software_id' => $request->software_id,
+            'ticket_number' => $request->ticket_number,
             'description' => $request->description,
             'user_id' => auth()->user()->id,
             'category_id' => $category->id,
@@ -90,9 +95,38 @@ class SuperAdminTicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    public function download(string $id){
+        $ticket = Ticket::findOrFail($id);
+
+        $fileName = 'template_' . $ticket->id . '.pdf';
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($ticket->description);
+
+        $dompdf->setPaper('A4', 'portrait');
+
+        $dompdf->render();
+
+        return $dompdf->stream($fileName);
+    }
+
     public function edit(string $id)
     {
         $ticket = Ticket::findOrFail($id);
+
+//        $fileName = 'template_' . $ticket->id . '.pdf';
+//
+//        $dompdf = new Dompdf();
+//        $dompdf->loadHtml($ticket->description);
+//
+//        $dompdf->setPaper('A4', 'portrait');
+//
+//        $dompdf->render();
+//
+//        return $dompdf->stream($fileName);
+
+
+
         $categories = Category::all();
         $statuses = Status::all();
         $users = User::all();
@@ -121,6 +155,7 @@ class SuperAdminTicketController extends Controller
         $ticket->update([
             'title' => $request->title,
             'description' => $request->description,
+//            'ticket_number' => $request->ticket_number,
             'category_id' => $category->id,
             'status_id' => $status->id,
             'assigned_to' => $assigned_to->id,
@@ -149,3 +184,5 @@ class SuperAdminTicketController extends Controller
         return redirect()->route('super-admin-ticket.index');
     }
 }
+
+

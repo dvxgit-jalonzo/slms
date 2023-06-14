@@ -20,6 +20,8 @@ class SuperAdminTicketController extends Controller
      */
     public function index()
     {
+
+
         $tickets = Ticket::all();
 
         $title = 'Delete Ticket!';
@@ -98,7 +100,7 @@ class SuperAdminTicketController extends Controller
     public function download(string $id){
         $ticket = Ticket::findOrFail($id);
 
-        $fileName = 'template_' . $ticket->id . '.pdf';
+        $fileName = 'Ticket_' . $ticket->ticket_number . '.pdf';
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml($ticket->description);

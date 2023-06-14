@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-client.index')}}">View Client</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-client.index')}}">View Client</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('developer-client.update-contact-person', [$contact->id])}}" method="POST">
+                            <form action="{{route('master-client.update-contact-person', [$contact->id])}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

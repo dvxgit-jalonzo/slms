@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.index')}}">View Ticket</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket.index')}}">View Ticket</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('super-admin-ticket.store')}}" method="POST">
+                            <form action="{{route('master-ticket.store')}}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-8">
@@ -130,14 +130,14 @@
 
 
                 $.ajax({
-                    url: "{{route('super-admin-license.get-last-id')}}",
+                    url: "{{route('master-license.get-last-id')}}",
                     method: "GET",
                     success: function (response){
                         let  number = response;
                         $("#software_id").on("change", function (){
                             var software_id = $(this).val();
                             $.ajax({
-                                url: "{{route('super-admin-software.get-software-code')}}",
+                                url: "{{route('master-software.get-software-code')}}",
                                 method: "GET",
                                 data: {
                                     software_id: software_id
@@ -155,7 +155,7 @@
 
 
                 $.ajax({
-                    url: "{{route('super-admin-license.get-last-id')}}",
+                    url: "{{route('master-license.get-last-id')}}",
                     method: "GET",
                     success: function (response){
                         let  number = response;
@@ -163,7 +163,7 @@
                         $("#client_id").on("change", function (){
                             var client_id = $(this).val();
                             $.ajax({
-                                url: "{{route('super-admin-client.get-client-code')}}",
+                                url: "{{route('master-client.get-client-code')}}",
                                 method: "GET",
                                 data: {
                                     client_id: client_id

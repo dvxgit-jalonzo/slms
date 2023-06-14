@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-license.index')}}">View License</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-license.index')}}">View License</a></li>
                 </ol>
             </nav>
         </div>
@@ -25,7 +25,7 @@
                             <ul class="list-group">
                                 @foreach($json as $key => $value)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        {{$key}}
+                                                           {{\App\Models\SoftwareTemplate::where('software_id', $license->software->id)->where('name', $key)->value('label')}}
                                         <span class="badge text-primary rounded">{{$value}}</span>
                                     </li>
                                 @endforeach

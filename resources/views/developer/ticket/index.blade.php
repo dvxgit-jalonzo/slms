@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-ticket.create')}}">Create Ticket</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket.create')}}">Create Ticket</a></li>
                 </ol>
             </nav>
         </div>
@@ -25,13 +25,16 @@
                             <thead>
                             <tr>
                                 <td>Title</td>
-                                <td>Description</td>
-                                <td>Assigner</td>
-                                <td>AssignedTo</td>
+                                <td>Client</td>
+                                <td>Software</td>
+{{--                                <td>Description</td>--}}
+{{--                                <td>Assigner</td>--}}
+{{--                                <td>AssignedTo</td>--}}
                                 <td>Category</td>
                                 <td>Status</td>
                                 <td>Priority</td>
                                 <td>CreatedAt</td>
+                                <td></td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
@@ -40,16 +43,19 @@
                             @foreach($tickets as $ticket)
                                 <tr>
                                     <td>{{$ticket->title}}</td>
-                                    <td>{!! $ticket->description !!}</td>
-                                    <td>{{$ticket->generateBy->name}}</td>
-                                    <td>{{$ticket->assignedToUser->name}}</td>
+                                    <td>{{$ticket->client->company_name}}</td>
+                                    <td>{{$ticket->software->name}}</td>
+{{--                                    <td>{!! $ticket->description !!}</td>--}}
+{{--                                    <td>{{$ticket->generateBy->name}}</td>--}}
+{{--                                    <td>{{$ticket->assignedToUser->name}}</td>--}}
                                     <td>{{$ticket->category->name}}</td>
                                     <td>{{$ticket->status->name}}</td>
                                     <td>{{$ticket->priority}}</td>
                                     <td>{{$ticket->created_at}}</td>
+                                    <td><a href="{{route('master-ticket.download', [$ticket->id])}}" class="btn btn-sm btn-outline-dark"><i class="bi bi-download"></i></a></td></td>
                                     <td>
-                                        <a href="{{route('developer-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('developer-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('master-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

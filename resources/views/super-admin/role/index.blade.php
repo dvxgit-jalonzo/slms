@@ -7,9 +7,9 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a type="button" data-bs-toggle="modal" data-bs-target="#createRoleModal">Create Role</a></li>
-                    <form action="{{route('super-admin-role.store')}}" method="POST">
+                    <form action="{{route('master-role.store')}}" method="POST">
                         @csrf
                         <div class="modal fade" id="createRoleModal" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
@@ -63,8 +63,8 @@
                                     <td>{{$role->name}}</td>
                                     <td>{{$role->created_at}}</td>
                                     <td>
-                                        <a href="{{route('super-admin-role.edit', [$role->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-role.destroy', [$role->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('master-role.edit', [$role->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-role.destroy', [$role->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

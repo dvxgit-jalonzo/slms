@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-license.index')}}">View License</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-license.index')}}">View License</a></li>
                 </ol>
             </nav>
         </div>
@@ -18,7 +18,7 @@
 
     @section('content')
         <section class="section dashboard">
-            <form action="{{route('developer-license.store')}}" method="POST">
+            <form action="{{route('master-license.store')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-12">
@@ -122,7 +122,7 @@
                         reader.onload = function (e) {
                             const fileContent = e.target.result;
 
-                            const decryptUrl = "{{route('developer-decrypt.content')}}";
+                            const decryptUrl = "{{route('master-decrypt.content')}}";
 
                             $.ajax({
                                 url: decryptUrl,
@@ -170,7 +170,7 @@
                     var duplicate = $("#duplicate");
                     duplicate.empty();
                     var to_search = $(this).val();
-                    var url = "{{ route('developer-software.get-template', ['id' => ':id']) }}";
+                    var url = "{{ route('master-software.get-template', ['id' => ':id']) }}";
                     url = url.replace(':id', to_search);
                     var apiURL = url;
                     $.ajax({
@@ -189,21 +189,15 @@
                                 }else{
                                     val = "";
                                 }
-                                var input = `<div class="col-12 mb-3">
+                                var input = `<div class="col-12">
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="form-floating">
-                                                            <input id="temp`+element.name+`" class="form-control" name="name[]" value="`+element.name+`" placeholder="Name" type="text">
-                                                            <label for="temp`+element.name+`">Name</label>
-                                                        </div>
+                                                    <div class="col-4"><label for="">`+element.label+`</label>
+                                                        <input hidden id="temp`+element.name+`" class="form-control" name="name[]" value="`+element.name+`" placeholder="Name" type="text">
+
 
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="form-floating">
-                                                            <input id="`+element.name+`" class="form-control" name="value[]" value="`+val+`" placeholder="Value" type="text">
-                                                            <label for="`+element.name+`">Value</label>
-                                                        </div>
-
+                                                    <div class="col-8">
+                                                        <input id="`+element.name+`" class="form-control border-0 border-bottom " style="outline: none; box-shadow: none;" name="value[]" value="`+val+`"  type="text">
                                                     </div>
                                                 </div>
                                             </div>`;
@@ -223,7 +217,7 @@
 
 
                     $.ajax({
-                        url: "{{route('developer-check-exist.license')}}",
+                        url: "{{route('master-check-exist.license')}}",
                         type: 'GET',
                         data: {
                             software_id: softwareId,

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-software.index')}}">View Software</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-software.index')}}">View Software</a></li>
                 </ol>
             </nav>
         </div>
@@ -18,7 +18,7 @@
 
     @section('content')
         <section class="section dashboard">
-            <form action="{{route('super-admin-software.store')}}" method="POST">
+            <form action="{{route('master-software.store')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-12">

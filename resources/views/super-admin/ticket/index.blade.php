@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.create')}}">Create Ticket</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket.create')}}">Create Ticket</a></li>
                 </ol>
             </nav>
         </div>
@@ -34,7 +34,7 @@
                                 <td>Status</td>
                                 <td>Priority</td>
                                 <td>CreatedAt</td>
-                                <td>Download</td>
+                                <td></td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
@@ -52,10 +52,10 @@
                                     <td>{{$ticket->status->name}}</td>
                                     <td>{{$ticket->priority}}</td>
                                     <td>{{$ticket->created_at}}</td>
-                                    <td><a href="{{route('super-admin-ticket.download', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Download</a></td></td>
+                                    <td><a href="{{route('master-ticket.download', [$ticket->id])}}" class="btn btn-sm btn-outline-dark"><i class="bi bi-download"></i></a></td></td>
                                     <td>
-                                        <a href="{{route('super-admin-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('master-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

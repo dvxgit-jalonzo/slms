@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('licenser.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('licenser-license.index')}}">View License</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-license.index')}}">View License</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('licenser-license.update-attribute', [$attribute->id])}}" method="POST">
+                            <form action="{{route('master-license.update-attribute', [$attribute->id])}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

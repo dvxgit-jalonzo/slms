@@ -102,36 +102,6 @@ class SuperAdminLicenseController extends Controller
         }
 
 
-
-
-//        $data["_DATETODAY"] = today('Asia/Manila')->format('Y-m-d');
-//        $data['_SERIAL'] = $request->serial_number;
-//        $data['_INITVAL'] = 0;
-//        $data['_LICTYPE'] = 0;
-
-//        $data = [
-//            '_INITVAL' => 0,
-//            '_LICTYPE' => 0,
-//            '_SERIAL' => $request->serial_number,
-//            '_COMPANY' => $company->company_name,
-//            '_EMAIL' => $company->email,
-//            '_DATEINSTALL' => "2023-02-20",
-//            '_DATETODAY' => today('Asia/Manila')->format('Y-m-d'),
-//            '_DATEEXPIRE' => "4023-02-31",
-//            '_SMAEXPIRE' => "4023-02-31",
-//            '_EXPDAYS' => "4023-02-31",
-//            '_PORTS' => "8983",
-//            '_MAILBOXES' => "1000",
-//            '_LANGUAGES' => "2",
-//            '_UUID' => getUniquePCId(),
-//            '_VOICEMAIL' => 1,
-//            '_HOSPITALITY' => 0,
-//            '_CRUISE' => 0,
-//        ];
-
-
-
-
         return redirect()->route('super-admin-license.index');
     }
 

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('licenser.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('licenser-license.create')}}">Generate License</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-license.create')}}">Generate License</a></li>
                 </ol>
             </nav>
         </div>
@@ -60,7 +60,7 @@
                                                     <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableRemote{{$license->id}}">Remote</button>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('licenser-licence.view-license', [$license->id])}}" class="dropdown-item">View License</a>
+                                                    <a href="{{route('master-licence.view-license', [$license->id])}}" class="dropdown-item">View License</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -76,7 +76,7 @@
                                                             </h5>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <a href="{{route('licenser-license.create-attribute', [$license->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Add Attribute</a>
+                                                            <a href="{{route('master-license.create-attribute', [$license->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Add Attribute</a>
                                                             <div class="table-responsive">
                                                                 <table class="table table-sm attributes-table" >
                                                                     <thead>
@@ -92,8 +92,8 @@
                                                                         <tr>
                                                                             <td>{{$attrib->key}}</td>
                                                                             <td>{{$attrib->value}}</td>
-                                                                            <td><a href="{{route('licenser-license.edit-attribute', [$attrib->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                            <td><a href="{{ route('licenser-license.destroy-attribute', [$attrib->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                            <td><a href="{{route('master-license.edit-attribute', [$attrib->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                            <td><a href="{{ route('master-license.destroy-attribute', [$attrib->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                         </tr>
                                                                     @endforeach
@@ -113,7 +113,7 @@
                                                             </h5>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <a href="{{route('licenser-license.show', [$license->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Add Remote</a>
+                                                            <a href="{{route('master-license.show', [$license->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Add Remote</a>
                                                             <div class="table-responsive">
                                                                 <table class="table table-sm remotes-table" >
                                                                     <thead>
@@ -131,8 +131,8 @@
                                                                             <td>{{$remote->application}}</td>
                                                                             <td>{{$remote->username}}</td>
                                                                             <td>{{$remote->password}}</td>
-                                                                            <td><a href="{{route('licenser-license.edit-remote-access', [$remote->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                            <td><a href="{{ route('licenser-license.destroy-remote-access', [$remote->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                            <td><a href="{{route('master-license.edit-remote-access', [$remote->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                            <td><a href="{{ route('master-license.destroy-remote-access', [$remote->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                         </tr>
                                                                     @endforeach
@@ -143,10 +143,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           <a href="{{ route('licenser-license.destroy', [$license->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                           <a href="{{ route('master-license.destroy', [$license->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                         </div>
                                     </td>
-{{--                                    <td><a href="{{route('licenser-license.edit', [$license->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>--}}
+{{--                                    <td><a href="{{route('master-license.edit', [$license->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>--}}
                                 </tr>
                             @endforeach
                             </tbody>

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-permission.index')}}">View Permissions</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-permission.index')}}">View Permissions</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('developer-permission.update' , [$permission->id])}}" method="POST">
+                            <form action="{{route('master-permission.update' , [$permission->id])}}" method="POST">
                                 @csrf
                                 @method("PUT")
                                 <div class="row">

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('administrator.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('administrator-ticket.index')}}">View Ticket</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket.index')}}">View Ticket</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('administrator-ticket.update', [$ticket->id])}}" method="POST">
+                            <form action="{{route('master-ticket.update', [$ticket->id])}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

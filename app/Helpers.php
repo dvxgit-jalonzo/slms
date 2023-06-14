@@ -49,3 +49,10 @@ function getWindowsUUID() {
     return isset($lines[1]) ? trim($lines[1]) : null;
 }
 
+
+function getRole(){
+    return auth()->user()->getRoleNames()->first();
+}
+
+
+

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-status.create')}}">Create Status</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-status.create')}}">Create Status</a></li>
                 </ol>
             </nav>
         </div>
@@ -36,8 +36,8 @@
                                     <td>{{$status->name}}</td>
                                     <td>{{$status->created_at}}</td>
                                     <td>
-                                        <a href="{{route('super-admin-status.edit', [$status->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-status.destroy', [$status->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('master-status.edit', [$status->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-status.destroy', [$status->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

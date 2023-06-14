@@ -7,9 +7,9 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a type="button" data-bs-toggle="modal" data-bs-target="#createPermissionModal">Create Permission</a></li>
-                    <form action="{{route('super-admin-permission.store')}}" method="POST">
+                    <form action="{{route('master-permission.store')}}" method="POST">
                         @csrf
                         <div class="modal fade" id="createPermissionModal" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
@@ -63,8 +63,8 @@
                                     <td>{{$permission->name}}</td>
                                     <td>{{$permission->created_at}}</td>
                                     <td>
-                                        <a href="{{route('super-admin-permission.edit', [$permission->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-permission.destroy', [$permission->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                        <a href="{{route('master-permission.edit', [$permission->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-permission.destroy', [$permission->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

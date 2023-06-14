@@ -16,19 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (\auth()->check()){
-        $role = auth()->user()->getRoleNames()->first();
-        \RealRashid\SweetAlert\Facades\Alert::info("Welcome", "You are logged in!");
-        if ($role == 'Super Admin'){
-            return redirect()->route('super-admin.index');
-        }else if ($role == "Developer"){
-            return redirect()->route('developer.index');
-        }else if ($role == "Licenser"){
-            return redirect()->route('licenser.index');
-        }else if ($role == "Support"){
-            return redirect()->route('support.index');
-        }else if ($role == "Administrator"){
-            return redirect()->route('administrator.index');
-        }
+        return redirect()->route('master.index');
     }else{
         return view('auth.login');
     }
@@ -331,138 +319,306 @@ Route::group(['middleware' => ['role:Support']], function (){
     Route::resource('/support', \App\Http\Controllers\SupportController::class);
 });
 
-Route::group(['middleware' => ['role:Super Admin']], function (){
+//Route::group(['middleware' => ['role:Super Admin']], function (){
+//
+//
+//    Route::resource('super-admin-ticket-template', \App\Http\Controllers\SuperAdminTicketTemplateController::class);
+//
+//
+////Client Contact Person
+//    Route::get('/super-admin-client-edit-contact-person/{id}',
+//        [\App\Http\Controllers\SuperAdminClientController::class, 'editContactPerson'])
+//        ->name('super-admin-client.edit-contact-person');
+//    Route::delete('/super-admin-client-delete-contact-person/{id}',
+//        [\App\Http\Controllers\SuperAdminClientController::class, 'destroyContactPerson'])
+//        ->name('super-admin-client.destroy-contact-person');
+//    Route::put('/super-admin-client-update-contact-person/{id}',
+//        [\App\Http\Controllers\SuperAdminClientController::class, 'updateContactPerson'])
+//        ->name('super-admin-client.update-contact-person');
+//    Route::post('/super-admin-client-store-contact-person/{id}',
+//        [\App\Http\Controllers\SuperAdminClientController::class, 'storeContactPerson'])
+//        ->name('super-admin-client.store-contact-person');
+//
+//
+////Software Module
+//    Route::get('/super-admin-software-create-software-module/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'createSoftwareModule'])
+//        ->name('super-admin-software.create-software-module');
+//    Route::post('/super-admin-software-store-software-module/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareModule'])
+//        ->name('super-admin-software.store-software-module');
+//    Route::get('/super-admin-software-edit-software-module/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareModule'])
+//        ->name('super-admin-software.edit-software-module');
+//    Route::put('/super-admin-software-update-software-module/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareModule'])
+//        ->name('super-admin-software.update-software-module');
+//    Route::delete('/super-admin-software-delete-software-module/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareModule'])
+//        ->name('super-admin-software.destroy-software-module');
+//
+//
+//
+////Software Requirements
+//    Route::get('/super-admin-software-edit-software-requirement/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareRequirement'])
+//        ->name('super-admin-software.edit-software-requirement');
+//    Route::delete('/super-admin-software-delete-software-requirement/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareRequirement'])
+//        ->name('super-admin-software.destroy-software-requirement');
+//    Route::put('/super-admin-software-update-software-requirement/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareRequirement'])
+//        ->name('super-admin-software.update-software-requirement');
+//    Route::post('/super-admin-software-store-software-requirement/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareRequirement'])
+//        ->name('super-admin-software.store-software-requirement');
+//
+//
+//
+////Software Template
+//    Route::get('/super-admin-software-create-software-template/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'createSoftwareTemplate'])
+//        ->name('super-admin-software.create-software-template');
+//    Route::post('/super-admin-software-store-software-template/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareTemplate'])
+//        ->name('super-admin-software.store-software-template');
+//    Route::get('/super-admin-software-edit-software-template/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareTemplate'])
+//        ->name('super-admin-software.edit-software-template');
+//    Route::put('/super-admin-software-update-software-template/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareTemplate'])
+//        ->name('super-admin-software.update-software-template');
+//    Route::delete('/super-admin-software-delete-software-template/{id}',
+//        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareTemplate'])
+//        ->name('super-admin-software.destroy-software-template');
+//
+//
+//
+////License Attribute
+//    Route::get('/super-admin-license-create-attribute/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'createAttribute'])
+//        ->name('super-admin-license.create-attribute');
+//    Route::post('/super-admin-license-store-attribute/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeAttribute'])
+//        ->name('super-admin-license.store-attribute');
+//    Route::put('/super-admin-license.update-attribute/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateAttribute'])
+//        ->name('super-admin-license.update-attribute');
+//    Route::delete('/super-admin-license-delete-attribute/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyAttribute'])
+//        ->name('super-admin-license.destroy-attribute');
+//    Route::get('/super-admin-license-edit-attribute/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'editAttribute'])
+//        ->name('super-admin-license.edit-attribute');
+//
+//
+//
+////Remote Access
+//    Route::get('/super-admin-license-view-license/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'viewLicense'])
+//        ->name('super-admin-licence.view-license');
+//    Route::get('/super-admin-license.edit-remote-access/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'editRemoteAccess'])
+//        ->name('super-admin-license.edit-remote-access');
+//    Route::delete('/super-admin-license.delete-remote-access/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyRemoteAccess'])
+//        ->name('super-admin-license.destroy-remote-access');
+//    Route::put('/super-admin-license.update-remote-access/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateRemoteAccess'])
+//        ->name('super-admin-license.update-remote-access');
+//    Route::post('/super-admin-license.store-remote-access/{id}',
+//        [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeRemoteAccess'])
+//        ->name('super-admin-license.store-remote-access');
+//
+//
+//
+//
+//    Route::get('super-admin-ticket-download/{id}', [\App\Http\Controllers\SuperAdminTicketController::class, 'download'])->name('super-admin-ticket.download');
+//
+//    Route::resource('/super-admin-ticket', \App\Http\Controllers\SuperAdminTicketController::class);
+//    Route::resource('/super-admin-client', \App\Http\Controllers\SuperAdminClientController::class);
+//    Route::resource('/super-admin-software', \App\Http\Controllers\SuperAdminSoftwareController::class);
+//
+//
+//    Route::resource('/super-admin-role', \App\Http\Controllers\SuperAdminRoleController::class);
+//    Route::resource('/super-admin-permission', \App\Http\Controllers\SuperAdminPermissionController::class);
+//    Route::resource('/super-admin-license', \App\Http\Controllers\SuperAdminLicenseController::class);
+//    Route::resource('/super-admin-category', \App\Http\Controllers\SuperAdminCategoryController::class);
+//    Route::resource('/super-admin-status', \App\Http\Controllers\SuperAdminStatusController::class);
+//    Route::resource('/super-admin-user', \App\Http\Controllers\SuperAdminUserController::class);
+//    Route::resource('/super-admin-report', \App\Http\Controllers\SuperAdminReportController::class);
+//    Route::resource('/super-admin', \App\Http\Controllers\SuperAdminController::class);
+//
+//
+//});
 
 
-    Route::resource('super-admin-ticket-template', \App\Http\Controllers\SuperAdminTicketTemplateController::class);
+
 
 
 //Client Contact Person
-    Route::get('/super-admin-client-edit-contact-person/{id}',
-        [\App\Http\Controllers\SuperAdminClientController::class, 'editContactPerson'])
-        ->name('super-admin-client.edit-contact-person');
-    Route::delete('/super-admin-client-delete-contact-person/{id}',
-        [\App\Http\Controllers\SuperAdminClientController::class, 'destroyContactPerson'])
-        ->name('super-admin-client.destroy-contact-person');
-    Route::put('/super-admin-client-update-contact-person/{id}',
-        [\App\Http\Controllers\SuperAdminClientController::class, 'updateContactPerson'])
-        ->name('super-admin-client.update-contact-person');
-    Route::post('/super-admin-client-store-contact-person/{id}',
-        [\App\Http\Controllers\SuperAdminClientController::class, 'storeContactPerson'])
-        ->name('super-admin-client.store-contact-person');
+Route::get('/master-client-edit-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'editContactPerson'])
+    ->name('master-client.edit-contact-person');
+Route::delete('/master-client-delete-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'destroyContactPerson'])
+    ->name('master-client.destroy-contact-person');
+Route::put('/master-client-update-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'updateContactPerson'])
+    ->name('master-client.update-contact-person');
+Route::post('/master-client-store-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'storeContactPerson'])
+    ->name('master-client.store-contact-person');
 
 
 //Software Module
-    Route::get('/super-admin-software-create-software-module/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'createSoftwareModule'])
-        ->name('super-admin-software.create-software-module');
-    Route::post('/super-admin-software-store-software-module/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareModule'])
-        ->name('super-admin-software.store-software-module');
-    Route::get('/super-admin-software-edit-software-module/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareModule'])
-        ->name('super-admin-software.edit-software-module');
-    Route::put('/super-admin-software-update-software-module/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareModule'])
-        ->name('super-admin-software.update-software-module');
-    Route::delete('/super-admin-software-delete-software-module/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareModule'])
-        ->name('super-admin-software.destroy-software-module');
+Route::get('/master-software-create-software-module/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'createSoftwareModule'])
+    ->name('master-software.create-software-module');
+Route::post('/master-software-store-software-module/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'storeSoftwareModule'])
+    ->name('master-software.store-software-module');
+Route::get('/master-software-edit-software-module/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'editSoftwareModule'])
+    ->name('master-software.edit-software-module');
+Route::put('/master-software-update-software-module/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'updateSoftwareModule'])
+    ->name('master-software.update-software-module');
+Route::delete('/master-software-delete-software-module/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'destroySoftwareModule'])
+    ->name('master-software.destroy-software-module');
 
 
 
 //Software Requirements
-    Route::get('/super-admin-software-edit-software-requirement/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareRequirement'])
-        ->name('super-admin-software.edit-software-requirement');
-    Route::delete('/super-admin-software-delete-software-requirement/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareRequirement'])
-        ->name('super-admin-software.destroy-software-requirement');
-    Route::put('/super-admin-software-update-software-requirement/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareRequirement'])
-        ->name('super-admin-software.update-software-requirement');
-    Route::post('/super-admin-software-store-software-requirement/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareRequirement'])
-        ->name('super-admin-software.store-software-requirement');
+Route::get('/master-software-edit-software-requirement/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'editSoftwareRequirement'])
+    ->name('master-software.edit-software-requirement');
+Route::delete('/master-software-delete-software-requirement/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'destroySoftwareRequirement'])
+    ->name('master-software.destroy-software-requirement');
+Route::put('/master-software-update-software-requirement/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'updateSoftwareRequirement'])
+    ->name('master-software.update-software-requirement');
+Route::post('/master-software-store-software-requirement/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'storeSoftwareRequirement'])
+    ->name('master-software.store-software-requirement');
 
 
 
 //Software Template
-    Route::get('/super-admin-software-create-software-template/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'createSoftwareTemplate'])
-        ->name('super-admin-software.create-software-template');
-    Route::post('/super-admin-software-store-software-template/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'storeSoftwareTemplate'])
-        ->name('super-admin-software.store-software-template');
-    Route::get('/super-admin-software-edit-software-template/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'editSoftwareTemplate'])
-        ->name('super-admin-software.edit-software-template');
-    Route::put('/super-admin-software-update-software-template/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'updateSoftwareTemplate'])
-        ->name('super-admin-software.update-software-template');
-    Route::delete('/super-admin-software-delete-software-template/{id}',
-        [\App\Http\Controllers\SuperAdminSoftwareController::class, 'destroySoftwareTemplate'])
-        ->name('super-admin-software.destroy-software-template');
+Route::get('/master-software-create-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'createSoftwareTemplate'])
+    ->name('master-software.create-software-template');
+Route::post('/master-software-store-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'storeSoftwareTemplate'])
+    ->name('master-software.store-software-template');
+Route::get('/master-software-edit-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'editSoftwareTemplate'])
+    ->name('master-software.edit-software-template');
+Route::put('/master-software-update-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'updateSoftwareTemplate'])
+    ->name('master-software.update-software-template');
+Route::delete('/master-software-delete-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'destroySoftwareTemplate'])
+    ->name('master-software.destroy-software-template');
 
 
 
-//License Attribute
-    Route::get('/super-admin-license-create-attribute/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'createAttribute'])
-        ->name('super-admin-license.create-attribute');
-    Route::post('/super-admin-license-store-attribute/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeAttribute'])
-        ->name('super-admin-license.store-attribute');
-    Route::put('/super-admin-license.update-attribute/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateAttribute'])
-        ->name('super-admin-license.update-attribute');
-    Route::delete('/super-admin-license-delete-attribute/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyAttribute'])
-        ->name('super-admin-license.destroy-attribute');
-    Route::get('/super-admin-license-edit-attribute/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'editAttribute'])
-        ->name('super-admin-license.edit-attribute');
-
-
-
-//Remote Access
-    Route::get('/super-admin-license-view-license/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'viewLicense'])
-        ->name('super-admin-licence.view-license');
-    Route::get('/super-admin-license.edit-remote-access/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'editRemoteAccess'])
-        ->name('super-admin-license.edit-remote-access');
-    Route::delete('/super-admin-license.delete-remote-access/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'destroyRemoteAccess'])
-        ->name('super-admin-license.destroy-remote-access');
-    Route::put('/super-admin-license.update-remote-access/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'updateRemoteAccess'])
-        ->name('super-admin-license.update-remote-access');
-    Route::post('/super-admin-license.store-remote-access/{id}',
-        [\App\Http\Controllers\SuperAdminLicenseController::class, 'storeRemoteAccess'])
-        ->name('super-admin-license.store-remote-access');
+Route::get('/master-software-create-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'createSoftwareTemplate'])
+    ->name('master-software.create-software-template');
+Route::post('/master-software-store-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'storeSoftwareTemplate'])
+    ->name('master-software.store-software-template');
+Route::get('/master-software-edit-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'editSoftwareTemplate'])
+    ->name('master-software.edit-software-template');
+Route::put('/master-software-update-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'updateSoftwareTemplate'])
+    ->name('master-software.update-software-template');
+Route::delete('/master-software-delete-software-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'destroySoftwareTemplate'])
+    ->name('master-software.destroy-software-template');
 
 
 
 
-    Route::get('super-admin-ticket-download/{id}', [\App\Http\Controllers\SuperAdminTicketController::class, 'download'])->name('super-admin-ticket.download');
+Route::get('/master-license-create-attribute/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'createAttribute'])
+    ->name('master-license.create-attribute');
+Route::post('/master-license-store-attribute/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'storeAttribute'])
+    ->name('master-license.store-attribute');
+Route::put('/master-license.update-attribute/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'updateAttribute'])
+    ->name('master-license.update-attribute');
+Route::delete('/master-license-delete-attribute/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'destroyAttribute'])
+    ->name('master-license.destroy-attribute');
+Route::get('/master-license-edit-attribute/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'editAttribute'])
+    ->name('master-license.edit-attribute');
 
-    Route::resource('/super-admin-ticket', \App\Http\Controllers\SuperAdminTicketController::class);
-    Route::resource('/super-admin-client', \App\Http\Controllers\SuperAdminClientController::class);
-    Route::resource('/super-admin-software', \App\Http\Controllers\SuperAdminSoftwareController::class);
 
 
-    Route::resource('/super-admin-role', \App\Http\Controllers\SuperAdminRoleController::class);
-    Route::resource('/super-admin-permission', \App\Http\Controllers\SuperAdminPermissionController::class);
-    Route::resource('/super-admin-license', \App\Http\Controllers\SuperAdminLicenseController::class);
-    Route::resource('/super-admin-category', \App\Http\Controllers\SuperAdminCategoryController::class);
-    Route::resource('/super-admin-status', \App\Http\Controllers\SuperAdminStatusController::class);
-    Route::resource('/super-admin-user', \App\Http\Controllers\SuperAdminUserController::class);
-    Route::resource('/super-admin-report', \App\Http\Controllers\SuperAdminReportController::class);
-    Route::resource('/super-admin', \App\Http\Controllers\SuperAdminController::class);
 
 
-});
+
+
+Route::get('/master-license-view-license/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'viewLicense'])
+    ->name('master-licence.view-license');
+Route::get('/master-license.edit-remote-access/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'editRemoteAccess'])
+    ->name('master-license.edit-remote-access');
+Route::delete('/master-license.delete-remote-access/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'destroyRemoteAccess'])
+    ->name('master-license.destroy-remote-access');
+Route::put('/master-license.update-remote-access/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'updateRemoteAccess'])
+    ->name('master-license.update-remote-access');
+Route::post('/master-license.store-remote-access/{id}',
+    [\App\Http\Controllers\MasterLicenseController::class, 'storeRemoteAccess'])
+    ->name('master-license.store-remote-access');
+
+
+
+
+
+Route::get('master-ticket-download/{id}', [\App\Http\Controllers\MasterTicketController::class, 'download'])
+    ->name('master-ticket.download');
+
+
+
+Route::get('/master-client-edit-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'editContactPerson'])
+    ->name('master-client.edit-contact-person');
+Route::delete('/master-client-delete-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'destroyContactPerson'])
+    ->name('master-client.destroy-contact-person');
+Route::put('/master-client-update-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'updateContactPerson'])
+    ->name('master-client.update-contact-person');
+Route::post('/master-client-store-contact-person/{id}',
+    [\App\Http\Controllers\MasterClientController::class, 'storeContactPerson'])
+    ->name('master-client.store-contact-person');
+
+
+
+Route::resource('master-ticket-template', \App\Http\Controllers\MasterTicketTemplateController::class);
+Route::resource('/master-category', \App\Http\Controllers\MasterCategoryController::class);
+Route::resource('/master-client', \App\Http\Controllers\MasterClientController::class);
+Route::resource('/master-license', \App\Http\Controllers\MasterLicenseController::class);
+Route::resource('/master-permission', \App\Http\Controllers\MasterPermissionController::class);
+Route::resource('/master-report', \App\Http\Controllers\MasterReportController::class);
+Route::resource('/master-software', \App\Http\Controllers\MasterSoftwareController::class);
+Route::resource('/master-software-under', \App\Http\Controllers\MasterSoftwareUnderController::class);
+Route::resource('/master-status', \App\Http\Controllers\MasterStatusController::class);
+Route::resource('/master-ticket', \App\Http\Controllers\MasterTicketController::class);
+Route::resource('/master-ticket-template', \App\Http\Controllers\MasterTicketTemplateController::class);
+Route::resource('/master-user', \App\Http\Controllers\MasterUserController::class);
+Route::resource('/master', \App\Http\Controllers\MasterController::class);
 
 
 Route::get('/ui', function (){

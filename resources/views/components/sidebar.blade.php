@@ -4,7 +4,7 @@
 
         <li class="nav-item">
             @if(auth()->user()->getRoleNames()->first() == "Super Admin")
-            <a class="nav-link " href="{{route('super-admin.index')}}">
+            <a class="nav-link " href="{{route('master.index')}}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -22,8 +22,6 @@
                             <i class="bi bi-circle"></i><span>View User</span>
                         </a>
                     </li>
-
-
                 </ul>
             </li>
             <li class="nav-item">
@@ -96,7 +94,7 @@
                 </a>
                 <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('super-admin-user.index')}}">
+                        <a href="{{route('master-user.index')}}">
                             <i class="bi bi-circle"></i><span>View User</span>
                         </a>
                     </li>
@@ -110,7 +108,7 @@
                 </a>
                 <ul id="client-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('super-admin-client.index')}}">
+                        <a href="{{route('master-client.index')}}">
                             <i class="bi bi-circle"></i><span>View Client</span>
                         </a>
                     </li>
@@ -124,7 +122,7 @@
                 </a>
                 <ul id="software-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('super-admin-software.index')}}">
+                        <a href="{{route('master-software.index')}}">
                             <i class="bi bi-circle"></i><span>View Software</span>
                         </a>
                     </li>
@@ -136,18 +134,18 @@
                 </a>
                 <ul id="ticket-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('super-admin-ticket.index')}}">
+                        <a href="{{route('master-ticket.index')}}">
                             <i class="bi bi-circle"></i><span>View Tickets</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('super-admin-category.index')}}">
+                        <a href="{{route('master-category.index')}}">
                             <i class="bi bi-circle"></i><span>View Category</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('super-admin-status.index')}}">
+                        <a href="{{route('master-status.index')}}">
                             <i class="bi bi-circle"></i><span>View Status</span>
                         </a>
                     </li>
@@ -159,7 +157,7 @@
                 </a>
                 <ul id="license-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('super-admin-license.index')}}">
+                        <a href="{{route('master-license.index')}}">
                             <i class="bi bi-circle"></i><span>View License</span>
                         </a>
                     </li>
@@ -293,7 +291,7 @@
 {{--            </a>--}}
 {{--            <ul id="report-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">--}}
 {{--                <li>--}}
-{{--                    <a href="{{route('super-admin-report.index')}}">--}}
+{{--                    <a href="{{route('master-report.index')}}">--}}
 {{--                        <i class="bi bi-circle"></i><span>View File Report</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}

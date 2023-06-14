@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('administrator.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('administrator-status.index')}}">View Status</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-status.index')}}">View Status</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('administrator-status.store')}}" method="POST">
+                            <form action="{{route('master-status.store')}}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12 mb-3">

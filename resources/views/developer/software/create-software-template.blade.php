@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-software.index')}}">View Software</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-software.index')}}">View Software</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('developer-software.store-software-template', [$software->id])}}" method="POST">
+                            <form action="{{route('master-software.store-software-template', [$software->id])}}" method="POST">
                                 @csrf
                                 <div class="row" >
                                     <div class="col-12">
@@ -57,17 +57,26 @@
                 $("#add").on("click", function (){
                     var inputs = $("#inputs");
 
-                    var key = `<div class="col-lg-6 mb-3">
+                    var label = `<div class="col-lg-4 mb-3">
+            <x-form-floating name="label[]" type="text" class="text-uppercase" placeholder="Label" value="{{old('label')}}">
+                <x-validation name="label"></x-validation>
+            </x-form-floating>
+        </div>`;
+
+                    var key = `<div class="col-lg-4 mb-3">
             <x-form-floating name="name[]" type="text" class="text-uppercase" placeholder="Name" value="{{old('name')}}">
                 <x-validation name="name"></x-validation>
             </x-form-floating>
         </div>`;
 
-            var value = `<div class="col-lg-6 mb-3">
+
+
+            var value = `<div class="col-lg-4 mb-3">
             <x-form-floating name="value[]" type="text" placeholder="Value" value="{{old('value')}}">
                 <x-validation name="value"></x-validation>
             </x-form-floating>
         </div>`;
+                    inputs.append(label);
                     inputs.append(key);
                     inputs.append(value);
                 });

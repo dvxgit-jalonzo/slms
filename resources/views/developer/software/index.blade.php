@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-software.create')}}">Create Software</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-software.create')}}">Create Software</a></li>
                 </ol>
             </nav>
         </div>
@@ -74,7 +74,7 @@
                                                         </h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <a href="{{route('developer-software.create-software-module', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Modules</a>
+                                                        <a href="{{route('master-software.create-software-module', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Modules</a>
                                                         <div class="table-responsive">
                                                             <table class="table table-sm softwares-table" >
                                                                 <thead>
@@ -90,8 +90,8 @@
                                                                     <tr>
                                                                         <td>{{$module->name}}</td>
                                                                         <td>{{$module->description}}</td>
-                                                                        <td><a href="{{route('developer-software.edit-software-module', [$module->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                        <td><a href="{{ route('developer-software.destroy-software-module', [$module->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                        <td><a href="{{route('master-software.edit-software-module', [$module->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('master-software.destroy-software-module', [$module->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                     </tr>
                                                                 @endforeach
@@ -111,11 +111,12 @@
                                                         </h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <a href="{{route('developer-software.create-software-template', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Template</a>
+                                                        <a href="{{route('master-software.create-software-template', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Template</a>
                                                         <div class="table-responsive">
                                                             <table class="table table-sm templates-table" >
                                                                 <thead>
                                                                 <tr>
+                                                                    <th>Label</th>
                                                                     <th>Name</th>
                                                                     <th>Value</th>
                                                                     <th>Edit</th>
@@ -125,10 +126,11 @@
                                                                 <tbody>
                                                                 @foreach($sft->software_templates as $template)
                                                                     <tr>
+                                                                        <td>{{$template->label}}</td>
                                                                         <td>{{$template->name}}</td>
                                                                         <td>{{$template->value}}</td>
-                                                                        <td><a href="{{route('developer-software.edit-software-template', [$template->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                        <td><a href="{{ route('developer-software.destroy-software-template', [$template->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                        <td><a href="{{route('master-software.edit-software-template', [$template->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('master-software.destroy-software-template', [$template->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                     </tr>
                                                                 @endforeach
@@ -148,7 +150,7 @@
                                                         </h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <a href="{{route('developer-software.show', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Requirement</a>
+                                                        <a href="{{route('master-software.show', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Requirement</a>
                                                         <div class="table-responsive">
                                                             <table class="table table-sm requirements-table" >
                                                                 <thead>
@@ -164,8 +166,8 @@
                                                                     <tr>
                                                                         <td>{{$requirement->name}}</td>
                                                                         <td>{{$requirement->specs}}</td>
-                                                                        <td><a href="{{route('developer-software.edit-software-requirement', [$requirement->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                        <td><a href="{{ route('developer-software.destroy-software-requirement', [$requirement->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                        <td><a href="{{route('master-software.edit-software-requirement', [$requirement->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('master-software.destroy-software-requirement', [$requirement->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                     </tr>
                                                                 @endforeach
@@ -179,10 +181,10 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{route('developer-software.edit', [$sft->id])}}" class="btn btn-sm btn-outline-dark">Edit</a>
+                                        <a href="{{route('master-software.edit', [$sft->id])}}" class="btn btn-sm btn-outline-dark">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('developer-software.destroy', [$sft->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                        <a href="{{ route('master-software.destroy', [$sft->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

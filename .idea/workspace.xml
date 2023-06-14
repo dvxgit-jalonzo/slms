@@ -2,30 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketTemplateController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/TicketTemplate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2023_06_13_051652_create_ticket_templates_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/slms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/slms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterClientController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterLicenseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterPermissionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterReportController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterRoleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareUnderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterStatusController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketTemplateController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/.idea/super-admin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/client/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/client/.idea/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/client/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/super-admin/client/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bee9b2f8-75fa-423e-ba29-445280283b36.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bee9b2f8-75fa-423e-ba29-445280283b36.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminLicenseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminSoftwareController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SuperAdminTicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/category/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/category/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/edit-contact-person.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/edit-contact-person.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/client/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/client/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/create-license-attribute.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create-license-attribute.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/edit-license-attribute.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit-license-attribute.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/edit-remote-access.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit-remote-access.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/license/view-license.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/permission/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/permission/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/permission/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/permission/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/report/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/report/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/report/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/report/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/report/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/report/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/role/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/role/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/role/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/role/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/role/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-module.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-module.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create-software-template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-module.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-module.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-requirement.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-requirement.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit-software-template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/software/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/software/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/status/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/status/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/status/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/status/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/status/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/status/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket-template/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/ticket/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/super-admin/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/super-admin/user/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +235,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/super-admin/ticket-template",
+    "last_opened_file_path": "C:/xampp/htdocs/slms/resources/views/super-admin",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.JSON",
     "vue.rearranger.settings.migration": "true"
@@ -230,7 +283,8 @@
       <workItem from="1686435959495" duration="7546000" />
       <workItem from="1686614166461" duration="77000" />
       <workItem from="1686615213197" duration="7000" />
-      <workItem from="1686616747303" duration="17682000" />
+      <workItem from="1686616747303" duration="19171000" />
+      <workItem from="1686700505166" duration="9901000" />
     </task>
     <servers />
   </component>

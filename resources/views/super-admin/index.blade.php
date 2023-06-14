@@ -7,9 +7,9 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Dashboard</li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-ticket.create')}}">Create Ticket</a></li>
-{{--                    <li class="breadcrumb-item"><a href="{{route('super-admin-report.create')}}">File a Report</a></li>--}}
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-license.create')}}">Generate License</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket.create')}}">Create Ticket</a></li>
+{{--                    <li class="breadcrumb-item"><a href="{{route('master-report.create')}}">File a Report</a></li>--}}
+                    <li class="breadcrumb-item"><a href="{{route('master-license.create')}}">Generate License</a></li>
                 </ol>
             </nav>
         </div>
@@ -187,7 +187,7 @@
 
                                 @forelse($recentTickets as $item)
 
-                                    <a href="{{route('super-admin-ticket.edit', [$item->id])}}" class="activity-item d-flex text-dark text-decoration-none">
+                                    <a href="{{route('master-ticket.edit', [$item->id])}}" class="activity-item d-flex text-dark text-decoration-none">
                                         <div class="activite-label">{{$item->created_at->shortRelativeDiffForHumans()}}</div>
                                         <i class='bi bi-circle-fill activity-badge {{Arr::random(['text-success', 'text-danger', 'text-info', 'text-warning', 'text-dark'])}} align-self-start'></i>
                                         <div class="activity-content">

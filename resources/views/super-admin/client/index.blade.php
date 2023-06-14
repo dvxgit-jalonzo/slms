@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-client.create')}}">Create Client</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-client.create')}}">Create Client</a></li>
                 </ol>
             </nav>
         </div>
@@ -55,7 +55,7 @@
                                                         </h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <a href="{{route('super-admin-client.show', [$client->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i>  Contact Person</a>
+                                                        <a href="{{route('master-client.show', [$client->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i>  Contact Person</a>
                                                         <div class="table-responsive">
                                                             <table class="table table-sm contacts-table" >
                                                                 <thead>
@@ -73,8 +73,8 @@
                                                                         <td>{{$contact->contact_person}}</td>
                                                                         <td>{{$contact->email}}</td>
                                                                         <td>{{$contact->contact_number}}</td>
-                                                                        <td><a href="{{route('super-admin-client.edit-contact-person', [$contact->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                                                        <td><a href="{{ route('super-admin-client.destroy-contact-person', [$contact->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                                                        <td><a href="{{route('master-client.edit-contact-person', [$contact->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('master-client.destroy-contact-person', [$contact->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
 
                                                                     </tr>
                                                                 @endforeach
@@ -86,8 +86,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td><a href="{{route('super-admin-client.edit', [$client->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
-                                    <td><a href="{{ route('super-admin-client.destroy', [$client->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+                                    <td><a href="{{route('master-client.edit', [$client->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{ route('master-client.destroy', [$client->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

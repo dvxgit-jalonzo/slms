@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-software.index')}}">View Software</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-software.index')}}">View Software</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('developer-software.store-software-requirement', [$software->id])}}" method="POST">
+                            <form action="{{route('master-software.store-software-requirement', [$software->id])}}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12 mb-3">

@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('developer.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('developer-category.index')}}">View category</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-category.index')}}">View category</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-4 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('developer-category.update', [$category->id])}}" method="POST">
+                            <form action="{{route('master-category.update', [$category->id])}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

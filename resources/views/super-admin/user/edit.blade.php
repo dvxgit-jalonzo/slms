@@ -7,8 +7,8 @@
             <nav>
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('super-admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('super-admin-user.index')}}">View User</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-user.index')}}">View User</a></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card">
                         <div class="card-body pt-3">
-                            <form action="{{route('super-admin-user.update', [$user->id])}}" method="POST">
+                            <form action="{{route('master-user.update', [$user->id])}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

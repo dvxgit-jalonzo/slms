@@ -23,21 +23,7 @@ class MasterLicenseController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.index', compact('licenses'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.index', compact('licenses'));
-        }else if ($role == "Developer"){
-            return view('developer.license.index', compact('licenses'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.index', compact('licenses'));
-        }else if ($role == "Support"){
-            return view('support.license.index', compact('licenses'));
-        }
-
+        return view('master.license.index', compact('licenses'));
 
     }
 
@@ -50,20 +36,8 @@ class MasterLicenseController extends Controller
         $clients = Client::all();
         $softwares = Software::where('with_licensing', 1)->get();
 
+        return view('master.license.create', compact('serial', 'clients', 'softwares'));
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.create', compact('serial', 'clients', 'softwares'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.create', compact('serial', 'clients', 'softwares'));
-        }else if ($role == "Developer"){
-            return view('developer.license.create', compact('serial', 'clients', 'softwares'));
-        }else if ($role == "Licenser"){
-            return view('licenseer.license.create', compact('serial', 'clients', 'softwares'));
-        }else if ($role == "Support"){
-            return view('support.license.create', compact('serial', 'clients', 'softwares'));
-        }
 
 
     }
@@ -137,20 +111,7 @@ class MasterLicenseController extends Controller
     public function show(string $id){
         $license = License::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.show', compact('license'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.show', compact('license'));
-        }else if ($role == "Developer"){
-            return view('developer.license.show', compact('license'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.show', compact('license'));
-        }else if ($role == "Support"){
-            return view('support.license.show', compact('license'));
-        }
+        return view('master.license.show', compact('license'));
 
 
     }
@@ -184,40 +145,14 @@ class MasterLicenseController extends Controller
         $dvx = new DiavoxLicenser();
         $json = $dvx->decrypt($jsonContent);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.view-license', compact('json', 'license'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.view-license', compact('json', 'license'));
-        }else if ($role == "Developer"){
-            return view('developer.license.view-license', compact('json', 'license'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.view-license', compact('json', 'license'));
-        }else if ($role == "Support"){
-            return view('support.license.view-license', compact('json', 'license'));
-        }
+        return view('master.license.view-license', compact('json', 'license'));
     }
 
 
     public function editRemoteAccess(string $id){
         $remote = LicenseRemoteAccess::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.edit-remote-access', compact('remote'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.edit-remote-access', compact('remote'));
-        }else if ($role == "Developer"){
-            return view('developer.license.edit-remote-access', compact('remote'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.edit-remote-access', compact('remote'));
-        }else if ($role == "Support"){
-            return view('support.license.edit-remote-access', compact('remote'));
-        }
+        return view('master.license.edit-remote-access', compact('remote'));
 
 
     }
@@ -278,20 +213,8 @@ class MasterLicenseController extends Controller
     public function createAttribute(string $id){
         $license = License::findOrFail($id);
 
+        return view('master.license.create-license-attribute', compact('license'));
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.create-license-attribute', compact('license'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.create-license-attribute', compact('license'));
-        }else if ($role == "Developer"){
-            return view('developer.license.create-license-attribute', compact('license'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.create-license-attribute', compact('license'));
-        }else if ($role == "Support"){
-            return view('support.license.create-license-attribute', compact('license'));
-        }
 
 
     }
@@ -318,20 +241,9 @@ class MasterLicenseController extends Controller
     public function editAttribute($id){
         $attribute = LicenseAttribute::findOrFail($id);
 
+        return view('master.license.edit-license-attribute', compact('attribute'));
 
         $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.license.edit-license-attribute', compact('attribute'));
-        }else if ($role == "Administrator"){
-            return view('administrator.license.edit-license-attribute', compact('attribute'));
-        }else if ($role == "Developer"){
-            return view('developer.license.edit-license-attribute', compact('attribute'));
-        }else if ($role == "Licenser"){
-            return view('licenser.license.edit-license-attribute', compact('attribute'));
-        }else if ($role == "Support"){
-            return view('support.license.edit-license-attribute', compact('attribute'));
-        }
 
 
     }

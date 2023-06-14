@@ -14,20 +14,7 @@ class MasterPermissionController extends Controller
         $title = 'Delete Permission!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.permission.index', compact('permissions'));
-        }else if ($role == "Administrator"){
-            return view('administrator.permission.index', compact('permissions'));
-        }else if ($role == "Developer"){
-            return view('developer.permission.index', compact('permissions'));
-        }else if ($role == "Licenser"){
-            return view('licenser.permission.index', compact('permissions'));
-        }else if ($role == "Support"){
-            return view('support.permission.index', compact('permissions'));
-        }
+        return view('master.permission.index', compact('permissions'));
 
 
     }
@@ -77,20 +64,7 @@ class MasterPermissionController extends Controller
     {
         $permission = Permission::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.permission.edit', compact('permission'));
-        }else if ($role == "Administrator"){
-            return view('administrator.permission.edit', compact('permission'));
-        }else if ($role == "Developer"){
-            return view('developer.permission.edit', compact('permission'));
-        }else if ($role == "Licenser"){
-            return view('licenser.permission.edit', compact('permission'));
-        }else if ($role == "Support"){
-            return view('support.permission.edit', compact('permission'));
-        }
+        return view('master.permission.edit', compact('permission'));
 
 
     }

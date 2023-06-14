@@ -19,8 +19,16 @@
     @section('content')
         <section class="section dashboard">
             <div class="row">
+
                 <div class="col-12">
                     <div class="card card-body pt-3 table-responsive" >
+
+                        <div class="row">
+                            <div class="col-12">
+                                <a target="_blank" href="https://mail.diavox.net/interface/root#/email" class="btn btn-sm btn-primary mb-3" >Message</a>
+                            </div>
+                        </div>
+
                         <table class="table table-sm" id="table">
                             <thead>
                             <tr>

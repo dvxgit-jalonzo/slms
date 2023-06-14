@@ -21,6 +21,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-body pt-3 table-responsive" >
+
+                        <div class="row">
+                            <div class="col-12">
+                                <a target="_blank" href="https://mail.diavox.net/interface/root#/email" class="btn btn-sm btn-primary mb-3" >Message</a>
+                            </div>
+                        </div>
+
                         <table class="table table-sm" id="table">
                             <thead>
                             <tr>
@@ -53,8 +60,7 @@
                                     <td>{{$ticket->priority}}</td>
                                     <td>{{$ticket->created_at}}</td>
                                     <td><a href="{{route('master-ticket.download', [$ticket->id])}}" class="btn btn-sm btn-outline-dark"><i class="bi bi-download"></i></a></td></td>
-                                    <td>
-                                        <a href="{{route('master-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                    <td><a href="{{route('master-ticket.edit', [$ticket->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
                                     <td><a href="{{ route('master-ticket.destroy', [$ticket->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
                             @endforeach

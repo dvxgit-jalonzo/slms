@@ -66,8 +66,8 @@
                                                 <x-validation name="status_id"></x-validation>
                                             </div>
 
-                                            <div class="col-12 mb-3">
-                                                <x-select id="assigned_to" name="assigned_to" :data="$users" column_val="id" column="name" value="{{auth()->user()->id}}" placeholder="Assigned To"></x-select>
+                                            <div class="col-12 mb-3 hidden">
+                                                <x-select  id="assigned_to" name="assigned_to" :data="$users" column_val="id" column="name" value="{{auth()->user()->id}}" placeholder="Assigned To"></x-select>
                                                 <x-validation name="assigned_to"></x-validation>
                                             </div>
 

@@ -15,11 +15,11 @@ class MasterStatusController extends Controller
         $title = 'Delete Status!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
+        return view('master.status.index', compact('statuses'));
 
          $role = getRole();
 
         if ($role == "Super Admin"){
-            return view('super-admin.status.index', compact('statuses'));
         }else if ($role == "Administrator"){
             return view('administrator.status.index', compact('statuses'));
         }else if ($role == "Developer"){
@@ -37,20 +37,8 @@ class MasterStatusController extends Controller
      */
     public function create()
     {
+        return view('master.status.create');
 
-         $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.status.create');
-        }else if ($role == "Administrator"){
-            return view('administrator.status.create');
-        }else if ($role == "Developer"){
-            return view('developer.status.create');
-        }else if ($role == "Licenser"){
-            return view('licenser.status.create');
-        }else if ($role == "Support"){
-            return view('support.status.create');
-        }
 
     }
 
@@ -89,20 +77,8 @@ class MasterStatusController extends Controller
     public function edit(string $id)
     {
         $status = Status::findOrFail($id);
+        return view('master.status.edit', compact('status'));
 
-         $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.status.edit', compact('status'));
-        }else if ($role == "Administrator"){
-            return view('administrator.status.edit', compact('status'));
-        }else if ($role == "Developer"){
-            return view('developer.status.edit', compact('status'));
-        }else if ($role == "Licenser"){
-            return view('licenser.status.edit', compact('status'));
-        }else if ($role == "Support"){
-            return view('support.status.edit', compact('status'));
-        }
 
     }
 

@@ -14,20 +14,7 @@ class MasterTicketTemplateController extends Controller
     public function index()
     {
         $ticket_templates = TicketTemplate::all();
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket-template.index', compact('ticket_templates'));
-        }else if ($role == "Administrator"){
-            return view('administrator.ticket-template.index', compact('ticket_templates'));
-        }else if ($role == "Developer"){
-            return view('developer.ticket-template.index', compact('ticket_templates'));
-        }else if ($role == "Licenser"){
-            return view('licenser.ticket-template.index', compact('ticket_templates'));
-        }else if ($role == "Support"){
-            return view('support.ticket-template.index', compact('ticket_templates'));
-        }
+        return view('master.ticket-template.index', compact('ticket_templates'));
 
 
     }
@@ -37,20 +24,8 @@ class MasterTicketTemplateController extends Controller
      */
     public function create()
     {
+        return view('master.ticket-template.create');
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket-template.create');
-        }else if ($role == "Administrator"){
-            return view('administrator.ticket-template.create');
-        }else if ($role == "Developer"){
-            return view('developer.ticket-template.create');
-        }else if ($role == "Licenser"){
-            return view('licenser.ticket-template.create');
-        }else if ($role == "Support"){
-            return view('support.ticket-template.create');
-        }
 
     }
 
@@ -88,20 +63,7 @@ class MasterTicketTemplateController extends Controller
     {
         $ticket_template = TicketTemplate::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket-template.edit', compact('ticket_template'));
-        }else if ($role == "Administrator"){
-            return view('administrator.ticket-template.edit', compact('ticket_template'));
-        }else if ($role == "Developer"){
-            return view('developer.ticket-template.edit', compact('ticket_template'));
-        }else if ($role == "Licenser"){
-            return view('licenser.ticket-template.edit', compact('ticket_template'));
-        }else if ($role == "Support"){
-            return view('support.ticket-template.edit', compact('ticket_template'));
-        }
+        return view('master.ticket-template.edit', compact('ticket_template'));
 
 
     }

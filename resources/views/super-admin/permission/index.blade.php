@@ -3,7 +3,7 @@
 
     @section('pagetitle')
         <div class="pagetitle">
-            <h1>Edit Permissions</h1>
+            <h1>View Permissions</h1>
             <nav>
 
                 <ol class="breadcrumb">

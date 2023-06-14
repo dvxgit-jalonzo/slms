@@ -25,8 +25,6 @@ Route::get('/', function () {
 
 
 
-
-
 //Client Contact Person
 Route::get('/master-client-edit-contact-person/{id}',
     [\App\Http\Controllers\MasterClientController::class, 'editContactPerson'])
@@ -195,6 +193,7 @@ Route::post('/master-client-store-contact-person/{id}',
 
 
 
+Route::put('/master-role-updatePermission/{id}', [\App\Http\Controllers\MasterRoleController::class, 'updatePermission'])->name('master-role.updatePermission');
 
 
 
@@ -214,19 +213,9 @@ Route::resource('/master-role', \App\Http\Controllers\MasterRoleController::clas
 Route::resource('/master', \App\Http\Controllers\MasterController::class);
 
 
-Route::get('/ui', function (){
-    return view('ui');
-});
-
 Route::post('/profile-update-password', [\App\Http\Controllers\ProfileController::class, 'updatePassword'])
     ->name('profile.update-password');
 Route::resource('/profile', \App\Http\Controllers\ProfileController::class);
 Auth::routes();
-
-
-
-//Route::get('/home', function (){
-//
-//})->name('home');
 
 

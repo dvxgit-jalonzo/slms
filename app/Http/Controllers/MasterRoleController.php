@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class MasterRoleController extends Controller
@@ -15,19 +17,8 @@ class MasterRoleController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        $role = getRole();
 
-        if ($role == "Super Admin"){
-            return view('super-admin.role.index', compact('roles'));
-        }else if ($role == "Administrator"){
-            return view('administrator.role.index', compact('roles'));
-        }else if ($role == "Developer"){
-            return view('developer.role.index', compact('roles'));
-        }else if ($role == "Licenser"){
-            return view('licenser.role.index', compact('roles'));
-        }else if ($role == "Support"){
-            return view('support.role.index', compact('roles'));
-        }
+        return view('master.role.index', compact('roles'));
 
 
     }
@@ -76,8 +67,9 @@ class MasterRoleController extends Controller
     public function edit(string $id)
     {
         $role = Role::findOrFail($id);
+        $permissions = Permission::all();
 
-        return view('super-admin.role.edit', compact('role'));
+        return view('master.role.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -121,6 +113,23 @@ class MasterRoleController extends Controller
 
         Alert::alert('Deleted', 'Deleted Successfully!', 'success')
             ->autoClose(3000);
+
+        return redirect()->route('master-role.index');
+    }
+
+    public function updatePermission(Request $request, string $id){
+        if (!empty($request->permission_id)){
+            $arr = array();
+            foreach ($request->permission_id as $pid){
+                $permission = Permission::findById($pid);
+                array_push($arr, $permission);
+            }
+            $role = Role::find($id);
+            $role->syncPermissions($arr);
+
+        }
+
+        Alert::alert('Success', 'Permission Sync Successfully!', 'success')->autoClose(3000);
 
         return redirect()->route('master-role.index');
     }

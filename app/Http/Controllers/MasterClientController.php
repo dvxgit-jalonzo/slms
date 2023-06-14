@@ -18,20 +18,7 @@ class MasterClientController extends Controller
         confirmDelete($title, $text);
 
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.client.index', compact('clients'));
-        }else if ($role == "Administrator"){
-            return view('administrator.client.index', compact('clients'));
-        }else if ($role == "Developer"){
-            return view('developer.client.index', compact('clients'));
-        }else if ($role == "Licenser"){
-            return view('licenser.client.index', compact('clients'));
-        }else if ($role == "Support"){
-            return view('support.client.index', compact('clients'));
-        }
+        return view('master.client.index', compact('clients'));
 
     }
 
@@ -82,19 +69,8 @@ class MasterClientController extends Controller
         $client = Client::findOrFail($id);
 
 
-        $role = getRole();
+        return view('master.client.show', compact('client'));
 
-        if ($role == "Super Admin"){
-            return view('super-admin.client.show', compact('client'));
-        }else if ($role == "Administrator"){
-            return view('administrator.client.show', compact('client'));
-        }else if ($role == "Developer"){
-            return view('developer.client.show', compact('client'));
-        }else if ($role == "Licenser"){
-            return view('licenser.client.show', compact('client'));
-        }else if ($role == "Support"){
-            return view('support.client.show', compact('client'));
-        }
 
     }
 
@@ -107,19 +83,8 @@ class MasterClientController extends Controller
         $client = Client::findOrFail($id);
 
 
-        $role = getRole();
+        return view('master.client.edit', compact('client'));
 
-        if ($role == "Super Admin"){
-            return view('super-admin.client.edit', compact('client'));
-        }else if ($role == "Administrator"){
-            return view('administrator.client.edit', compact('client'));
-        }else if ($role == "Developer"){
-            return view('developer.client.edit', compact('client'));
-        }else if ($role == "Licenser"){
-            return view('licenser.client.edit', compact('client'));
-        }else if ($role == "Support"){
-            return view('support.client.edit', compact('client'));
-        }
 
 
     }
@@ -181,20 +146,7 @@ class MasterClientController extends Controller
 
 
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.client.edit-contact-person', compact('contact'));
-        }else if ($role == "Administrator"){
-            return view('administrator.client.edit-contact-person', compact('contact'));
-        }else if ($role == "Developer"){
-             return view('developer.client.edit-contact-person', compact('contact'));
-        }else if ($role == "Licenser"){
-            return view('licenser.client.edit-contact-person', compact('contact'));
-        }else if ($role == "Support"){
-            return view('support.client.edit-contact-person', compact('contact'));
-        }
-
+            return view('master.client.edit-contact-person', compact('contact'));
 
     }
 

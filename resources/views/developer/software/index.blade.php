@@ -55,13 +55,16 @@
                                             <button class="btn btn-sm btn-outline-info dropdown-toggle" type="button" id="actions" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
                                             <ul class="dropdown-menu" >
                                                 <li>
-                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableModule{{$sft->id}}">Modules</button>
+                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableModule{{$sft->id}}">Modules</button>
                                                 </li>
                                                 <li>
-                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableSoftware{{$sft->id}}">Requirements</button>
+                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableSoftware{{$sft->id}}">Requirements</button>
                                                 </li>
                                                 <li>
-                                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableTemplate{{$sft->id}}">Template</button>
+                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableTemplate{{$sft->id}}">Template</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#tableDevice{{$sft->id}}">Devices</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -178,6 +181,43 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal fade " id="tableDevice{{$sft->id}}">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            Devices
+                                                        </h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <a href="{{route('master-software.create-software-device', [$sft->id])}}" class="btn btn-sm btn-outline-primary mb-3"><i class="bi bi-person-add"></i> Software Device</a>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm devices-table" >
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Description</th>
+                                                                    <th>Edit</th>
+                                                                    <th>Delete</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($sft->software_devices as $device)
+                                                                    <tr>
+                                                                        <td>{{$device->name}}</td>
+                                                                        <td>{{$device->description}}</td>
+                                                                        <td><a href="{{route('master-software.edit-software-device', [$device->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
+                                                                        <td><a href="{{ route('master-software.destroy-software-device', [$device->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
+
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
 
                                     <td>
@@ -219,6 +259,10 @@
 
                     $(".modal").on('shown.bs.modal', function (){
                         $(this).find('.templates-table').DataTable();
+                    });
+
+                    $(".modal").on('shown.bs.modal', function (){
+                        $(this).find('.devices-table').DataTable();
                     });
                 });
             </script>

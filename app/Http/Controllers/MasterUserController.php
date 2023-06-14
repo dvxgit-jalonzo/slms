@@ -15,20 +15,8 @@ class MasterUserController extends Controller
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
+        return view('master.user.index', compact('users'));
 
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.user.index', compact('users'));
-        }else if ($role == "Administrator"){
-            return view('administrator.user.index', compact('users'));
-        }else if ($role == "Developer"){
-            return view('developer.user.index', compact('users'));
-        }else if ($role == "Licenser"){
-            return view('licenser.user.index', compact('users'));
-        }else if ($role == "Support"){
-            return view('support.user.index', compact('users'));
-        }
 
 
     }
@@ -39,20 +27,8 @@ class MasterUserController extends Controller
     public function create()
     {
         $roles = Role::all();
+        return view('master.user.create', compact('roles'));
 
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.user.create', compact('roles'));
-        }else if ($role == "Administrator"){
-            return view('administrator.user.create', compact('roles'));
-        }else if ($role == "Developer"){
-            return view('developer.user.create', compact('roles'));
-        }else if ($role == "Licenser"){
-            return view('licenser.user.create', compact('roles'));
-        }else if ($role == "Support"){
-            return view('support.user.create', compact('roles'));
-        }
 
 
     }
@@ -112,20 +88,7 @@ class MasterUserController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::all();
-
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.user.edit', compact('user', 'roles'));
-        }else if ($role == "Administrator"){
-            return view('administrator.user.edit', compact('user', 'roles'));
-        }else if ($role == "Developer"){
-            return view('developer.user.edit', compact('user', 'roles'));
-        }else if ($role == "Licenser"){
-            return view('licenser.user.edit', compact('user', 'roles'));
-        }else if ($role == "Support"){
-            return view('support.user.edit', compact('user', 'roles'));
-        }
+        return view('master.user.edit', compact('user', 'roles'));
 
 
     }

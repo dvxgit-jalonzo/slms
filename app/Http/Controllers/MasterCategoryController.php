@@ -17,37 +17,13 @@ class MasterCategoryController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        $role = getRole();
 
-        if ($role == "Super Admin"){
-            return view('super-admin.category.index', compact('categories'));
-        }else if ($role == "Administrator"){
-            return view('administrator.category.index', compact('categories'));
-        }else if ($role == "Developer"){
-            return view('developer.category.index', compact('categories'));
-        }else if ($role == "Licenser"){
-            return view('licenser.category.index', compact('categories'));
-        }else if ($role == "Support"){
-            return view('support.category.index', compact('categories'));
-        }
+        return view('master.category.index', compact('categories'));
     }
 
     public function create()
     {
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.category.create');
-        }else if ($role == "Administrator"){
-            return view('administrator.category.create');
-        }else if ($role == "Developer"){
-            return view('developer.category.create');
-        }else if ($role == "Licenser"){
-            return view('licenser.category.create');
-        }else if ($role == "Support"){
-            return view('support.category.create');
-        }
-
+        return view('master.category.create');
     }
 
 
@@ -81,21 +57,7 @@ class MasterCategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.category.edit', compact('category'));
-        }else if ($role == "Administrator"){
-            return view('administrator.category.edit', compact('category'));
-        }else if ($role == "Developer"){
-            return view('developer.category.edit', compact('category'));
-        }else if ($role == "Licenser"){
-            return view('licenser.category.edit', compact('category'));
-        }else if ($role == "Support"){
-            return view('support.category.edit', compact('category'));
-        }
+        return view('master.category.edit', compact('category'));
 
     }
 

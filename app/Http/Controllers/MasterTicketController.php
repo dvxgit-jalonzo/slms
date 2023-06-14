@@ -25,20 +25,7 @@ class MasterTicketController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket.index', compact('tickets'));
-        }else if ($role == "Administrator"){
-            return view('administrator-admin.ticket.index', compact('tickets'));
-        }else if ($role == "Developer"){
-            return view('developer-admin.ticket.index', compact('tickets'));
-        }else if ($role == "Licenser"){
-            return view('licenser-admin.ticket.index', compact('tickets'));
-        }else if ($role == "Support"){
-            return view('support-admin.ticket.index', compact('tickets'));
-        }
-
+        return view('master.ticket.index', compact('tickets'));
 
 
     }
@@ -56,19 +43,7 @@ class MasterTicketController extends Controller
         $ticket_template = TicketTemplate::select("content")->first()->content;
 
 
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
-        }else if ($role == "Administrator"){
-            return view('administrator.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
-        }else if ($role == "Developer"){
-            return view('developer.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
-        }else if ($role == "Licenser"){
-            return view('licenser.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
-        }else if ($role == "Support"){
-            return view('support.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
-        }
+        return view('master.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
 
 
 
@@ -150,19 +125,7 @@ class MasterTicketController extends Controller
         $statuses = Status::all();
         $users = User::all();
 
-          $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
-        }else if ($role == "Administrator"){
-            return view('administrator.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
-        }else if ($role == "Developer"){
-            return view('developer.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
-        }else if ($role == "Licenser"){
-            return view('licenser.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
-        }else if ($role == "Support"){
-            return view('support.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
-        }
+        return view('master.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
 
 
 

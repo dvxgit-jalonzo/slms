@@ -20,20 +20,7 @@ class MasterSoftwareController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.index', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.index', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.index', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.index', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.index', compact('software'));
-        }
+        return view('master.software.index', compact('software'));
 
 
     }
@@ -44,20 +31,7 @@ class MasterSoftwareController extends Controller
     public function create()
     {
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.create');
-        }else if ($role == "Administrator"){
-            return view('administrator.software.create');
-        }else if ($role == "Developer"){
-            return view('developer.software.create');
-        }else if ($role == "Licenser"){
-            return view('licenser.software.create');
-        }else if ($role == "Support"){
-            return view('support.software.create');
-        }
+        return view('master.software.create');
 
 
     }
@@ -103,21 +77,7 @@ class MasterSoftwareController extends Controller
     {
         $software = Software::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.show', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.show', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.show', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.show', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.show', compact('software'));
-        }
-
+        return view('master.software.show', compact('software'));
 
     }
 
@@ -129,21 +89,7 @@ class MasterSoftwareController extends Controller
         $software = Software::findOrFail($id);
 
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.edit', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.edit', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.edit', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.edit', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.edit', compact('software'));
-        }
-
+        return view('master.software.edit', compact('software'));
 
     }
 
@@ -223,21 +169,7 @@ class MasterSoftwareController extends Controller
     public function editSoftwareRequirement( string $id){
         $software_requirement = SoftwareRequirement::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.edit-software-requirement', compact('software_requirement'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.edit-software-requirement', compact('software_requirement'));
-        }else if ($role == "Developer"){
-            return view('developer.software.edit-software-requirement', compact('software_requirement'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.edit-software-requirement', compact('software_requirement'));
-        }else if ($role == "Support"){
-            return view('support.software.edit-software-requirement', compact('software_requirement'));
-        }
-
+        return view('master.software.edit-software-requirement', compact('software_requirement'));
 
     }
 
@@ -274,20 +206,7 @@ class MasterSoftwareController extends Controller
         $software = Software::findOrFail($id);
 
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.create-software-module', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.create-software-module', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.create-software-module', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.create-software-module', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.create-software-module', compact('software'));
-        }
+        return view('master.software.create-software-module', compact('software'));
 
 
     }
@@ -333,20 +252,7 @@ class MasterSoftwareController extends Controller
         $module = SoftwareUnder::findOrFail($id);
 
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.edit-software-module', compact('module'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.edit-software-module', compact('module'));
-        }else if ($role == "Developer"){
-            return view('developer.software.edit-software-module', compact('module'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.edit-software-module', compact('module'));
-        }else if ($role == "Support"){
-            return view('support.software.edit-software-module', compact('module'));
-        }
+        return view('master.software.edit-software-module', compact('module'));
 
 
     }
@@ -367,20 +273,7 @@ class MasterSoftwareController extends Controller
     public function  createSoftwareTemplate(string $id){
         $software = Software::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.create-software-template', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.create-software-template', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.create-software-template', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.create-software-template', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.create-software-template', compact('software'));
-        }
+        return view('master.software.create-software-template', compact('software'));
 
 
     }
@@ -388,20 +281,8 @@ class MasterSoftwareController extends Controller
     public function editSoftwareTemplate(string $id){
         $template = SoftwareTemplate::findOrFail($id);
 
+        return view('master.software.edit-software-template', compact('template'));
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.edit-software-template', compact('template'));
-        }else if ($role == "Administrator"){
-            return view('adminsitrator.software.edit-software-template', compact('template'));
-        }else if ($role == "Developer"){
-            return view('developer.software.edit-software-template', compact('template'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.edit-software-template', compact('template'));
-        }else if ($role == "Support"){
-            return view('support.software.edit-software-template', compact('template'));
-        }
 
 
     }
@@ -463,39 +344,14 @@ class MasterSoftwareController extends Controller
     public function createSoftwareDevice(string $id){
         $software = Software::findOrFail($id);
 
+        return view('master.software.create-software-device', compact('software'));
 
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.create-software-device', compact('software'));
-        }else if ($role == "Administrator"){
-            return view('administrator.software.create-software-device', compact('software'));
-        }else if ($role == "Developer"){
-            return view('developer.software.create-software-device', compact('software'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.create-software-device', compact('software'));
-        }else if ($role == "Support"){
-            return view('support.software.create-software-device', compact('software'));
-        }
     }
 
     public function editSoftwareDevice(string $id){
         $software_device = SoftwareDevice::findOrFail($id);
 
-
-        $role = getRole();
-
-        if ($role == "Super Admin"){
-            return view('super-admin.software.edit-software-device', compact('software_device'));
-        }else if ($role == "Administrator"){
-            return view('adminsitrator.software.edit-software-device', compact('software_device'));
-        }else if ($role == "Developer"){
-            return view('developer.software.edit-software-device', compact('software_device'));
-        }else if ($role == "Licenser"){
-            return view('licenser.software.edit-software-device', compact('software_device'));
-        }else if ($role == "Support"){
-            return view('support.software.edit-software-device', compact('software_device'));
-        }
+        return view('master.software.edit-software-device', compact('software_device'));
 
 
     }

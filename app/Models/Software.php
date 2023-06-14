@@ -23,6 +23,10 @@ class Software extends Model
         return $this->hasMany(SoftwareTemplate::class);
     }
 
+    public function software_devices(){
+        return $this->hasMany(SoftwareDevice::class);
+    }
+
     public function licenses(){
         return $this->hasMany(License::class);
     }

@@ -173,7 +173,7 @@
                 </a>
                 <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('developer-user.index')}}">
+                        <a href="{{route('master-user.index')}}">
                             <i class="bi bi-circle"></i><span>View User</span>
                         </a>
                     </li>
@@ -187,7 +187,7 @@
                 </a>
                 <ul id="client-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('developer-client.index')}}">
+                        <a href="{{route('master-client.index')}}">
                             <i class="bi bi-circle"></i><span>View Client</span>
                         </a>
                     </li>
@@ -201,7 +201,7 @@
                 </a>
                 <ul id="software-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('developer-software.index')}}">
+                        <a href="{{route('master-software.index')}}">
                             <i class="bi bi-circle"></i><span>View Software</span>
                         </a>
                     </li>
@@ -213,18 +213,18 @@
                 </a>
                 <ul id="ticket-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('developer-ticket.index')}}">
+                        <a href="{{route('master-ticket.index')}}">
                             <i class="bi bi-circle"></i><span>View Tickets</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('developer-category.index')}}">
+                        <a href="{{route('master-category.index')}}">
                             <i class="bi bi-circle"></i><span>View Category</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('developer-status.index')}}">
+                        <a href="{{route('master-status.index')}}">
                             <i class="bi bi-circle"></i><span>View Status</span>
                         </a>
                     </li>
@@ -236,7 +236,7 @@
                 </a>
                 <ul id="license-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('developer-license.index')}}">
+                        <a href="{{route('master-license.index')}}">
                             <i class="bi bi-circle"></i><span>View License</span>
                         </a>
                     </li>
@@ -305,13 +305,13 @@
             </a>
             <ul id="tools-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('developer-role.index')}}">
+                    <a href="{{route('master-role.index')}}">
                         <i class="bi bi-circle"></i><span>Roles</span>
                     </a>
                 </li>
 
 {{--                <li>--}}
-{{--                    <a href="{{route('developer-permission.index')}}">--}}
+{{--                    <a href="{{route('master-permission.index')}}">--}}
 {{--                        <i class="bi bi-circle"></i><span>Permissions</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}

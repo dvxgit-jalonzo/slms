@@ -96,3 +96,33 @@ Route::post('licenser-decrypt-content',
     [\App\Http\Controllers\LicenserLicenseController::class, 'decryptFile'])
     ->name('licenser-decrypt.content');
 
+
+
+
+
+
+Route::get('master-software-get-template/{id}',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'apiGetSoftwareTemplate'])
+    ->name('master-software.get-template');
+
+Route::get('master-check-exist',
+    [\App\Http\Controllers\MasterSoftwareController::class, 'checkExist'])
+    ->name('master-check-exist.license');
+
+
+Route::post('master-decrypt-content',
+    [\App\Http\Controllers\MasterLicenseController::class, 'decryptFile'])
+    ->name('master-decrypt.content');
+
+Route::get("master-software-get-code",
+    [\App\Http\Controllers\MasterSoftwareController::class, 'getSoftwareCode'])
+    ->name('master-software.get-software-code');
+
+Route::get("master-client-get-code",
+    [\App\Http\Controllers\MasterClientController::class, 'getClientCode'])
+    ->name('master-client.get-client-code');
+
+//This should be ticket .. to edit
+Route::get("master-license-get-last-id",
+    [\App\Http\Controllers\MasterLicenseController::class, 'getLastID'])
+    ->name('master-license.get-last-id');

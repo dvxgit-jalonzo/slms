@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\License;
 use App\Models\Software;
+use App\Models\SoftwareDevice;
 use App\Models\SoftwareRequirement;
 use App\Models\SoftwareTemplate;
 use App\Models\SoftwareUnder;
@@ -405,7 +406,6 @@ class MasterSoftwareController extends Controller
 
     }
 
-
     public function storeSoftwareTemplate(Request $request, string $id){
         $this->validate($request, [
             'name.*' => 'required',
@@ -460,7 +460,94 @@ class MasterSoftwareController extends Controller
     }
 
 
+    public function createSoftwareDevice(string $id){
+        $software = Software::findOrFail($id);
 
+
+        $role = getRole();
+
+        if ($role == "Super Admin"){
+            return view('super-admin.software.create-software-device', compact('software'));
+        }else if ($role == "Administrator"){
+            return view('administrator.software.create-software-device', compact('software'));
+        }else if ($role == "Developer"){
+            return view('developer.software.create-software-device', compact('software'));
+        }else if ($role == "Licenser"){
+            return view('licenser.software.create-software-device', compact('software'));
+        }else if ($role == "Support"){
+            return view('support.software.create-software-device', compact('software'));
+        }
+    }
+
+    public function editSoftwareDevice(string $id){
+        $software_device = SoftwareDevice::findOrFail($id);
+
+
+        $role = getRole();
+
+        if ($role == "Super Admin"){
+            return view('super-admin.software.edit-software-device', compact('software_device'));
+        }else if ($role == "Administrator"){
+            return view('adminsitrator.software.edit-software-device', compact('software_device'));
+        }else if ($role == "Developer"){
+            return view('developer.software.edit-software-device', compact('software_device'));
+        }else if ($role == "Licenser"){
+            return view('licenser.software.edit-software-device', compact('software_device'));
+        }else if ($role == "Support"){
+            return view('support.software.edit-software-device', compact('software_device'));
+        }
+
+
+    }
+
+    public function storeSoftwareDevice(Request $request, string $id){
+        $this->validate($request, [
+            'name.*' => 'required',
+        ]);
+
+
+
+
+        for($x=0; $x<count($request->name); $x++){
+            SoftwareDevice::create([
+                'software_id' => $id,
+                'name' => $request->name[$x],
+                'description' => $request->description[$x],
+            ]);
+        }
+
+
+
+
+        Alert::alert('Success', 'Created Successfully!', 'success')
+            ->autoClose(3000);
+
+        return redirect()->route('master-software.index');
+    }
+
+    public function updateSoftwareDevice(Request $request, string $id){
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $template = SoftwareDevice::findOrFail($id);
+        $template->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        Alert::alert('Updated', 'Updated Successfully!', 'success')
+            ->autoClose(3000);
+        return redirect()->route('master-software.index');
+    }
+
+    public function destroySoftwareDevice(string $id){
+        $template = SoftwareDevice::findOrFail($id);
+        if ($template->delete()){
+            Alert::alert('Delete', 'Deleted Successfully!', 'success')
+                ->autoClose(3000);
+        }
+        return redirect()->route('master-software.index');
+    }
 
 
 

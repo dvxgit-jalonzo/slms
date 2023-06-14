@@ -29,7 +29,7 @@ class SendMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('myditosimcard@gmail.com'),
+            from: new Address('diavox.cloud@gmail.com'),
             subject: $this->details['subject'],
         );
     }

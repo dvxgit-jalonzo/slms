@@ -42,7 +42,7 @@
 
                                     <div class="col-lg-12 mb-3">
                                         <div class="form-floating">
-                                            <input type="file" id="jsonFileInput" placeholder="Upload License" class="form-control" onchange="readFileContent()">
+                                            <input type="file" id="jsonFileInput" placeholder="Upload License" accept=".json" class="form-control" onchange="readFileContent()">
                                             <label for="text-muted">Upload License</label>
                                         </div>
                                     </div>

@@ -40,7 +40,7 @@ class MasterTicketController extends Controller
         $users = User::all();
         $clients = Client::all();
         $softwares = Software::all();
-        $ticket_template = TicketTemplate::select("content")->first()->content;
+        $ticket_template = TicketTemplate::select("cont")->first()->cont;
 
 
         return view('master.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));

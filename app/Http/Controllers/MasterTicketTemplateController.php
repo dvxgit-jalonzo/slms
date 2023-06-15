@@ -34,12 +34,13 @@ class MasterTicketTemplateController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
-            'content' => 'required'
+            'cont' => 'required'
         ]);
 
         TicketTemplate::create([
-            'content' => $request->content,
+            'cont' => $request->cont,
         ]);
 
         Alert::alert('Success', 'Created Successfully!', 'success')
@@ -75,11 +76,11 @@ class MasterTicketTemplateController extends Controller
     {
         $ticket_template = TicketTemplate::findOrFail($id);
         $this->validate($request, [
-            'content' => 'required'
+            'cont' => 'required'
         ]);
 
         $ticket_template->update([
-            'content' => $request->content,
+            'cont' => $request->cont,
         ]);
 
         Alert::alert('Updated', 'Updated Successfully!', 'success')

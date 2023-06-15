@@ -8,7 +8,7 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('master-ticket.create')}}">Create Ticket</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('master-ticket-template.create')}}">Create Ticket</a></li>
                 </ol>
             </nav>
         </div>

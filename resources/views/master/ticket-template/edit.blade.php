@@ -29,8 +29,8 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-12 mb-3">
-                                                <textarea class="tinymce-editor @error('content') is-invalid @enderror" name="content">{{$ticket_template->content}}</textarea>
-                                                <x-validation name="content"></x-validation>
+                                                <textarea class="tinymce-editor @error('cont') is-invalid @enderror" name="cont">{{$ticket_template->cont}}</textarea>
+                                                <x-validation name="cont"></x-validation>
                                             </div>
                                         </div>
                                     </div>

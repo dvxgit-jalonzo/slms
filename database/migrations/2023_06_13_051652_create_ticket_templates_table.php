@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ticket_templates', function (Blueprint $table) {
             $table->id();
-            $table->longText('content');
+            $table->longText('cont');
             $table->timestamps();
         });
     }

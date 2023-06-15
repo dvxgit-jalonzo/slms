@@ -28,8 +28,8 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-12 mb-3">
-                                                <textarea class="tinymce-editor @error('content') is-invalid @enderror" name="content">{{old('content')}}</textarea>
-                                                <x-validation name="content"></x-validation>
+                                                <textarea class="tinymce-editor @error('cont') is-invalid @enderror" name="cont">{{old('cont')}}</textarea>
+                                                <x-validation name="cont"></x-validation>
                                             </div>
                                         </div>
                                     </div>

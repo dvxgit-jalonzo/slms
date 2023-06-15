@@ -27,7 +27,7 @@ class MasterClientController extends Controller
      */
     public function create()
     {
-        return view('master-client.create');
+        return view('master.client.create');
     }
 
     /**

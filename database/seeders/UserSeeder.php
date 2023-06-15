@@ -25,5 +25,18 @@ class UserSeeder extends Seeder
        $role = Role::findByName('Super Admin');
 
        $user->assignRole($role);
+
+
+        $user = User::create([
+            'name' => 'Developer',
+            'email' => 'developer@gmail.com',
+            'username' => 'developer',
+            'password' => bcrypt('admin123')
+        ]);
+
+
+        $role = Role::findByName('Developer');
+
+        $user->assignRole($role);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TicketTemplate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterTicketTemplateController extends Controller
@@ -11,6 +12,19 @@ class MasterTicketTemplateController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-ticket')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
+
+
     public function index()
     {
         $ticket_templates = TicketTemplate::all();

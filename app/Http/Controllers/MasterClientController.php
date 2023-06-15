@@ -5,10 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\ClientContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterClientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-client')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
 
     public function index()
     {

@@ -2,11 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Can.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/403.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/TicketTemplateSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterLicenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterLicenseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterPermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterPermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterRoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterRoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareUnderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareUnderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterStatusController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketTemplateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketTemplateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterUserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Can.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/errors/403.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/403.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +231,7 @@
       <workItem from="1686616747303" duration="19171000" />
       <workItem from="1686700505166" duration="10487000" />
       <workItem from="1686714010387" duration="17806000" />
-      <workItem from="1686790201533" duration="3690000" />
+      <workItem from="1686790201533" duration="12407000" />
     </task>
     <servers />
   </component>

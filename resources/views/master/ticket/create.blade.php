@@ -135,6 +135,7 @@
                     success: function (response){
                         let  number = response;
                         $("#software_id").on("change", function (){
+                            console.log($("#software_id").val());
                             var software_id = $(this).val();
                             $.ajax({
                                 url: "{{route('master-software.get-software-code')}}",

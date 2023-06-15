@@ -29,6 +29,7 @@ class PermissionSeeder extends Seeder
         $status = Permission::create(['name' => 'manage-status']);
         $license = Permission::create(['name' => 'manage-license']);
         $extraDevTools = Permission::create(['name' => 'manage-tools']);
+//        $role = Permission::create(['name' => 'manage-role']);
 
         $permissions = [$user, $client, $software, $ticket, $category, $status, $license, $extraDevTools];
 

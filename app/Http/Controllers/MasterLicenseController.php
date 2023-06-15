@@ -10,11 +10,24 @@ use App\Models\LicenseRemoteAccess;
 use App\Models\Software;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterLicenseController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-license')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index(){
         $licenses = License::all();
 
@@ -297,4 +310,5 @@ class MasterLicenseController extends Controller
 
         return strrev(str_pad($license->id+1, 6, "0"));
     }
+
 }

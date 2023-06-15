@@ -9,10 +9,22 @@ use App\Models\SoftwareRequirement;
 use App\Models\SoftwareTemplate;
 use App\Models\SoftwareUnder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterSoftwareController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-software')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $software = Software::all();

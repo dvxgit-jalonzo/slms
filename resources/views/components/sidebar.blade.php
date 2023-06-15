@@ -72,17 +72,20 @@
                             <i class="bi bi-circle"></i><span>View Tickets</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('master-category.index')}}">
-                            <i class="bi bi-circle"></i><span>View Category</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{route('master-status.index')}}">
-                            <i class="bi bi-circle"></i><span>View Status</span>
-                        </a>
-                    </li>
+                    @can('manage-category')
+                        <li>
+                            <a href="{{route('master-category.index')}}">
+                                <i class="bi bi-circle"></i><span>View Category</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('manage-status')
+                        <li>
+                            <a href="{{route('master-status.index')}}">
+                                <i class="bi bi-circle"></i><span>View Status</span>
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan

@@ -4,12 +4,24 @@ namespace App\Http\Controllers;
 
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class MasterRoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-tools')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $roles = Role::all();
@@ -19,8 +31,6 @@ class MasterRoleController extends Controller
 
 
         return view('master.role.index', compact('roles'));
-
-
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use App\Models\Status;
+use App\Models\TicketTemplate;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
             CategorySeeder::class,
             PermissionSeeder::class,
+//            TicketTemplateSeeder::class,
         ]);
     }
 }

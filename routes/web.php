@@ -22,8 +22,7 @@ Route::get('/', function () {
     }
 });
 
-Route::group(['middleware' => ['auth', 'can:manage-user,manage-client,manage-software,manage-ticket,manage-category,manage-status,manage-license,manage-tools']], function () {
-
+Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/master-client-edit-contact-person/{id}',
         [\App\Http\Controllers\MasterClientController::class, 'editContactPerson'])
@@ -162,7 +161,8 @@ Route::group(['middleware' => ['auth', 'can:manage-user,manage-client,manage-sof
         ->name('master-license.store-remote-access');
 
 
-    Route::get('master-ticket-download/{id}', [\App\Http\Controllers\MasterTicketController::class, 'download'])
+    Route::get('master-ticket-download/{id}',
+        [\App\Http\Controllers\MasterTicketController::class, 'download'])
         ->name('master-ticket.download');
 
 
@@ -182,7 +182,9 @@ Route::group(['middleware' => ['auth', 'can:manage-user,manage-client,manage-sof
 
 
 
-    Route::put('/master-role-updatePermission/{id}', [\App\Http\Controllers\MasterRoleController::class, 'updatePermission'])->name('master-role.updatePermission');
+    Route::put('/master-role-updatePermission/{id}',
+        [\App\Http\Controllers\MasterRoleController::class, 'updatePermission'])
+        ->name('master-role.updatePermission');
 
 
 

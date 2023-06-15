@@ -5,30 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Status;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterStatusController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!Auth::user()->hasPermissionTo('manage-status')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $statuses = Status::all();
         $title = 'Delete Status!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
+
         return view('master.status.index', compact('statuses'));
-
-         $role = getRole();
-
-        if ($role == "Super Admin"){
-        }else if ($role == "Administrator"){
-            return view('administrator.status.index', compact('statuses'));
-        }else if ($role == "Developer"){
-            return view('developer.status.index', compact('statuses'));
-        }else if ($role == "Licenser"){
-            return view('licenser.status.index', compact('statuses'));
-        }else if ($role == "Support"){
-            return view('support.status.index', compact('statuses'));
-        }
 
     }
 

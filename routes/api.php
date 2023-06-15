@@ -1,5 +1,11 @@
 <?php
 
+use App\Diavox\DiavoxLicenser;
+use App\Models\Client;
+use App\Models\License;
+use App\Models\Software;
+use App\Models\SoftwareTemplate;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,87 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::get('super-admin-software-get-template/{id}',
-    [\App\Http\Controllers\SuperAdminSoftwareController::class, 'apiGetSoftwareTemplate'])
-    ->name('super-admin-software.get-template');
-
-Route::get('super-admin-check-exist',
-    [\App\Http\Controllers\SuperAdminSoftwareController::class, 'checkExist'])
-    ->name('super-admin-check-exist.license');
-
-
-Route::post('super-admin-decrypt-content',
-    [\App\Http\Controllers\SuperAdminLicenseController::class, 'decryptFile'])
-    ->name('super-admin-decrypt.content');
-
-Route::get("super-admin-software-get-code",
-    [\App\Http\Controllers\SuperAdminSoftwareController::class, 'getSoftwareCode'])
-    ->name('super-admin-software.get-software-code');
-
-Route::get("super-admin-client-get-code",
-    [\App\Http\Controllers\SuperAdminClientController::class, 'getClientCode'])
-    ->name('super-admin-client.get-client-code');
-
-//This should be ticket .. to edit
-Route::get("super-admin-license-get-last-id",
-    [\App\Http\Controllers\SuperAdminLicenseController::class, 'getLastID'])
-    ->name('super-admin-license.get-last-id');
-
-
-
-
-
-
-Route::get('administrator-software-get-template/{id}',
-    [\App\Http\Controllers\AdministratorSoftwareController::class, 'apiGetSoftwareTemplate'])
-    ->name('administrator-software.get-template');
-
-Route::get('administrator-check-exist',
-    [\App\Http\Controllers\AdministratorSoftwareController::class, 'checkExist'])
-    ->name('administrator-check-exist.license');
-
-
-Route::post('administrator-decrypt-content',
-    [\App\Http\Controllers\AdministratorLicenseController::class, 'decryptFile'])
-    ->name('administrator-decrypt.content');
-
-
-
-
-
-Route::get('developer-software-get-template/{id}',
-    [\App\Http\Controllers\DeveloperSoftwareController::class, 'apiGetSoftwareTemplate'])
-    ->name('developer-software.get-template');
-
-Route::get('developer-check-exist',
-    [\App\Http\Controllers\DeveloperSoftwareController::class, 'checkExist'])
-    ->name('developer-check-exist.license');
-
-
-Route::post('developer-decrypt-content',
-    [\App\Http\Controllers\DeveloperLicenseController::class, 'decryptFile'])
-    ->name('developer-decrypt.content');
-
-
-
-
-
-Route::get('licenser-software-get-template/{id}',
-    [\App\Http\Controllers\LicenserSoftwareController::class, 'apiGetSoftwareTemplate'])
-    ->name('licenser-software.get-template');
-
-Route::get('licenser-check-exist',
-    [\App\Http\Controllers\LicenserSoftwareController::class, 'checkExist'])
-    ->name('licenser-check-exist.license');
-
-
-Route::post('licenser-decrypt-content',
-    [\App\Http\Controllers\LicenserLicenseController::class, 'decryptFile'])
-    ->name('licenser-decrypt.content');
 
 
 
@@ -102,27 +28,64 @@ Route::post('licenser-decrypt-content',
 
 
 Route::get('master-software-get-template/{id}',
-    [\App\Http\Controllers\MasterSoftwareController::class, 'apiGetSoftwareTemplate'])
-    ->name('master-software.get-template');
+//    [\App\Http\Controllers\MasterSoftwareController::class, 'apiGetSoftwareTemplate']
+    function (string $id){
+        return SoftwareTemplate::where('software_id', $id)->get();
+    }
+)->name('master-software.get-template');
 
 Route::get('master-check-exist',
-    [\App\Http\Controllers\MasterSoftwareController::class, 'checkExist'])
-    ->name('master-check-exist.license');
+//    [\App\Http\Controllers\MasterSoftwareController::class, 'checkExist']
+
+    function (Request $request){
+        $license = License::where('client_id', $request->client_id)->where('software_id', $request->software_id);
+
+        if ($license->exists()){
+            return $license->get();
+        }
+    }
+)->name('master-check-exist.license');
 
 
 Route::post('master-decrypt-content',
-    [\App\Http\Controllers\MasterLicenseController::class, 'decryptFile'])
-    ->name('master-decrypt.content');
+//    [\App\Http\Controllers\MasterLicenseController::class, 'decryptFile']
+    function (Request $request){
+        $encrypted = $request->fileContent;
+        $diav = new DiavoxLicenser();
+        $decrypt = $diav->decrypt($encrypted);
+        return json_encode($decrypt);
+    }
+)->name('master-decrypt.content');
+
 
 Route::get("master-software-get-code",
-    [\App\Http\Controllers\MasterSoftwareController::class, 'getSoftwareCode'])
-    ->name('master-software.get-software-code');
+//    [\App\Http\Controllers\MasterSoftwareController::class, 'getSoftwareCode']
+    function (Request $request){
+        return Software::select("code")->where('id', $request->software_id)->get();
+    }
+)->name('master-software.get-software-code');
+
+
+
 
 Route::get("master-client-get-code",
-    [\App\Http\Controllers\MasterClientController::class, 'getClientCode'])
-    ->name('master-client.get-client-code');
+//    [\App\Http\Controllers\MasterClientController::class, 'getClientCode']
+    function (Request $request){
+        return Client::select("code")->where('id', $request->client_id)->get();
+    }
+)->name('master-client.get-client-code');
+
 
 //This should be ticket .. to edit
 Route::get("master-license-get-last-id",
-    [\App\Http\Controllers\MasterLicenseController::class, 'getLastID'])
-    ->name('master-license.get-last-id');
+//    [\App\Http\Controllers\MasterLicenseController::class, 'getLastID']
+    function (){
+        $license = Ticket::orderBy('id', 'desc')->limit(1)->first();
+
+        if (empty($license)){
+            return "000001";
+        }
+
+        return strrev(str_pad($license->id+1, 6, "0"));
+    }
+)->name('master-license.get-last-id');

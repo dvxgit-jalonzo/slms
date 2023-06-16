@@ -51,9 +51,8 @@
                         <table class="table table-sm" id="table">
                             <thead>
                             <tr>
-                                <td>Name</td>
+                                <td>Role Permission</td>
                                 <td>CreatedAt</td>
-                                <td>Permissions</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
@@ -61,21 +60,33 @@
                             <tbody>
                             @foreach($roles as $role)
                                 <tr>
-                                    <td>{{$role->name}}</td>
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="permission{{$role->id}}" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Permissions
-                                            </button>
 
-                                            <ul class="dropdown-menu" aria-labelledby="permission{{$role->id}}">
-                                                @forelse($role->permissions as $permission)
-                                                    <li><a class="dropdown-item" href="#">{{$permission->name}}</a></li>
-                                                @empty
-                                                    <li><a class="dropdown-item" href="#">No Permission Assigned</a></li>
-                                                @endforelse
-                                            </ul>
+                                        <div class="accordion" id="permission{{$role->id}}">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading{{$role->id}}">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$role->id}}" aria-expanded="true" aria-controls="collapse{{$role->id}}">
+                                                        {{$role->name}}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse{{$role->id}}" class="accordion-collapse collapse" aria-labelledby="heading{{$role->id}}" data-bs-parent="#permission{{$role->id}}">
+                                                    <div class="accordion-body">
+
+                                                        <div class="row">
+                                                            @forelse($role->permissions as $permission)
+                                                                <div class="col-6">
+                                                                    <strong>{{$permission->name}}</strong>
+                                                                </div>
+                                                            @empty
+                                                                <strong>No Permission Assigned</strong>
+                                                            @endforelse
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </td>
                                     <td>{{$role->created_at}}</td>
                                     <td>

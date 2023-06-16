@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12">
+                    <div class="col-lg-6 col-12" hidden>
                         <div class="card">
                             <div class="card-body pt-3">
                                 <label for="" class="text-muted ms-2 mb-2 fw-semibold">Template Design</label>

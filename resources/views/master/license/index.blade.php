@@ -5,7 +5,6 @@
         <div class="pagetitle">
             <h1>Licenses</h1>
             <nav>
-
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{route('master-license.create')}}">Generate License</a></li>

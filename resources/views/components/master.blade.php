@@ -26,6 +26,7 @@
     <link href="{{asset('NiceAdmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
     <link href="{{asset('NiceAdmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- Template Main CSS File -->
     <link href="{{asset('NiceAdmin/assets/css/style.css')}}" rel="stylesheet">
 
@@ -99,7 +100,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-
+{{--Toaster--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 {{--TinyMCE--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js" referrerpolicy="origin"></script>--}}
 

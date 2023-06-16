@@ -128,16 +128,13 @@ class MasterRoleController extends Controller
     }
 
     public function updatePermission(Request $request, string $id){
-        if (!empty($request->permission_id)){
-            $arr = array();
-            foreach ($request->permission_id as $pid){
-                $permission = Permission::findById($pid);
-                array_push($arr, $permission);
-            }
-            $role = Role::find($id);
-            $role->syncPermissions($arr);
 
-        }
+        $permissionIds = $request->permission_id ?: [];
+
+        $permissions = Permission::whereIn('id', $permissionIds)->get();
+
+        $role = Role::findById($id);
+        $role->syncPermissions($permissions);
 
         Alert::alert('Success', 'Permission Sync Successfully!', 'success')->autoClose(3000);
 

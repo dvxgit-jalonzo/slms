@@ -30,7 +30,7 @@
 
 
                                             <div class="col-12 mb-3">
-                                                <textarea class="tinymce-editor @error('description') is-invalid @enderror" name="description">{{$ticket_template}}</textarea>
+                                                <textarea id="description" class="tinymce-editor @error('description') is-invalid @enderror" name="description">{{$ticket_template}}</textarea>
                                                 <x-validation name="description"></x-validation>
                                             </div>
                                         </div>
@@ -46,7 +46,7 @@
                                                 <x-validation name="software_id"></x-validation>
                                             </div>
                                             <div class="col-12 mb-3">
-                                                <x-form-floating id="ticket_number" name="ticket_number" type="text" readonly placeholder="Ticket Number" value="{{old('ticket_number')}}">
+                                                <x-form-floating id="ticket_number" name="ticket_number" type="text" readonly placeholder="Double to copy Ticket Number" value="{{old('ticket_number')}}">
                                                     <x-validation name="ticket_number"></x-validation>
                                                 </x-form-floating>
                                             </div>
@@ -97,6 +97,7 @@
                                         </div>
                                     </div>
                                     <input type="text" hidden id="number">
+
                                 </div>
                             </form>
 
@@ -109,25 +110,38 @@
 
 
     @section('script')
+
         <script>
             $(document).ready(function() {
+                var template = $("#description").val();
+                var currentDate = new Date().toISOString().slice(0, 10);
 
-
+                let filledTemplate = template.replace(/{date_today}/g, currentDate);
+                $("#description").val(filledTemplate);
 
 
                 let software_code = "";
                 let client_code = "";
-                let ticker_number = "";
+                let ticket_number = "";
 
 
-                $('#select').select2( {
+                //
+                // copy the ticket_number in double click
+                $('#ticket_number').dblclick(function() {
+
+                    var input = $(this);
+                    input.select();
+                    document.execCommand('copy');
+                    toastr.success('Ticket Number Copied!');
+                });
+
+
+                $('#assigned_to').select2( {
                     theme: "bootstrap-5",
+                    disabled: true,
                     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
                     placeholder: $( this ).data( 'placeholder' ),
                 } );
-
-
-
 
                 $.ajax({
                     url: "{{route('master-license.get-last-id')}}",
@@ -144,10 +158,10 @@
                                     software_id: software_id
                                 },
                                 success: function(response) {
-                                    console.log(response[0].code);
                                     software_code = response[0].code;
-                                    ticker_number = software_code+""+client_code+"-"+number;
-                                    $("#ticket_number").val(ticker_number);
+                                    ticket_number = software_code+""+client_code+"-"+number;
+                                    $("#ticket_number").val(ticket_number);
+
                                 },
                             })
                         });
@@ -170,10 +184,9 @@
                                     client_id: client_id
                                 },
                                 success: function(response) {
-                                    console.log(response[0].code);
                                     client_code = response[0].code;
-                                    ticker_number = software_code+""+client_code+"-"+number;
-                                    $("#ticket_number").val(ticker_number);
+                                    ticket_number = software_code+""+client_code+"-"+number;
+                                    $("#ticket_number").val(ticket_number);
                                 },
                             })
                         });

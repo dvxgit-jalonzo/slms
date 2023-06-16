@@ -9,6 +9,7 @@ use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\TicketTemplate;
 use App\Models\User;
+use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,7 +55,9 @@ class MasterTicketController extends Controller
         $clients = Client::all();
         $softwares = Software::all();
         $ticket_template = TicketTemplate::select("cont")->first()->cont;
-
+//        $datePlaceholder = '{date_today}';
+//        $currentDate = Carbon::now()->format('Y-m-d');
+//        $ticket_template = str_replace($datePlaceholder, $currentDate, $ticket_template);
 
         return view('master.ticket.create', compact('categories','statuses', 'users', 'clients', 'softwares', 'ticket_template'));
 

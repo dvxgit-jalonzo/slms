@@ -28,64 +28,33 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('master-software-get-template/{id}',
-//    [\App\Http\Controllers\MasterSoftwareController::class, 'apiGetSoftwareTemplate']
-    function (string $id){
-        return SoftwareTemplate::where('software_id', $id)->get();
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'apiGetSoftwareTemplate']
+
 )->name('master-software.get-template');
 
 Route::get('master-check-exist',
-//    [\App\Http\Controllers\MasterSoftwareController::class, 'checkExist']
-
-    function (Request $request){
-        $license = License::where('client_id', $request->client_id)->where('software_id', $request->software_id);
-
-        if ($license->exists()){
-            return $license->get();
-        }
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'checkExist']
 )->name('master-check-exist.license');
 
 
 Route::post('master-decrypt-content',
-//    [\App\Http\Controllers\MasterLicenseController::class, 'decryptFile']
-    function (Request $request){
-        $encrypted = $request->fileContent;
-        $diav = new DiavoxLicenser();
-        $decrypt = $diav->decrypt($encrypted);
-        return json_encode($decrypt);
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'decryptFile']
 )->name('master-decrypt.content');
 
 
 Route::get("master-software-get-code",
-//    [\App\Http\Controllers\MasterSoftwareController::class, 'getSoftwareCode']
-    function (Request $request){
-        return Software::select("code")->where('id', $request->software_id)->get();
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'getSoftwareCode']
 )->name('master-software.get-software-code');
 
 
 
 
 Route::get("master-client-get-code",
-//    [\App\Http\Controllers\MasterClientController::class, 'getClientCode']
-    function (Request $request){
-        return Client::select("code")->where('id', $request->client_id)->get();
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'getClientCode']
 )->name('master-client.get-client-code');
 
 
 //This should be ticket .. to edit
 Route::get("master-license-get-last-id",
-//    [\App\Http\Controllers\MasterLicenseController::class, 'getLastID']
-    function (){
-        $license = Ticket::orderBy('id', 'desc')->limit(1)->first();
-
-        if (empty($license)){
-            return "000001";
-        }
-
-        return strrev(str_pad($license->id+1, 6, "0"));
-    }
+    [\App\Http\Controllers\MasterApiController::class, 'getLastID']
 )->name('master-license.get-last-id');

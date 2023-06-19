@@ -140,8 +140,10 @@ class MasterTicketController extends Controller
         $categories = Category::all();
         $statuses = Status::all();
         $users = User::all();
+        $clients = Client::all();
+        $softwares = Software::all();
 
-        return view('master.ticket.edit', compact('ticket', 'categories', 'statuses', 'users'));
+        return view('master.ticket.edit', compact('ticket', 'categories', 'statuses', 'users', 'clients', 'softwares'));
 
 
 
@@ -155,6 +157,8 @@ class MasterTicketController extends Controller
         $ticket = Ticket::findOrFail($id);
         $this->validate($request, [
             'title' => 'required',
+            'client_id' => 'required',
+            'software_id' => 'required',
             'description' => 'required',
             'category_id' => 'required',
             'status_id' => 'required',
@@ -168,15 +172,17 @@ class MasterTicketController extends Controller
 
         $ticket->update([
             'title' => $request->title,
+            'client_id' => $request->client_id,
+            'software_id' => $request->software_id,
             'description' => $request->description,
-//            'ticket_number' => $request->ticket_number,
+            'user_id' => auth()->user()->id,
             'category_id' => $category->id,
             'status_id' => $status->id,
             'assigned_to' => $assigned_to->id,
             'priority' => $request->priority,
         ]);
 
-        Alert::alert('Success', 'Updated Successfully!', 'success')
+        Alert::alert('Updated', 'Updated Successfully!', 'success')
             ->autoClose(3000);
 
         return redirect()->route('master-ticket.index');

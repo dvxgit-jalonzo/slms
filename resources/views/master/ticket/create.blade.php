@@ -51,6 +51,10 @@
                                                 </x-form-floating>
                                             </div>
                                             <div class="col-12 mb-3">
+                                                <input type="text" id="sn" placeholder="Serial Number" class="form-control" readonly>
+
+                                            </div>
+                                            <div class="col-12 mb-3">
                                                 <x-form-floating name="title" type="text" placeholder="Title" value="{{old('title')}}">
                                                     <x-validation name="title"></x-validation>
                                                 </x-form-floating>
@@ -67,8 +71,8 @@
                                             </div>
 
                                             <div class="col-12 mb-3 hidden">
-                                                <x-select  id="assigned_to" name="assigned_to" :data="$users" column_val="id" column="name" value="{{auth()->user()->id}}" placeholder="Assigned To"></x-select>
-                                                <x-validation name="assigned_to"></x-validation>
+                                                <input type="text"  readonly class="form-control" value="{{auth()->user()->name}}">
+                                                <input type="text" hidden id="assigned_to" name="assigned_to" readonly class="form-control" value="{{auth()->user()->id}}">
                                             </div>
 
                                             <div class="col-12 mb-3">
@@ -118,35 +122,6 @@
                 let cli, soft;
 
 
-                $("#software_id").on("change", function() {
-                    var selectedLabel = $(this).find("option:selected").text();
-                    var tempInput = $("<input>");
-                    $("body").append(tempInput);
-                    tempInput.val(selectedLabel).select();
-                    document.execCommand("copy");
-                    tempInput.remove();
-                    toastr.success("Software copied, please paste first.");
-                });
-
-
-                $("#client_id").on("change", function() {
-                    var selectedLabel = $(this).find("option:selected").text();
-                    var tempInput = $("<input>");
-                    $("body").append(tempInput);
-                    tempInput.val(selectedLabel).select();
-                    document.execCommand("copy");
-                    tempInput.remove();
-                    toastr.success("Client copied, please paste first.");
-                });
-
-
-
-
-
-
-
-
-
 
                 var template = $("#description").val();
                 var currentDate = new Date().toISOString().slice(0, 10);
@@ -159,11 +134,23 @@
                 let client_code = "";
                 let ticket_number = "";
 
-                //
-                // copy the ticket_number in double click
+                $('#sn').dblclick(function() {
+                    var input = $(this);
+                    input.select();
+                    document.execCommand('copy');
+                    toastr.success('Serial Number Copied!');
+                });
+
+
                 $('#ticket_number').dblclick(function() {
-                    console.log(cli);
-                    console.log(soft);
+                    $.ajax({
+                        url: "{{route('master-license.get-license-serial')}}",
+                        method: "GET",
+                        data: {client_id : cli, software_id : soft},
+                        success: function (response){
+                            $("#sn").val(response);
+                        }
+                    });
 
                     var input = $(this);
                     input.select();
@@ -172,20 +159,20 @@
                 });
 
 
-                $('#assigned_to').select2( {
-                    theme: "bootstrap-5",
-                    disabled: true,
-                    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
-                    placeholder: $( this ).data( 'placeholder' ),
-                } );
-
                 $.ajax({
                     url: "{{route('master-license.get-last-id')}}",
                     method: "GET",
                     success: function (response){
                         let  number = response;
                         $("#software_id").on("change", function (){
-                            console.log($("#software_id").val());
+                            var selectedLabel = $(this).find("option:selected").text();
+                            var tempInput = $("<input>");
+                            $("body").append(tempInput);
+                            tempInput.val(selectedLabel).select();
+                            document.execCommand("copy");
+                            tempInput.remove();
+                            toastr.success("Software copied, please paste first.");
+
                             var software_id = $(this).val();
                             soft = software_id;
                             $.ajax({
@@ -212,6 +199,13 @@
                         let  number = response;
 
                         $("#client_id").on("change", function (){
+                            var selectedLabel = $(this).find("option:selected").text();
+                            var tempInput = $("<input>");
+                            $("body").append(tempInput);
+                            tempInput.val(selectedLabel).select();
+                            document.execCommand("copy");
+                            tempInput.remove();
+                            toastr.success("Client copied, please paste first.");
                             var client_id = $(this).val();
                             cli = client_id;
                             $.ajax({

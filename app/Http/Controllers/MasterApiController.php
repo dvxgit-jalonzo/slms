@@ -55,7 +55,13 @@ class MasterApiController extends Controller
     }
 
 
-    public function getLicenseSerial(){
-        return "test";
+    public function getLicenseSerial(Request $request){
+        $client_id = $request->client_id;
+        $software_id = $request->software_id;
+        $license = License::where('client_id', $client_id)
+            ->where('software_id', $software_id)
+            ->first();
+
+        return $license->serial_number;
     }
 }

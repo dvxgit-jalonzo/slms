@@ -113,6 +113,41 @@
 
         <script>
             $(document).ready(function() {
+
+
+                let cli, soft;
+
+
+                $("#software_id").on("change", function() {
+                    var selectedLabel = $(this).find("option:selected").text();
+                    var tempInput = $("<input>");
+                    $("body").append(tempInput);
+                    tempInput.val(selectedLabel).select();
+                    document.execCommand("copy");
+                    tempInput.remove();
+                    toastr.success("Software copied, please paste first.");
+                });
+
+
+                $("#client_id").on("change", function() {
+                    var selectedLabel = $(this).find("option:selected").text();
+                    var tempInput = $("<input>");
+                    $("body").append(tempInput);
+                    tempInput.val(selectedLabel).select();
+                    document.execCommand("copy");
+                    tempInput.remove();
+                    toastr.success("Client copied, please paste first.");
+                });
+
+
+
+
+
+
+
+
+
+
                 var template = $("#description").val();
                 var currentDate = new Date().toISOString().slice(0, 10);
 
@@ -124,10 +159,11 @@
                 let client_code = "";
                 let ticket_number = "";
 
-
                 //
                 // copy the ticket_number in double click
                 $('#ticket_number').dblclick(function() {
+                    console.log(cli);
+                    console.log(soft);
 
                     var input = $(this);
                     input.select();
@@ -151,6 +187,7 @@
                         $("#software_id").on("change", function (){
                             console.log($("#software_id").val());
                             var software_id = $(this).val();
+                            soft = software_id;
                             $.ajax({
                                 url: "{{route('master-software.get-software-code')}}",
                                 method: "GET",
@@ -161,7 +198,6 @@
                                     software_code = response[0].code;
                                     ticket_number = software_code+""+client_code+"-"+number;
                                     $("#ticket_number").val(ticket_number);
-
                                 },
                             })
                         });
@@ -177,6 +213,7 @@
 
                         $("#client_id").on("change", function (){
                             var client_id = $(this).val();
+                            cli = client_id;
                             $.ajax({
                                 url: "{{route('master-client.get-client-code')}}",
                                 method: "GET",

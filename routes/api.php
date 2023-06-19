@@ -46,6 +46,9 @@ Route::get("master-software-get-code",
     [\App\Http\Controllers\MasterApiController::class, 'getSoftwareCode']
 )->name('master-software.get-software-code');
 
+Route::get("master-license-get-serial",
+    [\App\Http\Controllers\MasterApiController::class, 'getLicenseSerial']
+)->name('master-license.get-license-serial');
 
 
 

@@ -29,6 +29,13 @@ class MasterUserController extends Controller
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
+
+        if (getRole() != "Super Admin"){
+            $users = User::whereDoesntHave('roles', function ($query) {
+                $query->where('name', 'Super Admin');
+            })->get();
+        }
+
         return view('master.user.index', compact('users'));
 
 
@@ -40,7 +47,12 @@ class MasterUserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::query();
+
+        if (getRole() != "Super Admin"){
+            $roles = $roles->whereNot('name', "Super Admin");
+        }
+        $roles = $roles->get();
         return view('master.user.create', compact('roles'));
 
 
@@ -102,6 +114,15 @@ class MasterUserController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::all();
+
+
+        if (getRole() != "Super Admin"){
+            if ($user->getRoleNames()->first() == "Super Admin"){
+                Alert::alert("Failed", "You are not authorized to modify this user.", "error")->autoClose(5000);
+                return redirect()->route('master-user.index');
+            }
+        }
+
         return view('master.user.edit', compact('user', 'roles'));
 
 

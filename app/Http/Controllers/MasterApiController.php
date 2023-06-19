@@ -53,4 +53,9 @@ class MasterApiController extends Controller
 
         return strrev(str_pad($license->id+1, 6, "0"));
     }
+
+
+    public function getLicenseSerial(){
+        return "test";
+    }
 }

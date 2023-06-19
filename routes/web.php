@@ -188,18 +188,17 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-    Route::resource('master-ticket-template', \App\Http\Controllers\MasterTicketTemplateController::class);
     Route::resource('/master-category', \App\Http\Controllers\MasterCategoryController::class);
     Route::resource('/master-client', \App\Http\Controllers\MasterClientController::class);
     Route::resource('/master-license', \App\Http\Controllers\MasterLicenseController::class);
     Route::resource('/master-report', \App\Http\Controllers\MasterReportController::class);
     Route::resource('/master-software', \App\Http\Controllers\MasterSoftwareController::class);
-    Route::resource('/master-software-under', \App\Http\Controllers\MasterSoftwareUnderController::class);
     Route::resource('/master-status', \App\Http\Controllers\MasterStatusController::class);
     Route::resource('/master-ticket', \App\Http\Controllers\MasterTicketController::class);
+    Route::resource('/master-permission', \App\Http\Controllers\MasterPermissionController::class);
+    Route::resource('/master-software-under', \App\Http\Controllers\MasterSoftwareUnderController::class);
     Route::resource('/master-ticket-template', \App\Http\Controllers\MasterTicketTemplateController::class);
     Route::resource('/master-user', \App\Http\Controllers\MasterUserController::class);
-    Route::resource('/master-permission', \App\Http\Controllers\MasterPermissionController::class);
     Route::resource('/master-role', \App\Http\Controllers\MasterRoleController::class);
     Route::resource('/master', \App\Http\Controllers\MasterController::class);
 

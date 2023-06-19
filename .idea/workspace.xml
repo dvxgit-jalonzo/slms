@@ -4,6 +4,8 @@
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Ticket Module , Penetration Test, ApiController done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/role/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +255,7 @@
       <workItem from="1687133145654" duration="210000" />
       <workItem from="1687133368044" duration="43000" />
       <workItem from="1687135660840" duration="891000" />
-      <workItem from="1687137428892" duration="9354000" />
+      <workItem from="1687137428892" duration="11232000" />
     </task>
     <task id="LOCAL-00001" summary="Ticket Module , Penetration Test, ApiController done">
       <created>1687145432582</created>

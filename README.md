@@ -35,9 +35,7 @@ Requirements
 - Licenser Class
 - Source Guardian Tools
 
-if you want to have that in order to evaluate properly.
-please contact [jalonzo@diavox.net](https://mail.diavox.net/interface/root#/email)
-
+for security purposes.
 
 
 ## Goodluck !

@@ -75,10 +75,10 @@
                                                         <div class="row">
                                                             @forelse($role->permissions as $permission)
                                                                 <div class="col-6">
-                                                                    <strong>{{$permission->name}}</strong>
+                                                                    <small class="text-info" style="pointer-events: none">{{$permission->name}}</small>
                                                                 </div>
                                                             @empty
-                                                                <strong>No Permission Assigned</strong>
+                                                                <small class="text-info" style="pointer-events: none">No Permission Assigned</small>
                                                             @endforelse
 
                                                         </div>

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class MasterTicketController extends Controller
 {
     public function __construct()
@@ -201,6 +202,20 @@ class MasterTicketController extends Controller
 
         }
 
+        return redirect()->route('master-ticket.index');
+    }
+
+    public function setReview(string $id){
+
+        $ticket = Ticket::find($id);
+
+        $ticket->update([
+            'is_reviewed' => 1,
+            'reviewed_by' => auth()->user()->id
+        ]);
+
+        Alert::alert('Reviewed', 'Ticket Reviewed Successfully!', 'success')
+            ->autoClose(3000);
         return redirect()->route('master-ticket.index');
     }
 }

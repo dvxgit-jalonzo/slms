@@ -24,6 +24,7 @@ return new class extends Migration
 //            $table->unsignedBigInteger('approved_by')->nullable();
             $table->unsignedBigInteger('assigned_to');
             $table->boolean('is_reviewed')->default(0);
+            $table->unsignedBigInteger('reviewed_by')->nullable();
             $table->string('priority')->comment('low, medium, high, urgent');
             $table->timestamps();
             $table->dateTime('closed_at')->nullable();
@@ -33,6 +34,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('set null');
             $table->foreign('assigned_to')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('reviewed_by')->references('id')->on('users')->onDelete('set null');
 //            $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
         });
     }

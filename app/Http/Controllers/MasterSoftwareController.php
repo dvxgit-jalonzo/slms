@@ -335,7 +335,7 @@ class MasterSoftwareController extends Controller
         $template = SoftwareTemplate::findOrFail($id);
         $template->update([
             'label' => ucwords($request->label),
-            'name' => $request->name,
+            'name' => strtoupper($request->name),
             'value' => $request->value,
         ]);
         Alert::alert('Updated', 'Updated Successfully!', 'success')

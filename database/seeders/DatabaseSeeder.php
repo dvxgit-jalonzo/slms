@@ -30,7 +30,9 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
             CategorySeeder::class,
             PermissionSeeder::class,
-//            TicketTemplateSeeder::class,
+            TicketTemplateSeeder::class,
+            SoftwareSeeder::class,
+            SoftwareTemplateSeeder::class,
         ]);
     }
 }

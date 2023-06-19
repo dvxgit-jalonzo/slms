@@ -39,4 +39,8 @@ class Ticket extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+
+    public function reviewedBy(){
+        return $this->belongsTo(User::class, 'reviewed_by', 'id');
+    }
 }

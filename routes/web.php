@@ -186,6 +186,10 @@ Route::group(['middleware' => ['auth']], function () {
         [\App\Http\Controllers\MasterRoleController::class, 'updatePermission'])
         ->name('master-role.updatePermission');
 
+    Route::get('/master-ticket-review/{id}',
+        [\App\Http\Controllers\MasterTicketController::class, 'setReview']
+    )->name('master-ticket.review');
+
 
 
     Route::resource('/master-category', \App\Http\Controllers\MasterCategoryController::class);

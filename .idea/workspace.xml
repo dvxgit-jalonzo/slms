@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Changes">
+    <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Ticket Module , Penetration Test, ApiController done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,8 +253,16 @@
       <workItem from="1687133145654" duration="210000" />
       <workItem from="1687133368044" duration="43000" />
       <workItem from="1687135660840" duration="891000" />
-      <workItem from="1687137428892" duration="7753000" />
+      <workItem from="1687137428892" duration="9354000" />
     </task>
+    <task id="LOCAL-00001" summary="Ticket Module , Penetration Test, ApiController done">
+      <created>1687145432582</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687145432583</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -318,5 +323,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Ticket Module , Penetration Test, ApiController done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ticket Module , Penetration Test, ApiController done" />
   </component>
 </project>

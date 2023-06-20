@@ -124,6 +124,12 @@
                             <i class="bi bi-circle"></i><span>Permission</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{route('master-ticket-template.index')}}">
+                            <i class="bi bi-circle"></i><span>Ticket Template</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
         @endcan

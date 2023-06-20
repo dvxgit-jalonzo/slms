@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Ticket Module , Penetration Test, ApiController done">
-      <change afterPath="$PROJECT_DIR$/database/seeders/SoftwareSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/SoftwareTemplateSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterSoftwareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_06_03_003309_create_tickets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/TicketTemplateSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/TicketTemplateSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,16 +196,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/slms",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/slms&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\slms\resources\views\errors" />
@@ -262,7 +254,9 @@
       <workItem from="1687133145654" duration="210000" />
       <workItem from="1687133368044" duration="43000" />
       <workItem from="1687135660840" duration="891000" />
-      <workItem from="1687137428892" duration="20359000" />
+      <workItem from="1687137428892" duration="21669000" />
+      <workItem from="1687237176524" duration="2515000" />
+      <workItem from="1687245260498" duration="901000" />
     </task>
     <task id="LOCAL-00001" summary="Ticket Module , Penetration Test, ApiController done">
       <created>1687145432582</created>

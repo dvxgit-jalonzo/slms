@@ -204,6 +204,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/master-ticket-template', \App\Http\Controllers\MasterTicketTemplateController::class);
     Route::resource('/master-user', \App\Http\Controllers\MasterUserController::class);
     Route::resource('/master-role', \App\Http\Controllers\MasterRoleController::class);
+    Route::resource('/master-user-profile', \App\Http\Controllers\MasterUserProfileController::class);
     Route::resource('/master', \App\Http\Controllers\MasterController::class);
 
     Route::post('/profile-update-password', [\App\Http\Controllers\ProfileController::class, 'updatePassword'])

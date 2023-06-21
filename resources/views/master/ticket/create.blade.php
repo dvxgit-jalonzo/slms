@@ -116,46 +116,46 @@
     @section('script')
 
         <script>
-            $(document).ready(function() {
-
+            $(document).ready(function () {
+                function changeDescriptionContent(content){
+                    $("#description").val(content);
+                }
 
                 let cli, soft;
-
-
 
                 var template = $("#description").val();
                 var currentDate = new Date().toISOString().slice(0, 10);
 
                 let filledTemplate = template.replace(/{date_today}/g, currentDate);
-                $("#description").val(filledTemplate);
 
+
+                changeDescriptionContent(filledTemplate);
 
                 let software_code = "";
                 let client_code = "";
                 let ticket_number = "";
 
-                $('#sn').dblclick(function() {
-                    var input = $(this);
-                    input.select();
-                    document.execCommand('copy');
-                    toastr.success('Serial Number Copied!');
+                $('#sn').dblclick(function () {
+                    navigator.clipboard.writeText($(this).val()).then(() => {
+                        toastr.success('Serial Number Copied!');
+                    });
                 });
 
 
-                $('#ticket_number').dblclick(function() {
+
+
+                $('#ticket_number').dblclick(function () {
                     $.ajax({
                         url: "{{route('master-license.get-license-serial')}}",
                         method: "GET",
                         data: {client_id : cli, software_id : soft},
-                        success: function (response){
-                            $("#sn").val(response);
-                        }
+                        success: (response) => $("#sn").val(response)
                     });
 
-                    var input = $(this);
-                    input.select();
-                    document.execCommand('copy');
-                    toastr.success('Ticket Number Copied!');
+                    navigator.clipboard.writeText($(this).val()).then(()=>{
+                        toastr.success('Ticket Number Copied!');
+                    });
+
                 });
 
 
@@ -168,24 +168,19 @@
                             var selectedLabel = $(this).find("option:selected").text();
                             var tempInput = $("<input>");
                             $("body").append(tempInput);
-                            tempInput.val(selectedLabel).select();
-                            document.execCommand("copy");
+
                             tempInput.remove();
-                            toastr.success("Software copied, please paste first.");
+                            navigator.clipboard.writeText(selectedLabel).then(()=>{
+                                toastr.success(selectedLabel+" copied to clipboard.");
+                            });
 
                             var software_id = $(this).val();
                             soft = software_id;
                             $.ajax({
                                 url: "{{route('master-software.get-software-code')}}",
                                 method: "GET",
-                                data: {
-                                    software_id: software_id
-                                },
-                                success: function(response) {
-                                    software_code = response[0].code;
-                                    ticket_number = software_code+""+client_code+"-"+number;
-                                    $("#ticket_number").val(ticket_number);
-                                },
+                                data: { software_id: software_id },
+                                success: (response) => $("#ticket_number").val(response[0].code+""+client_code+"-"+number)
                             })
                         });
                     }
@@ -202,30 +197,28 @@
                             var selectedLabel = $(this).find("option:selected").text();
                             var tempInput = $("<input>");
                             $("body").append(tempInput);
-                            tempInput.val(selectedLabel).select();
-                            document.execCommand("copy");
                             tempInput.remove();
-                            toastr.success("Client copied, please paste first.");
+                            navigator.clipboard.writeText(selectedLabel).then(()=>{
+                                toastr.success(selectedLabel+" copied to clipboard.");
+                            });
                             var client_id = $(this).val();
                             cli = client_id;
                             $.ajax({
                                 url: "{{route('master-client.get-client-code')}}",
                                 method: "GET",
-                                data: {
-                                    client_id: client_id
-                                },
-                                success: function(response) {
-                                    client_code = response[0].code;
-                                    ticket_number = software_code+""+client_code+"-"+number;
-                                    $("#ticket_number").val(ticket_number);
-                                },
+                                data: { client_id: client_id },
+                                success: (response) => $("#ticket_number").val(response[0].code+""+client_code+"-"+number)
                             })
                         });
                     }
                 });
 
-
-
+                $("#status_id").on("change", function (){
+                    var selectedLabel = $(this).find("option:selected").text();
+                    navigator.clipboard.writeText(selectedLabel).then(()=>{
+                        toastr.success(selectedLabel+" copied to clipboard.");
+                    });
+                });
             });
         </script>
 

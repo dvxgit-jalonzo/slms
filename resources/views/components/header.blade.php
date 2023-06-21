@@ -1,7 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{route('master.index')}}" class="logo d-flex align-items-center">
             <img src="{{asset('NiceAdmin/assets/img/diavox.jpg')}}" alt="">
             <span class="d-none d-lg-block">{{acro(config('app.name'))}}</span>
         </a>
@@ -14,15 +14,19 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="{{asset('NiceAdmin/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
 
+                    @if(auth()->user()->profile)
+                        <img width="40" height="40" src="{{asset('storage/profile')."/".auth()->user()->profile->picture}}" alt="Profile" class="rounded-circle">
+                    @else
+                        <img src="{{asset('NiceAdmin/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+                    @endif
                     <span class="d-none d-md-block dropdown-toggle ps-2">{{displayName(auth()->user()->name)}}</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
                         <h6>{{auth()->user()->name}}</h6>
-                        <span>{{auth()->user()->getRoleNames()->first()}}</span>
+                        <span>{{getRole()}}</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

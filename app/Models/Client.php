@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,7 @@ class Client extends Model
     }
 
 
+
 //    Mutators
     public function getCodeAttribute($value){
         return strtoupper($value);
@@ -25,4 +27,6 @@ class Client extends Model
     public function setCodeAttribute($value){
          $this->attributes['code'] = strtoupper($value);
     }
+
+
 }

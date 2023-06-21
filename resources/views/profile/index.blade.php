@@ -24,11 +24,67 @@
                 <div class="col-xl-4 col-md-6">
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                            <img src="{{asset('NiceAdmin/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+                            @if(auth()->user()->profile)
+                                <img src="{{asset('storage/profile')."/".auth()->user()->profile->picture}}" alt="Profile" class="img-thumbnail mb-3">
+                            @else
+                                <img src="{{asset('NiceAdmin/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+                            @endif
+
+
                             <h2>{{auth()->user()->name}}</h2>
                             <span>{{auth()->user()->username}}</span>
                             <span>{{auth()->user()->email}}</span>
                             <h4>{{auth()->user()->getRoleNames()->first()}}</h4>
+
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalPicture" class="btn btn-sm btn-outline-dark">Update Picture</button>
+
+
+                            <div class="modal fade" id="modalPicture">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Profile Picture</h5>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-body pt-4">
+                                                            @if(auth()->user()->profile)
+                                                                <img width="100%" height="300px" src="{{asset('storage/profile')."/".auth()->user()->profile->picture}}" alt="">
+                                                            @else
+                                                                <h5 class="text-center">No Picture Uploaded</h5>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+
+                                                    <form action="{{route('master-user-profile.update', [auth()->user()->id])}}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="row">
+                                                            <div class="col-12 mb-3">
+                                                                <input type="file" name="picture" class="form-control form-control-file @error('picture') is-invalid @enderror">
+                                                                <x-validation name="picture"></x-validation>
+                                                            </div>
+
+
+                                                            <div class="col-12 mb-3">
+                                                                <button class="btn btn-dark">Update Profile Picture</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

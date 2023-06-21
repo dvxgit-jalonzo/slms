@@ -48,7 +48,7 @@
                                     </div>
 
                                     <div class="col-lg-12 mb-3">
-                                        <x-form-floating name="installation_date" class="installation_date" type="date"  placeholder="Installation Date" value="{{old('serial_number')}}">
+                                        <x-form-floating name="installation_date" class="installation_date" type="date"  placeholder="Installation Date" value="{{old('installation_date')}}">
                                             <x-validation name="installation_date"></x-validation>
                                         </x-form-floating>
                                     </div>
@@ -135,7 +135,16 @@
                                         const js = JSON.parse(decryptedContent);
 
                                         $.each(js, function (index, value) {
-                                            console.log(index);
+
+                                            if(index == "_DATEINSTALL"){
+                                                $(".installation_date").val(value);
+                                            }
+                                            if(index == "_DATEEXPIRE"){
+                                                $(".expiration_date").val(value);
+                                            }
+                                            if(index == "_SMAEXPIRE"){
+                                                $(".sma_expiration").val(value);
+                                            }
                                             const column = $("#" + index);
                                             if (value === null) {
                                                 column.val("");
@@ -180,8 +189,6 @@
                         success: function (response) {
                             // console.log(response[0]);
                             // var template = response[0].template;
-                            console.log(response);
-
                             $.each(response, function(item, element){
                                 var val = element.value;
                                 if(val){
@@ -211,33 +218,33 @@
                         }
                     });
 
-                    const softwareId = $("#software_id").val(); // Replace with your software ID
-                    const clientId = $("#client_id  ").val();
+                    {{--const softwareId = $("#software_id").val(); // Replace with your software ID--}}
+                    {{--const clientId = $("#client_id  ").val();--}}
 
 
 
-                    $.ajax({
-                        url: "{{route('master-check-exist.license')}}",
-                        type: 'GET',
-                        data: {
-                            software_id: softwareId,
-                            client_id: clientId,
-                        },
-                        success: function(response) {
-                            // Handle the response data
-                            console.log(response);
-                            if(response[0]){
-                                $(".installation_date").val(response[0].installation_date)
-                                $(".expiration_date").val(response[0].expiration_date)
-                                $(".sma_expiration").val(response[0].sma_expiration)
-                            }
+                    {{--$.ajax({--}}
+                    {{--    url: "{{route('master-check-exist.license')}}",--}}
+                    {{--    type: 'GET',--}}
+                    {{--    data: {--}}
+                    {{--        software_id: softwareId,--}}
+                    {{--        client_id: clientId,--}}
+                    {{--    },--}}
+                    {{--    success: function(response) {--}}
+                    {{--        // Handle the response data--}}
+                    {{--        console.log(response);--}}
+                    {{--        if(response[0]){--}}
+                    {{--            $(".installation_date").val(response[0].installation_date)--}}
+                    {{--            $(".expiration_date").val(response[0].expiration_date)--}}
+                    {{--            $(".sma_expiration").val(response[0].sma_expiration)--}}
+                    {{--        }--}}
 
-                        },
-                        error: function(xhr, status, error) {
-                            // Handle the error
-                            console.error(error);
-                        }
-                    });
+                    {{--    },--}}
+                    {{--    error: function(xhr, status, error) {--}}
+                    {{--        // Handle the error--}}
+                    {{--        console.error(error);--}}
+                    {{--    }--}}
+                    {{--});--}}
                 });
 
             </script>

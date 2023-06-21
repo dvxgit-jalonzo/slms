@@ -9,6 +9,7 @@ use App\Models\LicenseAttribute;
 use App\Models\LicenseRemoteAccess;
 use App\Models\Software;
 use App\Models\Ticket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -65,11 +66,23 @@ class MasterLicenseController extends Controller
 
 
         $license = License::where('client_id', $request->client_id)->where('software_id', $request->software_id);
+
+        if ($data['_LICTYPE'] == 1){
+            $serial = $data['_SERIAL'];
+        }else{
+            $serial = $request->serial_number;
+        }
+
         if ($license->exists()){
 
             $license_data = $license->first();
-            $serial = $data['_SERIAL'];
+
+
+            $data['_DATEINSTALL'] = $request->installation_date;
+            $data['_DATEEXPIRE'] = $request->expiration_date;
+            $data['_SMAEXPIRE'] = $request->sma_expiration;
             $content = json_encode($data);
+
 
 
             $content =$diav->encrypt($content);
@@ -92,10 +105,17 @@ class MasterLicenseController extends Controller
             }
 
         }else{
+
+            $data['_DATETODAY'] = Carbon::now()->format('Y-m-d');
+            $data['_DATEINSTALL'] = $request->installation_date;
+            $data['_DATEEXPIRE'] = $request->expiration_date;
+            $data['_SMAEXPIRE'] = $request->sma_expiration;
+            $data['_UUID'] = !empty($data['_UUID']) ? $data['_UUID'] : getUniquePCId();
             $content = json_encode($data);
             $content =$diav->encrypt($content);
             $filename = "sysconfig_".time().".json";
             $filepath = storage_path('app/public/dat_files/'.$filename);
+
             if (!file_exists(storage_path('app/public/dat_files'))){
                 mkdir(storage_path('app/public/dat_files'), 0777, true);
             }

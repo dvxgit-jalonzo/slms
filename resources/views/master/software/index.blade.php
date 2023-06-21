@@ -40,7 +40,6 @@
                                     <td>{{$sft->code}}</td>
                                     <td>{{$sft->name}}</td>
                                     <td>{{$sft->description}}</td>
-
                                     <td>
                                         @if($sft->with_licensing == '1')
                                             <i class="bi bi-check text-success fs-4"></i>
@@ -171,7 +170,6 @@
                                                                         <td>{{$requirement->specs}}</td>
                                                                         <td><a href="{{route('master-software.edit-software-requirement', [$requirement->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
                                                                         <td><a href="{{ route('master-software.destroy-software-requirement', [$requirement->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
-
                                                                     </tr>
                                                                 @endforeach
                                                                 </tbody>

@@ -2,10 +2,12 @@
 
 namespace App\Listeners;
 
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\DB;
 
-class SessionExpiredListener
+class UpdateUserLoginStatus
 {
     /**
      * Create the event listener.
@@ -18,10 +20,13 @@ class SessionExpiredListener
     /**
      * Handle the event.
      */
-    public function handle(SessionExpired $event): void
+    public function handle(Logout $event): void
     {
         $user = $event->user;
-        $user->is_login = 0;
-        $user->save();
+        if ($user) {
+            DB::table('users')
+                ->where('id', $user->id)
+                ->update(['is_login' => 0]);
+        }
     }
 }

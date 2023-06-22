@@ -23,6 +23,14 @@
 
 
                                             <div class="col-12 text-center">
+                                                @if(session('message'))
+                                                    <div class="alert alert-dark" role="alert">
+                                                        <h4 class="alert-heading">Warning !</h4><hr>
+                                                        <p class="mb-0">{{ session('message') }}</p>
+                                                    </div>
+                                                @endif
+
+
                                                 <img class="img-fluid" src="{{asset('NiceAdmin/assets/img/diavox.jpg')}}" alt="">
                                             </div>
                                             <div class="col-12">
@@ -57,16 +65,18 @@
                                         </div>
 
 
-                                        <div class="col-12">
-                                            @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    {{ __('Forgot Your Password?') }}
-                                                </a>
-                                            @endif
-                                        </div>
+
 
                                         <div class="col-12">
                                             <button class="btn btn-dark w-100" type="submit">Login</button>
+                                        </div>
+
+                                        <div class="col-12 text-center  ">
+                                            @if (Route::has('password.request'))
+                                                <a class="btn text-info text-small fw-semibold" href="{{ route('password.request') }}">
+                                                    {{ __('Forgot Your Password?') }}
+                                                </a>
+                                            @endif
                                         </div>
                                     </form>
 

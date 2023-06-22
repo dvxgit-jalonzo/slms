@@ -113,14 +113,22 @@ class MasterUserController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::all();
 
+        $roles = Role::query();
 
         if (getRole() != "Super Admin"){
+            $roles = $roles->whereNot('name', "Super Admin");
+        }
+        $roles = $roles->get();
+
+        if (getRole() != "Super Admin"){
+
             if ($user->getRoleNames()->first() == "Super Admin"){
                 Alert::alert("Failed", "You are not authorized to modify this user.", "error")->autoClose(5000);
                 return redirect()->route('master-user.index');
             }
+
+
         }
 
         return view('master.user.edit', compact('user', 'roles'));

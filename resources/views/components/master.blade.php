@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>{{config('app.name')}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+
 
     <!-- Favicons -->
     <link href="{{asset('NiceAdmin/assets/img/favicon.png')}}" rel="icon">
@@ -104,6 +106,43 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 {{--TinyMCE--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js" referrerpolicy="origin"></script>--}}
+
+<script>
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    function logoutUser() {
+        $.ajax({
+            url: '{{route("logout")}}', // Replace with your logout route URL
+            method: 'POST', // Use the appropriate HTTP method
+            headers: {
+                'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+            },
+            success: function(response) {
+                window.location.href="{{route('login')}}";
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+    var inactivityTimeout = null;
+    var sessionLifetime = {{ config('session.lifetime') * 58999 }};
+    function startInactivityTimer() {
+        clearTimeout(inactivityTimeout);
+        inactivityTimeout = setTimeout(logoutUser, sessionLifetime);
+    }
+
+    $(document).ready(function() {
+        startInactivityTimer();
+    });
+
+    $(document).on('click keypress', function() {
+        console.log(sessionLifetime);
+        startInactivityTimer();
+    });
+</script>
+
 
 @yield('script')
 @stack('scripts')

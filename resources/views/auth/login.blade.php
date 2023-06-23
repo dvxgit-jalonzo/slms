@@ -23,14 +23,6 @@
 
 
                                             <div class="col-12 text-center">
-                                                @if(session('message'))
-                                                    <div class="alert alert-dark" role="alert">
-                                                        <h4 class="alert-heading">Warning !</h4><hr>
-                                                        <p class="mb-0">{{ session('message') }}</p>
-                                                    </div>
-                                                @endif
-
-
                                                 <img class="img-fluid" src="{{asset('NiceAdmin/assets/img/diavox.jpg')}}" alt="">
                                             </div>
                                             <div class="col-12">

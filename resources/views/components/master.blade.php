@@ -107,41 +107,41 @@
 {{--TinyMCE--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js" referrerpolicy="origin"></script>--}}
 
-<script>
-    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+{{--<script>--}}
+{{--    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');--}}
 
-    function logoutUser() {
-        $.ajax({
-            url: '{{route("logout")}}', // Replace with your logout route URL
-            method: 'POST', // Use the appropriate HTTP method
-            headers: {
-                'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
-            },
-            success: function(response) {
-                window.location.href="{{route('login')}}";
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    }
+{{--    function logoutUser() {--}}
+{{--        $.ajax({--}}
+{{--            url: '{{route("logout")}}', // Replace with your logout route URL--}}
+{{--            method: 'POST', // Use the appropriate HTTP method--}}
+{{--            headers: {--}}
+{{--                'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers--}}
+{{--            },--}}
+{{--            success: function(response) {--}}
+{{--                window.location.href="{{route('login')}}";--}}
+{{--            },--}}
+{{--            error: function(xhr, status, error) {--}}
+{{--                console.error(error);--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
 
-    var inactivityTimeout = null;
-    var sessionLifetime = {{ config('session.lifetime') * 58999 }};
-    function startInactivityTimer() {
-        clearTimeout(inactivityTimeout);
-        inactivityTimeout = setTimeout(logoutUser, sessionLifetime);
-    }
+{{--    var inactivityTimeout = null;--}}
+{{--    var sessionLifetime = {{ config('session.lifetime') * 58999 }};--}}
+{{--    function startInactivityTimer() {--}}
+{{--        clearTimeout(inactivityTimeout);--}}
+{{--        inactivityTimeout = setTimeout(logoutUser, sessionLifetime);--}}
+{{--    }--}}
 
-    $(document).ready(function() {
-        startInactivityTimer();
-    });
+{{--    $(document).ready(function() {--}}
+{{--        startInactivityTimer();--}}
+{{--    });--}}
 
-    $(document).on('click keypress', function() {
-        console.log(sessionLifetime);
-        startInactivityTimer();
-    });
-</script>
+{{--    $(document).on('click keypress', function() {--}}
+{{--        console.log(sessionLifetime);--}}
+{{--        startInactivityTimer();--}}
+{{--    });--}}
+{{--</script>--}}
 
 
 @yield('script')

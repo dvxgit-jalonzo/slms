@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Ticket Module , Penetration Test, ApiController done">
+      <change afterPath="$PROJECT_DIR$/app/View/Components/Outlook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/outlook.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/UpdateUserLoginStatus.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/license/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/license/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +269,9 @@
       <workItem from="1687245260498" duration="6511000" />
       <workItem from="1687305008769" duration="25075000" />
       <workItem from="1687394759620" duration="12556000" />
-      <workItem from="1687413497481" duration="2785000" />
+      <workItem from="1687413497481" duration="3691000" />
+      <workItem from="1687476191600" duration="3002000" />
+      <workItem from="1687485972299" duration="11649000" />
     </task>
     <task id="LOCAL-00001" summary="Ticket Module , Penetration Test, ApiController done">
       <created>1687145432582</created>

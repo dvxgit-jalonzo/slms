@@ -141,7 +141,6 @@
         <script>
             $(document).ready(function() {
 
-
                 let cli = {{$ticket->client_id}}, soft = {{$ticket->software_id}};
 
 
@@ -245,6 +244,13 @@
                             })
                         });
                     }
+                });
+
+                $("#status_id").on("change", function (){
+                    var selectedLabel = $(this).find("option:selected").text();
+                    navigator.clipboard.writeText(selectedLabel).then(()=>{
+                        toastr.success(selectedLabel+" copied to clipboard.");
+                    });
                 });
 
 

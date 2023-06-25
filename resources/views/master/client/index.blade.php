@@ -102,7 +102,35 @@
     @section('script')
             <script>
                 $(document).ready(function(){
-                    $("#table").DataTable();
+                    $("#table").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                            {
+                                extend: "pdfHtml5",
+                                filename: "Clients-{{now()}}",
+                                title: 'Clients as of {{now()->format('F d,Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "print",
+                                filename: "Clients-{{now()}}",
+                                title: 'Clients as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "excel",
+                                filename: "Clients-{{now()}}",
+                                title: 'Clients as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            }
+                        ]
+                    });
 
 
 

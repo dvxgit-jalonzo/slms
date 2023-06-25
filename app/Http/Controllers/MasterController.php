@@ -22,8 +22,7 @@ class MasterController extends Controller
             ->latest()
             ->get();
 
-        $recentLicenses = License::limit(3)
-            ->latest()
+        $recentLicenses = License::orderBy('updated_at', 'desc')->limit(3)
             ->get();
 
         $status = Status::where("name", "resolved")->first();
@@ -31,11 +30,8 @@ class MasterController extends Controller
 
         $recentTickets = Ticket::whereNot('status_id', "=", $status->id)->get();
 
-        $recentReports = Report::limit(3)
-            ->latest()
-            ->get();
 
-        $softwares = Software::paginate(5);
+
 
 
         return  view('index', compact([
@@ -45,7 +41,6 @@ class MasterController extends Controller
             'recentClients',
             'recentLicenses',
             'recentTickets',
-            'softwares'
         ]));
     }
 

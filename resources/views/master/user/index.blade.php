@@ -35,7 +35,6 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-{{--                                @role('Administrator')--}}
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
@@ -46,13 +45,6 @@
                                         <a href="{{route('master-user.edit', [$user->id])}}" class="btn btn-sm btn-outline-dark">Edit</a></td>
                                     <td><a href="{{ route('master-user.destroy', [$user->id]) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a></td>
                                 </tr>
-{{--                                @endrole--}}
-{{--                                @if(auth()->user()->getRoleNames()->first() == "Administrator")--}}
-{{--                                   --}}
-{{--                                @else--}}
-
-{{--                                @endif--}}
-
                             @endforeach
                             </tbody>
                         </table>
@@ -66,7 +58,35 @@
     @section('script')
             <script>
                 $(document).ready(function(){
-                    $("#table").DataTable();
+                    $("#table").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                            {
+                                extend: "pdfHtml5",
+                                filename: "Users-{{now()}}",
+                                title: 'Users as of {{now()->format('F d,Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "print",
+                                filename: "Users-{{now()}}",
+                                title: 'Users as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "excel",
+                                filename: "Users-{{now()}}",
+                                title: 'Users as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            }
+                        ]
+                    });
                 });
             </script>
 

@@ -42,6 +42,7 @@
 
 
 
+    <livewire:styles />
 
 {{--    Datatables--}}
     <link href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.4/af-2.5.3/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/r-2.4.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
@@ -92,6 +93,7 @@
 <!-- Template Main JS File -->
 <script src="{{asset('NiceAdmin/assets/js/main.js')}}"></script>
 
+<livewire:scripts />
 
 {{--Sweet Alert RealRashid--}}
 @include('sweetalert::alert')

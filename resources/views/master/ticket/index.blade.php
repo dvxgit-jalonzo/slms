@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card card-body pt-3 table-responsive" >
 
-                        <x-outlook></x-outlook>
+
 
                         <table class="table table-sm" id="table">
                             <thead>
@@ -97,7 +97,41 @@
                 }
 
                 $(document).ready(function(){
-                    $("#table").DataTable();
+                    $("#table").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                            {
+                                extend: "pdfHtml5",
+                                filename: "Tickets-{{now()}}",
+                                title: 'Tickets as of {{now()->format('F d,Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5,6,7] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "print",
+                                filename: "Tickets-{{now()}}",
+                                title: 'Tickets as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5,6,7] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "excel",
+                                filename: "Tickets-{{now()}}",
+                                title: 'Tickets as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4,5,6,7] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                text: 'Outlook',
+                                action: function () {
+                                    window.open("https://mail.diavox.net/interface/root#/email", "_blank");
+                                }
+                            }
+                        ]
+                    });
                 });
             </script>
 

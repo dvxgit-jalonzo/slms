@@ -40,11 +40,11 @@
                                     <td>{{$sft->code}}</td>
                                     <td>{{$sft->name}}</td>
                                     <td>{{$sft->description}}</td>
-                                    <td>
+                                    <td class="text-center">
                                         @if($sft->with_licensing == '1')
-                                            <i class="bi bi-check text-success fs-4"></i>
+                                            <span class="badge bg-success">YES</span>
                                         @else
-                                            <i class="bi bi-x text-danger fs-4"></i>
+                                            <span class="badge bg-dark">NO</span>
                                         @endif
                                     </td>
                                     <td>{{$sft->created_at}}</td>
@@ -245,7 +245,35 @@
     @section('script')
             <script>
                 $(document).ready(function(){
-                    $("#table").DataTable();
+                    $("#table").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                            {
+                                extend: "pdfHtml5",
+                                filename: "Softwares-{{now()}}",
+                                title: 'Softwares as of {{now()->format('F d,Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "print",
+                                filename: "Softwares-{{now()}}",
+                                title: 'Softwares as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                            {
+                                extend: "excel",
+                                filename: "Softwares-{{now()}}",
+                                title: 'Softwares as of {{now()->format('F d, Y')}}',
+                                exportOptions: {
+                                    columns: [0,1,2,3,4] // Specify the index of the specific column to be exported (zero-based)
+                                }
+                            },
+                        ]
+                    });
 
                     $(".modal").on('shown.bs.modal', function (){
                         $(this).find('.requirements-table').DataTable();

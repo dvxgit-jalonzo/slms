@@ -178,8 +178,7 @@ class MasterTicketController extends Controller
             'description' => $request->description,
             'user_id' => auth()->user()->id,
             'category_id' => $category->id,
-            'status_id' => $status->id,
-            'assigned_to' => $assigned_to->id,
+            'status_id' => $status->id,    
             'priority' => $request->priority,
         ]);
 

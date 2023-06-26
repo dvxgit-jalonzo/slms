@@ -39,7 +39,6 @@
                                         <x-select id="software_id" name="software_id" placeholder="Software" :data="$softwares" column_val="id" column="name"></x-select>
                                     </div>
 
-
                                     <div class="col-lg-12 mb-3">
                                         <div class="form-floating">
                                             <input type="file" id="jsonFileInput" placeholder="Upload License" accept=".json" class="form-control" onchange="readFileContent()">
@@ -64,9 +63,6 @@
                                             <x-validation name="sma_expiration"></x-validation>
                                         </x-form-floating>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -76,12 +72,8 @@
                             <div class="card-body pt-3">
                                 <div class="row">
                                     <div class="col-12 mb-3" id="">
-                                        <div class="row" id="duplicate">
-
-                                        </div>
+                                        <div class="row" id="duplicate"></div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -97,9 +89,6 @@
 
                 </div>
             </form>
-
-
-
         </section>
     @endsection
 
@@ -111,29 +100,23 @@
                 $("#expiration_date").flatpickr();
                 $("#sma_expiration").flatpickr();
 
-
                 let json;
 
                 function readFileContent() {
                     const fileInput = document.getElementById('jsonFileInput');
                     if (fileInput.files && fileInput.files[0]) {
                         const reader = new FileReader();
-
                         reader.onload = function (e) {
                             const fileContent = e.target.result;
-
                             const decryptUrl = "{{route('master-decrypt.content')}}";
-
                             $.ajax({
                                 url: decryptUrl,
                                 type: 'POST',
                                 contentType: 'application/json',
                                 data: JSON.stringify({ fileContent }),
                                 success: function (decryptedContent) {
-                                    // console.log(decryptedContent);
                                     try {
                                         const js = JSON.parse(decryptedContent);
-
                                         $.each(js, function (index, value) {
 
                                             if(index == "_DATEINSTALL"){
@@ -155,25 +138,12 @@
                                     } catch (error) {
                                         console.error('Error parsing decrypted JSON file:', error);
                                     }
-
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error('Error decrypting JSON file:', error);
                                 }
                             });
-
-
-
-
-
                         };
-
                         reader.readAsText(fileInput.files[0]);
                     }
-
-
                 }
-
 
                 $("#software_id").on("change", function () {
                     var duplicate = $("#duplicate");
@@ -187,8 +157,6 @@
                         method: "GET",
                         data: { software_id: to_search },
                         success: function (response) {
-                            // console.log(response[0]);
-                            // var template = response[0].template;
                             $.each(response, function(item, element){
                                 var val = element.value;
                                 if(val){
@@ -196,55 +164,25 @@
                                 }else{
                                     val = "";
                                 }
-                                var input = `<div class="col-12">
-                                                <div class="row">
-                                                    <div class="col-4"><label for="">`+element.label+`</label>
-                                                        <input hidden id="temp`+element.name+`" class="form-control" name="name[]" value="`+element.name+`" placeholder="Name" type="text">
+                                var input = `
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <label>${element.label}</label>
+                                                <input hidden id="temp${element.name}" class="form-control" name="name[]" value="${element.name}" placeholder="Name" type="text">
+                                            </div>
+                                            <div class="col-8">
+                                                <input id="${element.name}" class="form-control border-0 border-bottom" style="outline: none; box-shadow: none;" name="value[]" value="${val}" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
 
+                                duplicate.append(input);
 
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <input id="`+element.name+`" class="form-control border-0 border-bottom " style="outline: none; box-shadow: none;" name="value[]" value="`+val+`"  type="text">
-                                                    </div>
-                                                </div>
-                                            </div>`;
-                                duplicate.append(""+input+"");
                             });
-                            // template
-                            // duplicate.html(""+template+"");
-                        },
-                        error: function (xhr, status, error) {
-                            console.log(xhr.responseText);
                         }
                     });
-
-                    {{--const softwareId = $("#software_id").val(); // Replace with your software ID--}}
-                    {{--const clientId = $("#client_id  ").val();--}}
-
-
-
-                    {{--$.ajax({--}}
-                    {{--    url: "{{route('master-check-exist.license')}}",--}}
-                    {{--    type: 'GET',--}}
-                    {{--    data: {--}}
-                    {{--        software_id: softwareId,--}}
-                    {{--        client_id: clientId,--}}
-                    {{--    },--}}
-                    {{--    success: function(response) {--}}
-                    {{--        // Handle the response data--}}
-                    {{--        console.log(response);--}}
-                    {{--        if(response[0]){--}}
-                    {{--            $(".installation_date").val(response[0].installation_date)--}}
-                    {{--            $(".expiration_date").val(response[0].expiration_date)--}}
-                    {{--            $(".sma_expiration").val(response[0].sma_expiration)--}}
-                    {{--        }--}}
-
-                    {{--    },--}}
-                    {{--    error: function(xhr, status, error) {--}}
-                    {{--        // Handle the error--}}
-                    {{--        console.error(error);--}}
-                    {{--    }--}}
-                    {{--});--}}
                 });
 
             </script>

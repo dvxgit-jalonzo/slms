@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf23734-216c-48b0-b476-dc10be9a4360" name="Changes" comment="Ticket Module , Penetration Test, ApiController done">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ListSoftware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/RecentAddedClient.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/RecentLicenseUpdate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/RecentTicket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/livewire.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/livewire.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/livewire.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/list-software.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/recent-added-client.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/recent-license-update.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/recent-ticket.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/outlook.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/client/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/client/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/license/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/license/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/software/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/software/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/ticket/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MasterTicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SoftwareTemplateSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SoftwareTemplateSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/TicketTemplateSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/TicketTemplateSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/replacer.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/replacer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/license/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/license/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/report/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/report/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master/role/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,16 +205,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/slms&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/dt",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\slms\database\migrations\toMigrate" />
@@ -287,7 +274,15 @@
       <workItem from="1687485972299" duration="11649000" />
       <workItem from="1687499028456" duration="9000" />
       <workItem from="1687649672089" duration="2204000" />
-      <workItem from="1687651896982" duration="7632000" />
+      <workItem from="1687651896982" duration="13397000" />
+      <workItem from="1687742795951" duration="81000" />
+      <workItem from="1687742905250" duration="35000" />
+      <workItem from="1687743154145" duration="1011000" />
+      <workItem from="1687746596453" duration="688000" />
+      <workItem from="1687751480130" duration="688000" />
+      <workItem from="1687757367052" duration="695000" />
+      <workItem from="1687761430065" duration="1201000" />
+      <workItem from="1687767317117" duration="1144000" />
     </task>
     <task id="LOCAL-00001" summary="Ticket Module , Penetration Test, ApiController done">
       <created>1687145432582</created>

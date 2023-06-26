@@ -16,11 +16,11 @@ class PermissionSeeder extends Seeder
     {
 
         $superAdmin = Role::findByName('Super Admin');
-//        $administrator = Role::findByName('Administrator');
+        $administrator = Role::findByName('Administrator');
         $developer = Role::findByName('Developer');
-//        $licenser = Role::findByName('Licenser');
-//        $support = Role::findByName('Support');
-//
+        $licenser = Role::findByName('Licenser');
+        $support = Role::findByName('Support');
+
         $user = Permission::create(['name' => 'manage-user']);
         $client = Permission::create(['name' => 'manage-client']);
         $software = Permission::create(['name' => 'manage-software']);
@@ -33,8 +33,11 @@ class PermissionSeeder extends Seeder
 
         $permissions = [$user, $client, $software, $ticket, $category, $status, $license, $extraDevTools];
 
+        $support->syncPermissions([$ticket]);
+        $licenser->syncPermissions([$license]);
         $developer->syncPermissions($permissions);
-        $superAdmin->syncPermissions($permissions);
+        $superAdmin->syncPermissions([$user, $client, $software, $ticket, $category, $status, $license]);
+        $administrator->syncPermissions([$user, $client, $software, $ticket, $category, $status, $license]);
 
 //    Super Admin - all access
 //    Administrator - all access but should not be able to see the Super Admin in Users Management.

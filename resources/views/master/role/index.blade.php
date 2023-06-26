@@ -1,6 +1,4 @@
 <x-master>
-
-
     @section('pagetitle')
         <div class="pagetitle">
             <h1>View Roles</h1>

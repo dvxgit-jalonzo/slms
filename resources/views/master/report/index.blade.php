@@ -8,12 +8,14 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('master.index')}}">Dashboard</a></li>
+
                     <li class="breadcrumb-item"><a href="{{route('master-report.create')}}">Create Report</a></li>
                 </ol>
             </nav>
         </div>
-    @endsection
 
+
+    @endsection
 
 
     @section('content')
